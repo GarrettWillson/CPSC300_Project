@@ -6,7 +6,7 @@
 package project;
 
 /**
- *
+ * user
  * @author fontai1
  */
 public class Table {
