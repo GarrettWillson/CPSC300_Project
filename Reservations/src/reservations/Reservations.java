@@ -5,6 +5,8 @@
  */
 package reservations;
 
+import java.util.Date;
+
 /**
  *
  * @authors fontia1, willsong
@@ -16,6 +18,7 @@ public class Reservations {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Date blah = new Date();
     }
     
 }
