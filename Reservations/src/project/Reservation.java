@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package reservations;
+package project;
 
 /**
  *
  * @author fontai1
  */
-public class User {
+public class Reservation {
     
 }
