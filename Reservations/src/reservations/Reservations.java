@@ -7,7 +7,7 @@ package reservations;
 
 /**
  *
- * @author fontai1
+ * @author willsong
  */
 public class Reservations {
 
@@ -16,7 +16,7 @@ public class Reservations {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //test
+        //test 2
     }
     
 }
