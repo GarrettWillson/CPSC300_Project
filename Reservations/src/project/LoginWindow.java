@@ -10,5 +10,7 @@ package project;
  * @author fontai1
  */
 public class LoginWindow {
-    
+    public static void makeNewWindow() {
+        
+    }
 }

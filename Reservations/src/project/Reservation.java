@@ -5,10 +5,16 @@
  */
 package project;
 
+import java.util.Date;
+
 /**
  *
  * @author fontai1
  */
 public class Reservation {
-    
+    Date reservationDate;
+    String customerName;
+    String customerNumber;
+    int lengthOfReservation;
+    Table reservedTable;
 }

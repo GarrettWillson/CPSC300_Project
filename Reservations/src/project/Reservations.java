@@ -18,7 +18,7 @@ public class Reservations {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Date blah = new Date();
+        LoginWindow.makeNewWindow();
     }
     
 }

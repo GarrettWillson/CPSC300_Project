@@ -9,6 +9,6 @@ package project;
  *
  * @author fontai1
  */
-public class User {
+abstract public class User {
     //lkdlkfa;lkf
 }
