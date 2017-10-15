@@ -11,5 +11,5 @@ package project;
  * @author fontai1
  */
 public class Customer extends User{
-    
+    String phoneNumber;
 }

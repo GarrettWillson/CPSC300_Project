@@ -6,11 +6,15 @@
 
 package project;
 
+import java.io.*;
+
 /**
  *
  * @author fontai1
  */
 public class FileIO {
+    FileWriter writer;
+    FileReader reader;
     public void saveReservation() {
         
     }

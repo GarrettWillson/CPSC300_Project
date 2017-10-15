@@ -5,11 +5,14 @@
  */
 package project;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author fontai1
  */
 public class LoginWindow {
+    JFrame loginWindow;
     public static void makeNewWindow() {
         
     }

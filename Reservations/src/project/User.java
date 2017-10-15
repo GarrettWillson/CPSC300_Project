@@ -10,5 +10,5 @@ package project;
  * @author fontai1
  */
 abstract public class User {
-    //lkdlkfa;lkf
+    String userName;
 }

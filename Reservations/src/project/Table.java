@@ -10,5 +10,6 @@ package project;
  * @author fontai1
  */
 public class Table {
-    //test
+    int tableNumber;
+    int numberOfSeats;
 }
