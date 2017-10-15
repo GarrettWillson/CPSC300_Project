@@ -16,7 +16,19 @@ import javafx.util.Pair;
 public class FloorPlan {
     Map<Table, Pair<Integer, Integer>> floorplan;
     
-    public FloorPlan() {
-        
+    public FloorPlan(Map<Table, Pair<Integer, Integer>> plan) {
+        floorplan = plan;
+    }
+    
+    public void clear() {
+        floorplan.clear();
+    }
+    
+    public void setFloorPlan(Map<Table, Pair<Integer, Integer>> plan) {
+        floorplan = plan;
+    }
+    
+    public Map<Table, Pair<Integer, Integer>> getFloorPlan() {
+        return floorplan;
     }
 }

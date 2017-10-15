@@ -12,9 +12,17 @@ package project;
  */
 public class Customer extends User{
     String phoneNumber;
-    
+  
     public Customer(String name, String number) {
         super(name);
         phoneNumber = number;
+    }
+    
+    public String getPhoneNumber() {
+      return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
