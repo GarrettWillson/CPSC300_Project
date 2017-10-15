@@ -6,15 +6,17 @@
 
 package project;
 
+import java.util.Map;
+import javafx.util.Pair;
+
 /**
  *
  * @author fontai1
  */
-public class Customer extends User{
-    String phoneNumber;
+public class FloorPlan {
+    Map<Table, Pair<Integer, Integer>> floorplan;
     
-    public Customer(String name, String number) {
-        super(name);
-        phoneNumber = number;
+    public FloorPlan() {
+        
     }
 }

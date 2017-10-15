@@ -7,19 +7,32 @@
 package project;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author fontai1
  */
 public class FileIO {
-    FileWriter writer;
-    FileReader reader;
-    public void saveReservation() {
+    FileWriter reservationWriter;
+    FileReader reservationReader;
+    FileWriter floorPlanWriter;
+    FileReader floorPlanReader;
+    
+    public void saveReservation(Reservation reservation) {
         
     }
     
-    public void loadReservations() {
+    public List<Reservation> loadReservations() {
+        return new ArrayList<>();
+    }
+    
+    public void saveFloorPlan(FloorPlan floorPlan) {
         
+    }
+    
+    public FloorPlan loadFloorPlan() {
+        return null;
     }
 }

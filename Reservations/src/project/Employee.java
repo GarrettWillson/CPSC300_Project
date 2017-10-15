@@ -12,4 +12,9 @@ package project;
  */
 public class Employee extends User{
     String password;
+    
+    public Employee(String name, String secret) {
+        super(name);
+        password = secret;
+    }
 }

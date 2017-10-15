@@ -12,4 +12,9 @@ package project;
 public class Table {
     int tableNumber;
     int numberOfSeats;
+    
+    public Table(int number, int seats) {
+        tableNumber = number;
+        numberOfSeats = seats;
+    }
 }
