@@ -12,14 +12,24 @@ package project;
  */
 public class Employee extends User{
     String password;
+    String restaurantName;
   
-    public Employee(String name, String secret) {
+    public Employee(String name, String secret, String restaurant) {
         super(name);
         password = secret;
+        restaurantName = restaurant;
+    }
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
     
-    public String getPassword() {
-        return password;
+    public boolean isCorrectPassword(String other) {
+        return password.equals(other);
     }
 
     public void setPassword(String password) {

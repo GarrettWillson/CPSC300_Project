@@ -20,6 +20,18 @@ public class FloorPlan {
         floorplan = plan;
     }
     
+    public void addTable(Table table, int x, int y) {
+        
+    }
+    
+    public void deleteTable(Table table) {
+        
+    }
+    
+    public void deleteTable(int x, int y) {
+        
+    }
+    
     public void clear() {
         floorplan.clear();
     }
