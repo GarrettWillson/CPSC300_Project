@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @authors fontia1, willsong
  */
-public class Reservations {
+public class Startup {
 
     /**
      * @param args the command line arguments
