@@ -19,20 +19,30 @@ public class FileIO {
     FileReader reservationReader;
     FileWriter floorPlanWriter;
     FileReader floorPlanReader;
+    FileWriter employeeWriter;
+    FileReader employeeReader;
     
-    public void saveReservation(Reservation reservation) {
+    public void saveReservation(Reservation reservation, String restaurant) {
         
     }
     
-    public List<Reservation> loadReservations() {
+    public List<Reservation> loadReservations(String restaurant) {
         return new ArrayList<>();
     }
     
-    public void saveFloorPlan(FloorPlan floorPlan) {
+    public void saveFloorPlan(FloorPlan floorPlan, String restaurant) {
         
     }
     
-    public FloorPlan loadFloorPlan() {
+    public FloorPlan loadFloorPlan(String restaurant) {
         return null;
+    }
+    
+    public void saveEmployee(Employee employee) {
+        
+    }
+    
+    public List<Employee> loadEmployees(String Restaurant) {
+        return new ArrayList<>();
     }
 }
