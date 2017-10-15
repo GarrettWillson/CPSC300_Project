@@ -5,6 +5,8 @@
  */
 package project;
 
+import project.GUI.LoginWindow;
+
 /**
  *
  * @authors fontia1, willsong
