@@ -12,11 +12,10 @@ import java.util.Date;
  * @author fontai1
  */
 public class Reservation {
-    Date reservationDate;
-
-    
+   
     String customerName;
     String customerNumber;
+     Date reservationDate;
     int lengthOfReservation;
     Table reservedTable;
     String specialRequest;  
