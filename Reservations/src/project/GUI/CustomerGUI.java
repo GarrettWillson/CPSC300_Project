@@ -59,7 +59,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().setLayout(null);
 		
 		JLabel lblCustomer = new JLabel("Customer");
-		lblCustomer.setBounds(291, 11, 137, 41);
+		lblCustomer.setBounds(200, 11, 300, 41);
 		lblCustomer.setFont(new Font("Gill Sans MT Condensed", Font.BOLD, 45));
 		frmCustomer.getContentPane().add(lblCustomer);
 		

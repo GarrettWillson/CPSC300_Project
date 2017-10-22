@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project;
+package project.DataStructures;
 
 import java.util.Date;
 
@@ -12,10 +12,11 @@ import java.util.Date;
  * @author fontai1
  */
 public class Reservation {
-   
+    Date reservationDate;
+
+    
     String customerName;
     String customerNumber;
-     Date reservationDate;
     int lengthOfReservation;
     Table reservedTable;
     String specialRequest;  

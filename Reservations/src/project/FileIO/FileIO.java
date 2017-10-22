@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 
-package project;
+package project.FileIO;
 
-import project.Users.Employee;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.util.Pair;
+import project.DataStructures.FloorPlan;
+import project.DataStructures.Reservation;
+import project.Users.Employee;
 
 /**
  *
@@ -23,11 +26,11 @@ public class FileIO {
     FileWriter employeeWriter;
     FileReader employeeReader;
     
-    public void saveReservation(Reservation reservation, String restaurant) {
+    public static void saveReservation(String restaurant, String name, String number, String date, String duration, String table, String request) {
         
     }
     
-    public List<Reservation> loadReservations(String restaurant) {
+    public List<List<String>> loadReservations(String restaurant) {
         return new ArrayList<>();
     }
     
@@ -39,11 +42,11 @@ public class FileIO {
         return null;
     }
     
-    public void saveEmployee(Employee employee) {
+    public void saveEmployee(String name, String password) {
         
     }
     
-    public List<Employee> loadEmployees(String Restaurant) {
+    public List<Pair<String, String>> loadEmployees(String Restaurant) {
         return new ArrayList<>();
     }
 }

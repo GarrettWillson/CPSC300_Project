@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package project;
+package project.DataStructures;
 
 import java.util.Map;
 import javafx.util.Pair;
