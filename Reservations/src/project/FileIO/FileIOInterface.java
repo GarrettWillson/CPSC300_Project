@@ -16,8 +16,15 @@ import project.Users.Employee;
  * @author fontai1
  */
 public class FileIOInterface {
-    public void saveReservation(Reservation reservation, String restaurant) {
-        
+    public void saveReservation(Reservation reservation, String restaurant) {  
+        FileIO.saveReservation(
+                restaurant,
+                reservation.getCustomerName(),
+                reservation.getCustomerNumber(),
+                reservation.getReservationDate().toString(),
+                String.valueOf(reservation.getLengthOfReservation()),
+                String.valueOf(reservation.getReservedTable().getTableNumber()),
+                reservation.getSpecialRequest());
     }
     
     public List<Reservation> loadReservations(String restaurant) {

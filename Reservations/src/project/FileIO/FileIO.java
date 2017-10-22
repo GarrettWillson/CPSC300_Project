@@ -6,12 +6,13 @@
 
 package project.FileIO;
 
-import project.Users.Employee;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.util.Pair;
 import project.DataStructures.FloorPlan;
 import project.DataStructures.Reservation;
+import project.Users.Employee;
 
 /**
  *
@@ -25,11 +26,11 @@ public class FileIO {
     FileWriter employeeWriter;
     FileReader employeeReader;
     
-    public void saveReservation(String restaurant, String name, String number, String date, String duration, String table, String request) {
+    public static void saveReservation(String restaurant, String name, String number, String date, String duration, String table, String request) {
         
     }
     
-    public List<Reservation> loadReservations(String restaurant) {
+    public List<List<String>> loadReservations(String restaurant) {
         return new ArrayList<>();
     }
     
@@ -45,7 +46,7 @@ public class FileIO {
         
     }
     
-    public List<Employee> loadEmployees(String Restaurant) {
+    public List<Pair<String, String>> loadEmployees(String Restaurant) {
         return new ArrayList<>();
     }
 }
