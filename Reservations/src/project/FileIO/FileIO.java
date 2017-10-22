@@ -25,7 +25,7 @@ public class FileIO {
     FileWriter employeeWriter;
     FileReader employeeReader;
     
-    public void saveReservation(Reservation reservation, String restaurant) {
+    public void saveReservation(String restaurant, String name, String number, String date, String duration, String table, String request) {
         
     }
     
@@ -41,7 +41,7 @@ public class FileIO {
         return null;
     }
     
-    public void saveEmployee(Employee employee) {
+    public void saveEmployee(String name, String password) {
         
     }
     
