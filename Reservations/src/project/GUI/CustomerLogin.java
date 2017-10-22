@@ -11,12 +11,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CutomerLogin {
+public class CustomerLogin {
 
 	private JFrame frame;
 	private JTextField txtName;
 	private JTextField txtPhoneNum;
-
+	protected String userName;
+	protected String PhoneNum;
 	/**
 	 * Launch the application.
 	 */
@@ -24,7 +25,7 @@ public class CutomerLogin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CutomerLogin window = new CutomerLogin();
+					CustomerLogin window = new CustomerLogin();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +37,7 @@ public class CutomerLogin {
 	/**
 	 * Create the application.
 	 */
-	public CutomerLogin() {
+	public CustomerLogin() {
 		initialize();
 	}
 
@@ -79,6 +80,21 @@ public class CutomerLogin {
 		txtPhoneNum.setColumns(10);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				setUserName(txtName.getText());
+				setPhoneNum(txtPhoneNum.getText());
+				
+				CustomerGUI.main(null);
+				CustomerGUI cg= new CustomerGUI();
+				cg.setUserName(getUserName());
+				cg.setPhoneNum(getPhoneNum());
+				
+				
+				frame.dispose();
+			}
+		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLogin.setBounds(300, 91, 89, 23);
 		frame.getContentPane().add(btnLogin);
@@ -126,5 +142,21 @@ public class CutomerLogin {
 		});
 		btnCreatNew.setBounds(248, 207, 89, 23);
 		frame.getContentPane().add(btnCreatNew);
+	}
+
+	protected void setUserName(String text) {
+		// TODO Auto-generated method stub
+		userName= text;
+	}
+	protected  String getUserName() {
+		return userName;
+	}
+	
+	protected void setPhoneNum(String text) {
+		// TODO Auto-generated method stub
+		PhoneNum= text;
+	}
+	protected String getPhoneNum() {
+		return PhoneNum;
 	}
 }

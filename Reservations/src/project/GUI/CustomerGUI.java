@@ -27,6 +27,8 @@ public class CustomerGUI {
 	private JTextField txtName;
 	private JTextField txtPhoneNum;
 	private JTextField txtTime;
+	private static String userName;
+	private static String phoneNum;
 	
 	/**
 	 * Launch the application.
@@ -59,6 +61,7 @@ public class CustomerGUI {
 	 */
 	private void initialize() {
 		frmCustomer = new JFrame();
+		//CustomerLogin cl=new CustomerLogin();
 		frmCustomer.setBounds(100, 100, 772, 527);
 		frmCustomer.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCustomer.getContentPane().setLayout(null);
@@ -73,9 +76,12 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(separator);
 		
 		txtName = new JTextField();
+		txtName.setText(userName);
 		txtName.setBounds(180, 114, 118, 20);
 		frmCustomer.getContentPane().add(txtName);
 		txtName.setColumns(10);
+		//CustomerLogin cl=new CustomerLogin();
+		//txtName.setText(cl.getUserName());
 		
 		JLabel lblUserName = new JLabel("User Name:");
 		lblUserName.setBounds(73, 117, 86, 14);
@@ -86,9 +92,11 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(lblPhoneNumber);
 		
 		txtPhoneNum = new JTextField();
+		txtPhoneNum.setText(phoneNum);
 		txtPhoneNum.setBounds(180, 157, 118, 20);
 		frmCustomer.getContentPane().add(txtPhoneNum);
 		txtPhoneNum.setColumns(10);
+		//txtPhoneNum.setText(cl.getPhoneNum());
 		
 		//JDateChooser dateChooser= new JDateChooser();
 		
@@ -127,6 +135,11 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(dateChooser);
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnSubmit.setBounds(103, 248, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
 		
@@ -194,7 +207,13 @@ public class CustomerGUI {
 		JButton btnNewButton = new JButton("Manage");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				// at this moment, the system should search the file from exist file and gives the information.
 				CustomerManage.main(null);
+				CustomerManage cm=new CustomerManage();
+				cm.setUserName(userName);
+				cm.setPhoneNum(phoneNum);
 				frmCustomer.dispose();
 			}
 		});
@@ -206,4 +225,17 @@ public class CustomerGUI {
 		txtpnSpecialRequest.setBounds(52, 339, 631, 76);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
 	}
+
+	public void setUserName(String userName2) {
+		// TODO Auto-generated method stub
+		userName=userName2;
+	}
+
+	public void setPhoneNum(String phoneNum2) {
+		// TODO Auto-generated method stub
+		phoneNum=phoneNum2;
+	}
+
+	
 }
+
