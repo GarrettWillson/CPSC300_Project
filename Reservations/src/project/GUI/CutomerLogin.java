@@ -122,7 +122,12 @@ public class CutomerLogin {
     }
 
     public void customerLoginLoginButton() {
+        
 
+    }
+    
+    public void customer()
+    {
     }
 
     public void customerLoginAdminloginButton() {
