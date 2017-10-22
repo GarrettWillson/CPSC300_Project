@@ -8,7 +8,7 @@ package project.FileIO;
 
 import java.util.ArrayList;
 import java.util.List;
-import project.Reservation;
+import project.DataStructures.Reservation;
 import project.Users.Employee;
 
 /**

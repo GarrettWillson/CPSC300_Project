@@ -10,8 +10,8 @@ import project.Users.Employee;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import project.FloorPlan;
-import project.Reservation;
+import project.DataStructures.FloorPlan;
+import project.DataStructures.Reservation;
 
 /**
  *
