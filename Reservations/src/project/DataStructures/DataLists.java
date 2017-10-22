@@ -16,4 +16,8 @@ import project.Users.Employee;
 public class DataLists {
     static List<Reservation> reservations;
     static List<Employee> employees;
+
+    public static boolean isValidEmployee(String name, String pass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

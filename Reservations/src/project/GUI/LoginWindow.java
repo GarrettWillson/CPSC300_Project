@@ -6,24 +6,23 @@
 package project.GUI;
 
 import java.awt.EventQueue;
-
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.JSeparator;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
+import javax.swing.JTextField;
+import project.DataStructures.DataLists;
 
 public class LoginWindow {
 
     private JFrame frame;
     private JPasswordField textPassword;
     private JTextField textName;
- 
 
     /**
      * Launch the application.
@@ -92,7 +91,7 @@ public class LoginWindow {
                 String password = textPassword.getText();
                 String username = textName.getText();
 
-				//this part check the user name and the password default name "boss"
+                //this part check the user name and the password default name "boss"
                 // default password "123456"
                 if (password.contains("123456") && username.contains("boss")) {
 
@@ -115,8 +114,9 @@ public class LoginWindow {
         btnReset.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
         btnReset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                textName.setText(null);
-                textPassword.setText(null);
+                
+                loginWindowResetButton(textPassword, textName);
+                
             }
         });
         btnReset.setBounds(241, 246, 89, 23);
@@ -127,7 +127,7 @@ public class LoginWindow {
         btnExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame = new JFrame("EXIT");
-                
+
                 loginWindowExitButton(frame);
 
             }
@@ -149,19 +149,26 @@ public class LoginWindow {
     //           Garrett's part
     ////_____________________________________
     
-  
-
-    public void loginWindowLoginButton() {
+    public void loginWindowLoginButton(JPasswordField password, JTextField name) {
         //match given credentials to our list of acceptable credentials
         //if not matching, tell user, return to login
-
+        
+        //conver text fields to strings
+        String nameString = name.getText();
+        String passString = password.getText();
+        if (DataLists.isValidEmployee(nameString, passString)) {
+            //close current window
+            //go to next window
+        }
+        //else, tell user to change info
     }
 
-    public void loginWindowResetButton() {
+    public void loginWindowResetButton(JPasswordField password, JTextField name) {
+        //clear both text fields
+        password.setText(null);
+        name.setText(null);
 
     }
-
-  
 
     public void loginWindowExitButton(JFrame frame) {
         if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
@@ -171,5 +178,3 @@ public class LoginWindow {
     }
 
 }
-
-
