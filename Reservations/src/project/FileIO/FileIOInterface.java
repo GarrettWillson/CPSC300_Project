@@ -27,8 +27,8 @@ public class FileIOInterface {
                 reservation.getSpecialRequest());
     }
     
-    public List<Reservation> loadReservations(String restaurant) {
-        return new ArrayList<>();
+    public void loadReservations(String restaurant) {
+        
     }
     
     public void saveEmployee(Employee employee) {
