@@ -146,25 +146,14 @@ public class LoginWindow {
 
     ////______________________________________
     ////button functions do not Change!!!!
-    //Garretts part
+    //           Garrett's part
     ////_____________________________________
-    public void customerReservationSubmitButton() {
-    }
-
-    public void customerReservationCancelButton() {
-    }
-
-    public void customerLoginLoginButton() {
-
-    }
-
-    public void customerLoginAdminloginButton() {
-    }
-
-    public void customerLoginCreateButton() {
-    }
+    
+  
 
     public void loginWindowLoginButton() {
+        //match given credentials to our list of acceptable credentials
+        //if not matching, tell user, return to login
 
     }
 
@@ -172,15 +161,10 @@ public class LoginWindow {
 
     }
 
-    public void staffLoginLoginButton() {
-
-    }
-
-    public void staffLoginCancelButton() {
-    }
+  
 
     public void loginWindowExitButton(JFrame frame) {
-        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit ", "Login", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
             System.exit(0);
         }
 
