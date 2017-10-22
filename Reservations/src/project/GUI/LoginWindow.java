@@ -54,7 +54,7 @@ public class LoginWindow {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
         frame.setBounds(100, 100, 542, 361);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
         JLabel lblLog = new JLabel("Login");
@@ -100,7 +100,7 @@ public class LoginWindow {
 
                     //staff info = new staff();
                     Staff.main(null);
-
+                    frame.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid name or password", "Login Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -172,7 +172,7 @@ public class LoginWindow {
 
     public void loginWindowExitButton(JFrame frame) {
         if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-            System.exit(0);
+            System.exit(0); // here may change to "frame.dispose();" to avoid close all windows.
         }
 
     }
