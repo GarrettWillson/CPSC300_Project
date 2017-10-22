@@ -19,7 +19,7 @@ public class Reservation {
     Table reservedTable;
     String specialRequest;  
     
-    public Reservation(Date date, String name, String number, int length, Table table, String request) {
+    public Reservation(String name, String number, Date date, int length, Table table, String request) {
         reservationDate = date;
         customerName = name;
         customerNumber = number;

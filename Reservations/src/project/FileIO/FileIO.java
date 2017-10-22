@@ -30,23 +30,23 @@ public class FileIO {
         
     }
     
-    public List<List<String>> loadReservations(String restaurant) {
+    public static List<List<String>> loadReservations(String restaurant) {
         return new ArrayList<>();
     }
     
-    public void saveFloorPlan(FloorPlan floorPlan, String restaurant) {
+    public static void saveFloorPlan(FloorPlan floorPlan, String restaurant) {
         
     }
     
-    public FloorPlan loadFloorPlan(String restaurant) {
+    public static FloorPlan loadFloorPlan(String restaurant) {
         return null;
     }
     
-    public void saveEmployee(String name, String password) {
+    public static void saveEmployee(String name, String password) {
         
     }
     
-    public List<Pair<String, String>> loadEmployees(String Restaurant) {
+    public static List<Pair<String, String>> loadEmployees(String Restaurant) {
         return new ArrayList<>();
     }
 }

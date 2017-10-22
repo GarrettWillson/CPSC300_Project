@@ -28,7 +28,11 @@ public class FileIOInterface {
     }
     
     public void loadReservations(String restaurant) {
-        
+        List<List<String>> reservationsStrings = FileIO.loadReservations(restaurant);
+        List<Reservation> reservations = new ArrayList<>();
+        for(List<String> reservationString : reservationsStrings) {
+            reservations.add(new Reservation())
+        }
     }
     
     public void saveEmployee(Employee employee) {
