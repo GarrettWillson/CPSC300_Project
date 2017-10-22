@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-package project;
+package project.FileIO;
 
 import project.Users.Employee;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import project.FloorPlan;
+import project.Reservation;
 
 /**
  *
