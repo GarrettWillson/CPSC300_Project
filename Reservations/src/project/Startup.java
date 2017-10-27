@@ -5,7 +5,7 @@
  */
 package project;
 
-import project.GUI.LoginWindow;
+import project.GUI.EmployeeLogin;
 
 /**
  *
