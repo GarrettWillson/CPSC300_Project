@@ -21,7 +21,12 @@ public class LoginWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+        public static void main(String[] args)
+        {
+            createLoginWindow();
+        }
+        
+	public static void createLoginWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -102,6 +107,8 @@ public class LoginWindow {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                            
+                            LoginWindowResetButton();
 				
 			}
 		});
@@ -136,7 +143,7 @@ public class LoginWindow {
 		btnCreatNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-                            customerLoginCreatenewButton();
+                            LoginWindowCreatenewButton();
 				// here will make a new file for new customer
 			}
 		});
@@ -165,17 +172,17 @@ public class LoginWindow {
             
         }
         
-        private void customerLoginButton()
+        private void LoginWindowResetButton()
         {
             
         }
         
-        private void customerLoginAdminLoginButton()
+        private void LoginWindowAdminLoginButton()
         {
             
         }
         
-        private void customerLoginCreatenewButton()
+        private void LoginWindowCreatenewButton()
         {
             
         }
