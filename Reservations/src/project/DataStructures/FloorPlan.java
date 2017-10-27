@@ -14,6 +14,10 @@ import javafx.util.Pair;
  * @author fontai1
  */
 public class FloorPlan {
+
+    static Table getTable(int tableNumber) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     Map<Table, Pair<Integer, Integer>> floorplan;
     
     public FloorPlan(Map<Table, Pair<Integer, Integer>> plan) {

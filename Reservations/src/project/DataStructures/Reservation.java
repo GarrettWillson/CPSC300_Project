@@ -27,6 +27,10 @@ public class Reservation {
         reservedTable = table;
         specialRequest = request;
     }
+
+    Reservation(String name, String number) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public Date getReservationDate() {
         return reservationDate;
