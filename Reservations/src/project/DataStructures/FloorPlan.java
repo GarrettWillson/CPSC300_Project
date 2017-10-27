@@ -6,6 +6,7 @@
 
 package project.DataStructures;
 
+import java.util.HashMap;
 import java.util.Map;
 import javafx.util.Pair;
 
@@ -14,10 +15,19 @@ import javafx.util.Pair;
  * @author fontai1
  */
 public class FloorPlan {
-    Map<Table, Pair<Integer, Integer>> floorplan;
+    static Map<Table, Pair<Integer, Integer>> floorplan = new HashMap<>();
     
     public FloorPlan(Map<Table, Pair<Integer, Integer>> plan) {
         floorplan = plan;
+    }
+    
+    static Table getTable(int tableNumber) {
+        for(Table t : floorplan.keySet()) {
+            if(t.getTableNumber() == tableNumber) {
+                return t;
+            }
+        }
+        return null;
     }
     
     public void addTable(Table table, int x, int y) {

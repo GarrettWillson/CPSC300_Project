@@ -31,6 +31,10 @@ public class Employee extends User{
     public boolean isCorrectPassword(String other) {
         return password.equals(other);
     }
+    
+    public String getPassword() {
+        return password;
+    }
 
     public void setPassword(String password) {
         this.password = password;
