@@ -1,180 +1,183 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project.GUI;
 
 import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
+import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import project.DataStructures.DataLists;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LoginWindow {
 
-    private JFrame frame;
-    private JPasswordField textPassword;
-    private JTextField textName;
+	private JFrame frame;
+	private JTextField txtName;
+	private JTextField txtPhoneNum;
+	protected String userName;
+	protected String PhoneNum;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginWindow window = new LoginWindow();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    LoginWindow window = new LoginWindow();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+	/**
+	 * Create the application.
+	 */
+	public LoginWindow() {
+		initialize();
+	}
 
-    /**
-     * Create the application.
-     */
-    public LoginWindow() {
-        initialize();
-    }
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 469, 324);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblCustomerLogin = new JLabel("Customer Login");
+		lblCustomerLogin.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		lblCustomerLogin.setBounds(136, 11, 163, 48);
+		frame.getContentPane().add(lblCustomerLogin);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(58, 57, 331, 2);
+		frame.getContentPane().add(separator);
+		
+		JLabel lblUserName = new JLabel("User Name:");
+		lblUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUserName.setBounds(58, 95, 86, 14);
+		frame.getContentPane().add(lblUserName);
+		
+		JLabel lblPhoneNum = new JLabel("Phone Num:");
+		lblPhoneNum.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPhoneNum.setBounds(58, 149, 86, 14);
+		frame.getContentPane().add(lblPhoneNum);
+		
+		txtName = new JTextField();
+		txtName.setBounds(169, 92, 86, 20);
+		frame.getContentPane().add(txtName);
+		txtName.setColumns(10);
+		
+		txtPhoneNum = new JTextField();
+		txtPhoneNum.setBounds(169, 146, 86, 20);
+		frame.getContentPane().add(txtPhoneNum);
+		txtPhoneNum.setColumns(10);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				setUserName(txtName.getText());
+				setPhoneNum(txtPhoneNum.getText());
+				
+				CustomerGUI.main(null);
+				CustomerGUI cg= new CustomerGUI();
+				cg.setUserName(getUserName());
+				cg.setPhoneNum(getPhoneNum());
+				
+				
+				frame.dispose();
+			}
+		});
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnLogin.setBounds(300, 91, 89, 23);
+		frame.getContentPane().add(btnLogin);
+		
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCancel.setBounds(300, 145, 89, 23);
+		frame.getContentPane().add(btnCancel);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(55, 194, 334, -11);
+		frame.getContentPane().add(separator_1);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(65, 194, 324, -11);
+		frame.getContentPane().add(separator_2);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setBounds(58, 194, 331, 2);
+		frame.getContentPane().add(separator_3);
+		
+		JButton btnAdminLogin = new JButton("Admin login");
+		btnAdminLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAdminLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EmployeeLogin.main(null);
+				frame.dispose();
+			}
+		});
+		btnAdminLogin.setBounds(65, 207, 116, 23);
+		frame.getContentPane().add(btnAdminLogin);
+		
+		JButton btnCreatNew = new JButton("Creat new");
+		btnCreatNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+                            customerLoginCreatenewButton();
+				// here will make a new file for new customer
+			}
+		});
+		btnCreatNew.setBounds(248, 207, 89, 23);
+		frame.getContentPane().add(btnCreatNew);
+	}
 
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
-        frame = new JFrame();
-        frame.getContentPane().setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-        frame.setBounds(100, 100, 542, 361);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-
-        JLabel lblLog = new JLabel("Login");
-        lblLog.setFont(new Font("Segoe UI Black", Font.PLAIN, 26));
-        lblLog.setBounds(247, 30, 103, 36);
-        frame.getContentPane().add(lblLog);
-
-        JLabel lblUsername = new JLabel("Name:");
-        lblUsername.setFont(new Font("Segoe UI Black", Font.PLAIN, 17));
-        lblUsername.setBounds(131, 124, 77, 14);
-        frame.getContentPane().add(lblUsername);
-
-        JLabel lblPassword = new JLabel("Password:");
-        lblPassword.setFont(new Font("Segoe UI Black", Font.PLAIN, 17));
-        lblPassword.setBounds(113, 187, 95, 14);
-        frame.getContentPane().add(lblPassword);
-
-        textPassword = new JPasswordField();
-        textPassword.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-        textPassword.setBounds(246, 184, 147, 20);
-        frame.getContentPane().add(textPassword);
-
-        textName = new JTextField();
-        textName.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-        textName.setBounds(246, 122, 147, 20);
-        frame.getContentPane().add(textName);
-        textName.setColumns(10);
-
-        JButton btnLogin = new JButton("Login");
-        btnLogin.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-        btnLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-                String password = textPassword.getText();
-                String username = textName.getText();
-
-                //this part check the user name and the password default name "boss"
-                // default password "123456"
-                if (password.contains("123456") && username.contains("boss")) {
-
-                    textPassword.setText(null);
-                    textName.setText(null);
-
-                    //staff info = new staff();
-                    Staff.main(null);
-                    frame.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Invalid name or password", "Login Error", JOptionPane.ERROR_MESSAGE);
-                }
-
-            }
-        });
-        btnLogin.setBounds(113, 246, 89, 23);
-        frame.getContentPane().add(btnLogin);
-
-        JButton btnReset = new JButton("Reset");
-        btnReset.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-        btnReset.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                
-                loginWindowResetButton(textPassword, textName);
-                
-            }
-        });
-        btnReset.setBounds(241, 246, 89, 23);
-        frame.getContentPane().add(btnReset);
-
-        JButton btnExit = new JButton("Exit");
-        btnExit.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-        btnExit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame = new JFrame("EXIT");
-
-                loginWindowExitButton(frame);
-
-            }
-        });
-        btnExit.setBounds(366, 246, 89, 23);
-        frame.getContentPane().add(btnExit);
-
-        JSeparator separator = new JSeparator();
-        separator.setBounds(45, 225, 544, 2);
-        frame.getContentPane().add(separator);
-
-        JSeparator separator_1 = new JSeparator();
-        separator_1.setBounds(45, 77, 544, 2);
-        frame.getContentPane().add(separator_1);
-    }
-
-    ////______________________________________
-    ////button functions do not Change!!!!
-    //           Garrett's part
-    ////_____________________________________
-    
-    public void loginWindowLoginButton(JPasswordField password, JTextField name) {
-        //match given credentials to our list of acceptable credentials
-        //if not matching, tell user, return to login
+	protected void setUserName(String text) {
+		// TODO Auto-generated method stub
+		userName= text;
+	}
+	protected  String getUserName() {
+		return userName;
+	}
+	
+	protected void setPhoneNum(String text) {
+		// TODO Auto-generated method stub
+		PhoneNum= text;
+	}
+	protected String getPhoneNum() {
+		return PhoneNum;
+	}
         
-        //conver text fields to strings
-        String nameString = name.getText();
-        String passString = password.getText();
-        if (DataLists.isValidEmployee(nameString, passString)) {
-            //close current window
-            //go to next window
+        private void LoginWindowLoginButton()
+        {
+            
         }
-        //else, tell user to change info
-    }
-
-    public void loginWindowResetButton(JPasswordField password, JTextField name) {
-        //clear both text fields
-        password.setText(null);
-        name.setText(null);
-
-    }
-
-    public void loginWindowExitButton(JFrame frame) {
-        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-            System.exit(0); // here may change to "frame.dispose();" to avoid close all windows.
+        
+        private void customerLoginButton()
+        {
+            
         }
-
-    }
-
+        
+        private void customerLoginAdminLoginButton()
+        {
+            
+        }
+        
+        private void customerLoginCreatenewButton()
+        {
+            
+        }
+        
 }
