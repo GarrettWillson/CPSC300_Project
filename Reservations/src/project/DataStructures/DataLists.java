@@ -31,4 +31,8 @@ public class DataLists {
     public static void addReservation(String name, String number, String date, int duration, int tableNumber, String request) {
         reservations.add(new Reservation(name, number, Date.valueOf(date), duration, FloorPlan.getTable(tableNumber), request));
     }
+    
+    public static void addEmployee(String name, String pass, String restaurant) {
+        employees.add(new Employee(name, pass, restaurant));
+    }
 }
