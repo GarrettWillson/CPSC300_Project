@@ -31,15 +31,21 @@ public class FloorPlan {
     }
     
     public void addTable(Table table, int x, int y) {
-        
+        floorplan.put(table, new Pair<>(x, y));
     }
     
     public void deleteTable(Table table) {
-        
+        floorplan.remove(table);
     }
     
     public void deleteTable(int x, int y) {
-        
+        for(Table t : floorplan.keySet()) {
+            Pair<Integer, Integer> location = floorplan.get(t);
+            if(location.getKey() == x && location.getValue() == y) {
+                floorplan.remove(t);
+                return;
+            }
+        }
     }
     
     public void clear() {
