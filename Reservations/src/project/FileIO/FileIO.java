@@ -125,7 +125,11 @@ public class FileIO {
         
     }
     
-    public static List<Pair<String, String>> loadEmployees(String Restaurant) {
+    public static List<Pair<String, String>> loadEmployees(String Restaurant) throws FileNotFoundException {
+        String pathName = Paths.get("").toAbsolutePath().toString();
+        String filePath = pathName + "/" + Restaurant + "/employee/employees.txt";
+        File f = new File(filePath);
+        employeeReader = new FileReader(f);
         return new ArrayList<>();
     }
 }
