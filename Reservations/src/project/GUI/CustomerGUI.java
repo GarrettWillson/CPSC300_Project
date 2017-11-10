@@ -23,6 +23,10 @@ import javax.swing.JTextPane;
 
 public class CustomerGUI {
  /*
+    it might be easier for you to use layouts for the GUIs instead of hardcoding the
+    coordinates and dimensions, probably not worth it to redo whats working but if
+    we have to add a new window it would probably be a lot easier and quicker
+    
       user name and phone number txt fields should autofill and not be editable, add new
     button to change user
     time text field should be a combo box for hours 1-12 so that its more user friendly
