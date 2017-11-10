@@ -6,9 +6,13 @@
 
 package project.FileIO;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.util.Pair;
 import project.DataStructures.DataLists;
 import project.DataStructures.FloorPlan;
@@ -22,14 +26,18 @@ import project.Users.Employee;
  */
 public class FileIOInterface {
     public void saveReservation(String restaurant, Reservation reservation) {  
-        FileIO.saveReservation(
-                restaurant,
-                reservation.getCustomerName(),
-                reservation.getCustomerNumber(),
-                reservation.getReservationDate().toString(),
-                String.valueOf(reservation.getLengthOfReservation()),
-                String.valueOf(reservation.getReservedTable().getTableNumber()),
-                reservation.getSpecialRequest());
+        try {
+            FileIO.saveReservation(
+                    restaurant,
+                    reservation.getCustomerName(),
+                    reservation.getCustomerNumber(),
+                    reservation.getReservationDate().toString(),
+                    String.valueOf(reservation.getLengthOfReservation()),
+                    String.valueOf(reservation.getReservedTable().getTableNumber()),
+                    reservation.getSpecialRequest());
+        } catch (IOException ex) {
+            Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void loadReservations(String restaurant) {
@@ -45,17 +53,25 @@ public class FileIOInterface {
     }
     
     public void saveEmployee(String restaurant, Employee employee) {
-        FileIO.saveEmployee(restaurant,
-                employee.getUserName(),
-                employee.getPassword());
+        try {
+            FileIO.saveEmployee(restaurant,
+                    employee.getUserName(),
+                    employee.getPassword());
+        } catch (IOException ex) {
+            Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
-    public void loadEmployees(String Restaurant) {
-        List<Pair<String, String>> employeeStrings = FileIO.loadEmployees(Restaurant);
-        for(Pair<String, String> employeeString : employeeStrings) {
-            DataLists.addEmployee(employeeString.getKey(),
-                    employeeString.getValue(),
-                    Restaurant);
+    public void loadEmployees(String restaurant) {
+        try {
+            List<Pair<String, String>> employeeStrings = FileIO.loadEmployees(restaurant);
+            for(Pair<String, String> employeeString : employeeStrings) {
+                DataLists.addEmployee(employeeString.getKey(),
+                        employeeString.getValue(),
+                        restaurant);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -66,7 +82,7 @@ public class FileIOInterface {
     public static void loadFloorPlan(String restaurant) {
         Map<Pair<Integer, Integer>, Table> map = new TreeMap<>(); 
         for(List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
-            map.put(new Pair<>(list.get(0), list.get(1)), new Table())
+            map.put(new Pair<>(list.get(0), list.get(1)), new Table(list.get(2), list.get(3)));
         }
     }
 }
