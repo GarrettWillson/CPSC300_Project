@@ -27,7 +27,48 @@ public class FileIO {
     FileReader employeeReader;
     
     public static void saveReservation(String restaurant, String name, String number, String date, String duration, String table, String request) {
-        
+        String fileName = name + number;
+    	String pathName = null;
+    	String suffix = null;
+    	
+    	File resF = new File(pathName + "/" + restaurant);
+    	if(resF.exists()){
+    		pathName = null;
+    	}else{
+    		resF.mkdir();
+    	}
+    	
+    	File userF = new File(pathName);
+    	if(userF.exists()){
+    		pathName = null;
+    	}else{
+    		userF.mkdir();
+    	}
+    	
+    	File f = new File(pathName);
+    	if(f.exists()){
+    		f.createTempFile(null, suffix);
+    	}else{
+    		f.createNewFile();
+    	}
+    	
+    	reservationWriter = new FileWriter(f);
+    	BufferedWriter bw = new BufferedWrither(reservationWriter);
+    	
+    	bw.write(restaurant);
+    	bw.newLine();
+    	bw.write(name);
+    	bw.newLine();
+    	bw.write(number);
+    	bw.newLine();
+    	bw.write(date);
+    	bw.newLine();
+    	bw.write(duration);
+    	bw.newLine();
+    	bw.write(table);
+    	bw.newLine();
+    	bw.write(request);
+    	bw.close();
     }
     
     public static List<List<String>> loadReservations(String restaurant) {
