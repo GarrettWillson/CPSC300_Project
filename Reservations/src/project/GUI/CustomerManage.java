@@ -17,7 +17,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 
 public class CustomerManage {
-
+/*
+    user name and phone number should just be displayed, not editable
+    table entries should not be directly editable via text, add modify entry button
+    to change row entries
+    
+    */
 	private JFrame frame;
 	private JTextField txtUsername;
 	private JTextField txtPhoneNum;
@@ -137,4 +142,18 @@ public class CustomerManage {
 		// TODO Auto-generated method stub
 		phoneNum=phoneNum2;
 	}
+        
+        public void CustomerManageAddButton()
+        {
+        }
+        public void CustomerManageDeleteButton()
+        {
+        }
+        public void CustomerManageSearchButton()
+        {
+            
+        }
+        public void CustomerManageBackButton()
+        {
+        }
 }

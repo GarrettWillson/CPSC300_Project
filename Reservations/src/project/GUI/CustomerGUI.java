@@ -22,7 +22,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 
 public class CustomerGUI {
-
+ /*
+      user name and phone number txt fields should autofill and not be editable, add new
+    button to change user
+    time text field should be a combo box for hours 1-12 so that its more user friendly
+    and requires less testing on our end, am and pm can be a combo box or jradiobutton
+    might want to change date text field to uneditable
+    need button to select table from floorplan
+        
+ */
 	private JFrame frmCustomer;
 	private JTextField txtName;
 	private JTextField txtPhoneNum;
@@ -69,9 +77,9 @@ public class CustomerGUI {
 		frmCustomer.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCustomer.getContentPane().setLayout(null);
 		
-		JLabel lblCustomer = new JLabel("Customer");
-		lblCustomer.setBounds(291, 11, 137, 41);
-		lblCustomer.setFont(new Font("Gill Sans MT Condensed", Font.BOLD, 45));
+		JLabel lblCustomer = new JLabel("Reservation Editor");
+		lblCustomer.setBounds(270, 11, 1000, 100);
+		lblCustomer.setFont(new Font("Gill Sans MT Condensed", Font.BOLD, 20));
 		frmCustomer.getContentPane().add(lblCustomer);
 		
 		JSeparator separator = new JSeparator();
@@ -90,8 +98,8 @@ public class CustomerGUI {
 		lblUserName.setBounds(73, 117, 86, 14);
 		frmCustomer.getContentPane().add(lblUserName);
 		
-		JLabel lblPhoneNumber = new JLabel("Phone number:");
-		lblPhoneNumber.setBounds(55, 160, 93, 14);
+		JLabel lblPhoneNumber = new JLabel("Phone #:");
+		lblPhoneNumber.setBounds(75, 160, 93, 14);
 		frmCustomer.getContentPane().add(lblPhoneNumber);
 		
 		txtPhoneNum = new JTextField();
@@ -112,28 +120,45 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(separator_2);
 		
 		JComboBox numPeople = new JComboBox();
-		numPeople.setModel(new DefaultComboBoxModel(new String[] {"2 People", "3 People", "4 People", "5 People", "6 People", "7 People", "8 People", "9 People", "10 People", "11 People", "12 People", "13 People", "14 People", "15 People", "16 People", "17 People", "18 People", "19 People", "20 People"}));
+		numPeople.setModel(new DefaultComboBoxModel(new String[]
+                {"","2 People", "3 People", "4 People", "5 People", "6 People", 
+                    "7 People", "8 People", "9 People", "10 People", "11 People", 
+                    "12 People", "13 People", "14 People", "15 People", "16 People", 
+                    "17 People", "18 People", "19 People", "20 People"}));
 		numPeople.setBounds(180, 203, 118, 20);
 		frmCustomer.getContentPane().add(numPeople);
 		
-		JLabel lblnumPeople = new JLabel("No. of seat:");
-		lblnumPeople.setBounds(73, 206, 64, 14);
+		JLabel lblnumPeople = new JLabel("# of people:");
+		lblnumPeople.setBounds(53, 206, 1000, 14);
 		frmCustomer.getContentPane().add(lblnumPeople);
 		
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setBounds(356, 117, 46, 14);
 		frmCustomer.getContentPane().add(lblDate);
 		
+                
+                JComboBox times = new JComboBox();
+		times.setModel(new DefaultComboBoxModel(new String[] 
+                {"","1","2","3","4","5","6"
+                ,"7" ,"8","9","10","11","12",}));
+		times.setBounds(412, 157, 64, 20);
+		frmCustomer.getContentPane().add(times);
+                
+                JComboBox ampm = new JComboBox();
+		ampm.setModel(new DefaultComboBoxModel(new String[] 
+                {"am","pm"}));
+		ampm.setBounds(476, 157, 64, 20);
+		frmCustomer.getContentPane().add(ampm);
+                
+                
 		JLabel lblTime = new JLabel("Time:");
 		lblTime.setBounds(356, 160, 46, 14);
 		frmCustomer.getContentPane().add(lblTime);
 		
-		txtTime = new JTextField();
-		txtTime.setBounds(412, 157, 124, 20);
-		frmCustomer.getContentPane().add(txtTime);
-		txtTime.setColumns(10);
+		
 		
 		JDateChooser dateChooser = new JDateChooser();
+                dateChooser.getDateEditor().setEnabled(false);
 		dateChooser.setBounds(412, 114, 124, 20);
 		frmCustomer.getContentPane().add(dateChooser);
 		
@@ -147,20 +172,23 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(btnSubmit);
 		
 		JComboBox JDuration = new JComboBox();
-		JDuration.setModel(new DefaultComboBoxModel(new String[] {"1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "6 hours", "7 hours", "8 hours"}));
+		JDuration.setModel(new DefaultComboBoxModel(new String[] 
+                {"","1 hour", "2 hours", "3 hours", "4 hours", "5 hours",
+                    "6 hours", "7 hours", "8 hours"}));
 		JDuration.setBounds(412, 203, 124, 20);
 		frmCustomer.getContentPane().add(JDuration);
 		
 		JLabel lblDuration = new JLabel("Duration:");
-		lblDuration.setBounds(338, 206, 55, 14);
+		lblDuration.setBounds(338, 206, 1000, 14);
 		frmCustomer.getContentPane().add(lblDuration);
 		
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnCancel = new JButton("Reset");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				txtName.setText(null);
 				txtPhoneNum.setText(null);
 				txtTime.setText(null);
+                                times.setSelectedItem(null);
 				dateChooser.setDate(null);;
 				numPeople.setSelectedItem(null);
 				JDuration.setSelectedItem(null);
@@ -188,7 +216,7 @@ public class CustomerGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				//here will show that the time or the date whether be available or not
-				
+				customerGUICheckButton();
 				
 			}
 		});
@@ -238,6 +266,25 @@ public class CustomerGUI {
 		// TODO Auto-generated method stub
 		phoneNum=phoneNum2;
 	}
+       
+        
+        public void customerGUICheckButton()
+        {//check if given reservation slot is available
+            
+        }
+        public void customerGUISubmitButton()
+        {//submit given reservation info
+            //check
+            
+        }
+        public boolean isValidReservation()
+        {
+            return true;
+        }
+
+        
+        
+        
 
 	
 }

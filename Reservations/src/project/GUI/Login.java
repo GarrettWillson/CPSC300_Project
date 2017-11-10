@@ -1,4 +1,4 @@
-package cpsc300;
+package project.GUI;
 
 import java.awt.EventQueue;
 
