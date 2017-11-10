@@ -7,10 +7,13 @@
 package project.FileIO;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import javafx.util.Pair;
 import project.DataStructures.DataLists;
 import project.DataStructures.FloorPlan;
 import project.DataStructures.Reservation;
+import project.DataStructures.Table;
 import project.Users.Employee;
 
 /**
@@ -57,10 +60,13 @@ public class FileIOInterface {
     }
     
     public static void saveFloorPlan(String restaurant, FloorPlan floorPlan) {
-        
+        FileIO.saveFloorPlan(null, restaurant);
     }
     
     public static void loadFloorPlan(String restaurant) {
-        
+        Map<Pair<Integer, Integer>, Table> map = new TreeMap<>(); 
+        for(List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
+            map.put(new Pair<>(list.get(0), list.get(1)), new Table())
+        }
     }
 }

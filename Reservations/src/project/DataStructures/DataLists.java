@@ -18,6 +18,7 @@ import project.Users.Employee;
 public class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
+    static FloorPlan floorPlan;
 
     public static boolean isValidEmployee(String name, String pass) {
         for(Employee e : employees) {
@@ -34,5 +35,13 @@ public class DataLists {
     
     public static void addEmployee(String name, String pass, String restaurant) {
         employees.add(new Employee(name, pass, restaurant));
+    }
+    
+    public static void setFloorplan(FloorPlan fp) {
+        floorPlan = fp;
+    }
+    
+    public static FloorPlan getFloorPlan() {
+        return floorPlan;
     }
 }

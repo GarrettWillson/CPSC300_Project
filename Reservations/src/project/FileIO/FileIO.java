@@ -8,6 +8,7 @@ package project.FileIO;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javafx.util.Pair;
 import project.DataStructures.FloorPlan;
@@ -75,12 +76,25 @@ public class FileIO {
         return new ArrayList<>();
     }
     
-    public static void saveFloorPlan(FloorPlan floorPlan, String restaurant) {
+    public static void saveFloorPlan(List<List<Integer>> floorplan, String restaurant) {
         
     }
     
-    public static FloorPlan loadFloorPlan(String restaurant) {
-        return null;
+    public static List<List<Integer>> loadFloorPlan(String restaurant) {
+        List<List<Integer>> list = new ArrayList<>();
+        for(Integer[] i : new Integer[][]{
+            {1, 1, 1, 4},
+            {2, 1, 2, 4},
+            {3, 1, 3, 4},
+            {1, 2, 4, 4},
+            {2, 2, 5, 4},
+            {2, 3, 6, 4},
+            {3, 1, 7, 4},
+            {3, 2, 8, 4},
+            {3, 3, 9, 4}}) {
+            list.add(Arrays.asList(i));
+        }
+        return list;
     }
     
     public static void saveEmployee(String restaurant, String name, String password) {
