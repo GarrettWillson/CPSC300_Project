@@ -8,6 +8,13 @@ import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JDesktopPane;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextArea;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
 
 public class CustomerManage {
 
@@ -16,16 +23,12 @@ public class CustomerManage {
 	private JTextField txtPhoneNum;
 	private static String userName;
 	private static String phoneNum;
+	private JTable table;
 
 	/**
 	 * Launch the application.
 	 */
-        public static void main(String[] args)
-        {
-            createCustomerManage();
-        }
-        
-	public static void createCustomerManage() {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -50,7 +53,7 @@ public class CustomerManage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 716, 492);
+		frame.setBounds(100, 100, 847, 665);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -60,15 +63,15 @@ public class CustomerManage {
 		frame.getContentPane().add(lblReservationManagement);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(57, 73, 590, 2);
+		separator.setBounds(57, 73, 764, 2);
 		frame.getContentPane().add(separator);
 		
 		JLabel lblUserName = new JLabel("User name:");
-		lblUserName.setBounds(77, 97, 96, 30);
+		lblUserName.setBounds(76, 97, 96, 30);
 		frame.getContentPane().add(lblUserName);
 		
 		JLabel lblPhoneNum = new JLabel("Phone num:");
-		lblPhoneNum.setBounds(77, 138, 96, 30);
+		lblPhoneNum.setBounds(76, 138, 96, 30);
 		frame.getContentPane().add(lblPhoneNum);
 		
 		txtUsername = new JTextField();
@@ -82,6 +85,48 @@ public class CustomerManage {
 		txtPhoneNum.setBounds(182, 143, 118, 20);
 		frame.getContentPane().add(txtPhoneNum);
 		txtPhoneNum.setColumns(10);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"
+			}
+		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(80);
+		table.getColumnModel().getColumn(1).setPreferredWidth(110);
+		table.getColumnModel().getColumn(3).setPreferredWidth(88);
+		table.getColumnModel().getColumn(5).setPreferredWidth(90);
+		table.getColumnModel().getColumn(6).setPreferredWidth(193);
+		table.setBounds(76, 202, 714, 160);
+		frame.getContentPane().add(table);
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.setBounds(155, 400, 89, 23);
+		frame.getContentPane().add(btnAdd);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setBounds(264, 400, 89, 23);
+		frame.getContentPane().add(btnDelete);
+		
+		JButton btnSearch = new JButton("Search");
+		btnSearch.setBounds(375, 400, 89, 23);
+		frame.getContentPane().add(btnSearch);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(484, 400, 89, 23);
+		frame.getContentPane().add(btnBack);
 	}
 	public void setUserName(String userName2) {
 		// TODO Auto-generated method stub
