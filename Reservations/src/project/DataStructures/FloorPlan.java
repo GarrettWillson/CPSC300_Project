@@ -15,14 +15,15 @@ import javafx.util.Pair;
  * @author fontai1
  */
 public class FloorPlan {
-    static Map<Table, Pair<Integer, Integer>> floorplan = new HashMap<>();
+    static Map<Pair<Integer, Integer>, Table> floorplan = new HashMap<>();
     
-    public FloorPlan(Map<Table, Pair<Integer, Integer>> plan) {
+    public FloorPlan(Map<Pair<Integer, Integer>, Table> plan) {
         floorplan = plan;
     }
     
     static Table getTable(int tableNumber) {
-        for(Table t : floorplan.keySet()) {
+        for(Pair<Integer, Integer> p : floorplan.keySet()) {
+            Table t = floorplan.get(p);
             if(t.getTableNumber() == tableNumber) {
                 return t;
             }
@@ -31,18 +32,22 @@ public class FloorPlan {
     }
     
     public void addTable(Table table, int x, int y) {
-        floorplan.put(table, new Pair<>(x, y));
+        floorplan.put(new Pair<>(x, y), table);
     }
     
     public void deleteTable(Table table) {
-        floorplan.remove(table);
+        for(Pair<Integer, Integer> p : floorplan.keySet()) {
+            if(floorplan.get(p).equals(table)) {
+                floorplan.remove(p, table);
+            }
+        }
     }
     
     public void deleteTable(int x, int y) {
-        for(Table t : floorplan.keySet()) {
-            Pair<Integer, Integer> location = floorplan.get(t);
-            if(location.getKey() == x && location.getValue() == y) {
-                floorplan.remove(t);
+        for(Pair<Integer, Integer> p : floorplan.keySet()) {
+            
+            if(p.getKey() == x && p.getValue() == y) {
+                floorplan.remove(p);
                 return;
             }
         }
@@ -52,11 +57,11 @@ public class FloorPlan {
         floorplan.clear();
     }
     
-    public void setFloorPlan(Map<Table, Pair<Integer, Integer>> plan) {
+    public void setFloorPlan(Map<Pair<Integer, Integer>, Table> plan) {
         floorplan = plan;
     }
     
-    public Map<Table, Pair<Integer, Integer>> getFloorPlan() {
+    public Map<Pair<Integer, Integer>, Table> getFloorPlan() {
         return floorplan;
     }
 }
