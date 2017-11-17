@@ -91,6 +91,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(separator);
 		
 		txtName = new JTextField();
+		txtName.setEditable(false);
 		txtName.setText(userName);
 		txtName.setBounds(180, 114, 118, 20);
 		frmCustomer.getContentPane().add(txtName);
@@ -107,6 +108,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(lblPhoneNumber);
 		
 		txtPhoneNum = new JTextField();
+		txtPhoneNum.setEditable(false);
 		txtPhoneNum.setText(phoneNum);
 		txtPhoneNum.setBounds(180, 157, 118, 20);
 		frmCustomer.getContentPane().add(txtPhoneNum);
