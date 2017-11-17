@@ -259,8 +259,41 @@ public class CustomerGUI {
 		
 		JTextPane txtpnSpecialRequest = new JTextPane();
 		txtpnSpecialRequest.setText("Special request");
-		txtpnSpecialRequest.setBounds(52, 339, 631, 76);
+		txtpnSpecialRequest.setBounds(62, 234, 631, 76);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
+		//chang user btn
+		JButton btnChangeUser = new JButton("Change user");
+		btnChangeUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+			}
+		});
+		btnChangeUser.setBounds(73, 321, 100, 23);
+		frmCustomer.getContentPane().add(btnChangeUser);
+		JComboBox comboBoxTime = new JComboBox();
+		comboBoxTime.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		comboBoxTime.setBounds(412, 157, 89, 20);
+		frmCustomer.getContentPane().add(comboBoxTime);
+		
+		JRadioButton rdbtnAm = new JRadioButton("AM");
+		rdbtnAm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+			}
+		});
+		rdbtnAm.setBounds(507, 141, 46, 23);
+		frmCustomer.getContentPane().add(rdbtnAm);
+		
+		JRadioButton rdbtnPm = new JRadioButton("PM");
+		rdbtnPm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		rdbtnPm.setBounds(507, 160, 46, 23);
+		frmCustomer.getContentPane().add(rdbtnPm);
 	}
 
 	public void setUserName(String userName2) {
