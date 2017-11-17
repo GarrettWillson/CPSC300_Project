@@ -125,7 +125,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(separator_1);
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(27, 309, 693, 2);
+		separator_2.setBounds(27, 330, 693, 2);
 		frmCustomer.getContentPane().add(separator_2);
 		
 		JComboBox numPeople = new JComboBox();
@@ -177,7 +177,7 @@ public class CustomerGUI {
 				
 			}
 		});
-		btnSubmit.setBounds(103, 248, 89, 23);
+		btnSubmit.setBounds(220, 350, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
 		
 		JComboBox JDuration = new JComboBox();
@@ -204,7 +204,7 @@ public class CustomerGUI {
 				
 			}
 		});
-		btnCancel.setBounds(247, 248, 89, 23);
+		btnCancel.setBounds(325, 350, 100, 23);
 		frmCustomer.getContentPane().add(btnCancel);
 		
 		JButton btnTimeTable = new JButton("Time Table");
@@ -241,7 +241,7 @@ public class CustomerGUI {
 				frmCustomer.dispose();
 			}
 		});
-		btnExit.setBounds(565, 248, 118, 23);
+		btnExit.setBounds(580, 350, 120, 23);
 		frmCustomer.getContentPane().add(btnExit);
 		
 		JButton btnNewButton = new JButton("Manage");
@@ -257,7 +257,7 @@ public class CustomerGUI {
 				frmCustomer.dispose();
 			}
 		});
-		btnNewButton.setBounds(378, 248, 89, 23);
+		btnNewButton.setBounds(445, 350, 120, 23);
 		frmCustomer.getContentPane().add(btnNewButton);
 		
 		JTextPane txtpnSpecialRequest = new JTextPane();
@@ -272,13 +272,13 @@ public class CustomerGUI {
 				
 			}
 		});
-		btnChangeUser.setBounds(73, 321, 100, 23);
+		btnChangeUser.setBounds(70, 350, 130, 23);
 		frmCustomer.getContentPane().add(btnChangeUser);
 		JComboBox comboBoxTime = new JComboBox();
 		comboBoxTime.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		comboBoxTime.setBounds(412, 157, 89, 20);
 		frmCustomer.getContentPane().add(comboBoxTime);
-		
+		/**
 		JRadioButton rdbtnAm = new JRadioButton("AM");
 		rdbtnAm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -297,6 +297,7 @@ public class CustomerGUI {
 		});
 		rdbtnPm.setBounds(507, 160, 46, 23);
 		frmCustomer.getContentPane().add(rdbtnPm);
+                */
 	}
 
 	public void setUserName(String userName2) {
