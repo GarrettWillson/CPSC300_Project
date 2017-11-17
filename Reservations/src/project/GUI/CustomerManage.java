@@ -80,18 +80,21 @@ public class CustomerManage {
 		frame.getContentPane().add(lblPhoneNum);
 		
 		txtUsername = new JTextField();
+		txtUsername.setEditable(false);
 		txtUsername.setText(userName);
 		txtUsername.setBounds(182, 102, 118, 20);
 		frame.getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
 		
 		txtPhoneNum = new JTextField();
+		txtPhoneNum.setEditable(false);
 		txtPhoneNum.setText(phoneNum);
 		txtPhoneNum.setBounds(182, 143, 118, 20);
 		frame.getContentPane().add(txtPhoneNum);
 		txtPhoneNum.setColumns(10);
 		
 		table = new JTable();
+		table.setEnabled(false);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"},
