@@ -28,11 +28,14 @@ public class CustomerGUI {
     we have to add a new window it would probably be a lot easier and quicker
     
       user name and phone number txt fields should autofill and not be editable, add new
-    button to change user
+    button to change user ||||got 
     time text field should be a combo box for hours 1-12 so that its more user friendly
+    |||got
     and requires less testing on our end, am and pm can be a combo box or jradiobutton
+    |||got
     might want to change date text field to uneditable
-    need button to select table from floorplan
+    |||got
+    need button to select table from floorplan ||| i think the btm Time table would be that.
         
  */
 	private JFrame frmCustomer;
