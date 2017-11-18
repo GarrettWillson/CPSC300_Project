@@ -118,20 +118,64 @@ public class FileIO {
     }
     
     public static void saveFloorPlan(List<List<Integer>> floorplan, String restaurant) {
+        String pathName = Paths.get("").toAbsolutePath().toString();
+        String resFpath = pathName + "/" + restaurant;
+        String filePath;
+        String planPath;
         
+        File resF = new File(resFpath);
+        if(resF.exists()){
+            filePath = resFpath + "/floorplan";
+        }else{
+            resF.mkdir();
+            filePath = resFpath + "/floorplan";
+        }
+        
+        File planF = new File(filePath);
+        if(planF.exists()){
+            planPath = filePath + "/floorplans.txt";
+        }else{
+            planF.mkdir();
+            planPath = filePath + "/floorplans.txt";
+        }
+        
+        File planFile = new File(planPath);
+        try {
+            floorPlanWriter = new FileWriter(planFile);
+            BufferedWriter bw = new BufferedWriter(floorPlanWriter);
+            for(List<Integer> i : floorplan){
+                bw.write(i.toString());
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static List<List<Integer>> loadFloorPlan(String restaurant) {
         List<List<Integer>> list = new ArrayList<>();
-        for(Integer[] i : new Integer[][]{
-            {1, 1, 1, 2},
-            {1, 2, 2, 4},
-            {2, 1, 4, 4},
-            {2, 2, 5, 6},
-            {3, 1, 7, 6},
-            {3, 2, 8, 2}}) {
-            list.add(Arrays.asList(i));
+        List<Integer> lst = new ArrayList();
+        String pathName = Paths.get("").toAbsolutePath().toString();
+        String planPath = pathName + "/" + restaurant + "/floorplan/floorplans.txt";
+        String line;
+        File planFile = new File(planPath);
+        try {
+            floorPlanReader = new FileReader(planFile);
+            BufferedReader br = new BufferedReader(floorPlanReader);
+            while((line = br.readLine()) != null){
+                String[] cols = line.split(" ");
+                for(String c : cols){
+                    lst.add(Integer.parseInt(c));
+                }
+                list.add(lst);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return list;
     }
     
