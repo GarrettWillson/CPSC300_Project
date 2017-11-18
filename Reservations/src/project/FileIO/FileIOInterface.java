@@ -27,7 +27,7 @@ import project.Users.Employee;
  * @author fontai1
  */
 public class FileIOInterface {
-    public void saveReservation(String restaurant, Reservation reservation) {  
+    public static void saveReservation(String restaurant, Reservation reservation) {  
         try {
             FileIO.saveReservation(
                     restaurant,
@@ -44,7 +44,7 @@ public class FileIOInterface {
         }
     }
     
-    public void loadReservations(String restaurant) {
+    public static void loadReservations(String restaurant) {
         List<List<String>> reservationsStrings = FileIO.loadReservations(restaurant);
         for(List<String> reservationString : reservationsStrings) {
             try {
@@ -62,7 +62,7 @@ public class FileIOInterface {
         }
     }
     
-    public void saveEmployee(String restaurant, Employee employee) {
+    public static void saveEmployee(String restaurant, Employee employee) {
         try {
             FileIO.saveEmployee(restaurant,
                     employee.getUserName(),
@@ -72,7 +72,7 @@ public class FileIOInterface {
         }
     }
     
-    public void loadEmployees(String restaurant) {
+    public static void loadEmployees(String restaurant) {
         try {
             List<Pair<String, String>> employeeStrings = FileIO.loadEmployees(restaurant);
             for(Pair<String, String> employeeString : employeeStrings) {
