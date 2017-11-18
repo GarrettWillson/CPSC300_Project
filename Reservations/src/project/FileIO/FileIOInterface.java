@@ -31,7 +31,7 @@ public class FileIOInterface {
                     restaurant,
                     reservation.getCustomerName(),
                     reservation.getCustomerNumber(),
-                    reservation.getCustomerReservationNumber(),
+                    String.valueOf(reservation.getCustomerReservationNumber()),
                     reservation.getReservationDate().toString(),
                     String.valueOf(reservation.getLengthOfReservation()),
                     String.valueOf(reservation.getReservedTable().getTableNumber()),
