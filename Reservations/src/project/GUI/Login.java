@@ -26,6 +26,7 @@ public class Login {
 	protected String PhoneNum;
 	/**
 	 * Launch the application.
+         * 
 	 */
         public static void main(String[] args)
         {
@@ -97,6 +98,8 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnEmployee.setSelected(false);
                                 //lblPhone= new JLabel("Phone:");
+                                //make radio buttons clear text/password field
+                                //and convert between textfield and password field
                                 lblPhone.setText("Phone:");
 			}
 		});
