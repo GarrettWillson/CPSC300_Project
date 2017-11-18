@@ -6,7 +6,7 @@
 package project;
 
 import project.GUI.EmployeeLogin;
-import static project.GUI.LoginWindow.createLoginWindow;
+import static project.GUI.Login.createLogin;
 
 /**
  *
@@ -19,7 +19,7 @@ public class Startup {
      */
     public static void main(String[] args)
     {
-        createLoginWindow();
+        createLogin();
         // TODO code application logic here
        // LoginWindow.makeNewWindow();
     }

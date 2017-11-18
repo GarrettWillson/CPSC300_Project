@@ -1,5 +1,6 @@
 package project.GUI;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -26,6 +27,7 @@ public class Staff {
 	private JTable table;
 	/**
 	 * Launch the application.
+         * add a button to modify a reservation
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -101,16 +103,28 @@ public class Staff {
 			new String[] {
 				"Name", "Phone#", "#of People", "Date", "Time", "Duration", "#of Table", "Special request"
 			}
-		));
+		){@Override
+                public boolean isCellEditable(int row, int column){return false;}});
 		table.setBounds(60, 139, 778, 475);
 		frame.getContentPane().add(table);
+                
+                JDateChooser dateChooser = new JDateChooser();
+                dateChooser.getDateEditor().setEnabled(false);
+		dateChooser.setBounds(120, 83, 124, 23);
+                frame.getContentPane().add(dateChooser);
+                
+                JLabel lblDate = new JLabel("Date:");
+		lblDate.setBounds(70, 83, 46, 23);
+		frame.getContentPane().add(lblDate);
+                
+                
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAdd.setBounds(60, 83, 89, 23);
+		btnAdd.setBounds(260, 83, 89, 23);
 		frame.getContentPane().add(btnAdd);
 		
 		JButton btnDelete = new JButton("Delete");
@@ -118,7 +132,7 @@ public class Staff {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnDelete.setBounds(159, 83, 89, 23);
+		btnDelete.setBounds(359, 83, 89, 23);
 		frame.getContentPane().add(btnDelete);
 		
 		JButton btnSearch = new JButton("Search");
@@ -126,7 +140,7 @@ public class Staff {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnSearch.setBounds(258, 83, 89, 23);
+		btnSearch.setBounds(458, 83, 89, 23);
 		frame.getContentPane().add(btnSearch);
 		
 		JSeparator separator = new JSeparator();
@@ -138,15 +152,15 @@ public class Staff {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnExit.setBounds(456, 83, 89, 23);
+		btnExit.setBounds(700, 83, 89, 23);
 		frame.getContentPane().add(btnExit);
 		
-		JButton btnClear = new JButton("Clear ");
+		JButton btnClear = new JButton("Clear Expired");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnClear.setBounds(357, 83, 89, 23);
+		btnClear.setBounds(557, 83, 130, 23);
 		frame.getContentPane().add(btnClear);
 	}
 	public void setUserName(String userName2) {

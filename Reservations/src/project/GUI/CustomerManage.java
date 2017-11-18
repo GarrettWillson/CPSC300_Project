@@ -59,7 +59,7 @@ public class CustomerManage {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 847, 665);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblReservationManagement = new JLabel("Reservation management");
@@ -94,7 +94,8 @@ public class CustomerManage {
 		txtPhoneNum.setColumns(10);
 		
 		table = new JTable();
-		table.setEnabled(false);
+		
+                table.setEnabled(true);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"},
@@ -111,7 +112,9 @@ public class CustomerManage {
 			new String[] {
 				"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"
 			}
-		));
+                        
+		){@Override
+                public boolean isCellEditable(int row, int column){return false;}});
 		table.getColumnModel().getColumn(0).setPreferredWidth(80);
 		table.getColumnModel().getColumn(1).setPreferredWidth(110);
 		table.getColumnModel().getColumn(3).setPreferredWidth(88);
