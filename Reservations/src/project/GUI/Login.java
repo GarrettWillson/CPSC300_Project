@@ -111,7 +111,7 @@ public class Login {
 		rdbtnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnCustomer.setSelected(false);
-                                passwordField.setEchoChar((char)'*');
+                                passwordField.setEchoChar((char)'@');
                                 //passwordField.setVisible(false);
 				//lblPhone = new JLabel("Password:");
                                 /**
