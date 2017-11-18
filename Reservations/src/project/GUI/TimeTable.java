@@ -3,11 +3,15 @@ package project.GUI;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import javax.swing.JTextPane;
+import project.DataStructures.DataLists;
+import project.DataStructures.Reservation;
 
 public class TimeTable {
 
@@ -46,39 +50,54 @@ public class TimeTable {
 		frame.getContentPane().setLayout(null);
 		
 		JTextPane txtpnTable1 = new JTextPane();
-		txtpnTable1.setText("Table 1");
+                //here can use DataLists.getFoorPlan().getTable get #of seats about the table,
+                //right now only use deafult value.
+		txtpnTable1.setText("Table 1"+"\r\n"+"has "+"4"+" seats");
+                
 		txtpnTable1.setBounds(70, 54, 130, 106);
 		frame.getContentPane().add(txtpnTable1);
 		
 		JTextPane txtpnTable2 = new JTextPane();
-		txtpnTable2.setText("Table 2");
+		txtpnTable2.setText("Table 2"+"\r\n"+"has "+"4"+" seats");
 		txtpnTable2.setBounds(210, 54, 130, 106);
 		frame.getContentPane().add(txtpnTable2);
 		
 		JTextPane txtpnTable3 = new JTextPane();
-		txtpnTable3.setText("Table 3");
+		txtpnTable3.setText("Table 3"+"\r\n"+"has "+"4"+" seats");
 		txtpnTable3.setBounds(350, 54, 130, 106);
 		frame.getContentPane().add(txtpnTable3);
 		
 		JTextPane txtpnTable4 = new JTextPane();
-		txtpnTable4.setText("Table 4");
+		txtpnTable4.setText("Table 4"+"\r\n"+"has "+"4"+" seats");
 		txtpnTable4.setBounds(70, 240, 130, 106);
 		frame.getContentPane().add(txtpnTable4);
 		
 		JTextPane txtpnTable5 = new JTextPane();
-		txtpnTable5.setText("Table 5");
+		txtpnTable5.setText("Table 5"+"\r\n"+"has "+"4"+" seats");
 		txtpnTable5.setBounds(210, 240, 130, 106);
 		frame.getContentPane().add(txtpnTable5);
 		
 		JTextPane txtpnTable6 = new JTextPane();
-		txtpnTable6.setText("Table 6");
+		txtpnTable6.setText("Table 6"+"\r\n"+"has "+"4"+" seats");
 		txtpnTable6.setBounds(350, 240, 130, 106);
 		frame.getContentPane().add(txtpnTable6);
+                
+                
+                //DataLists.getReservationsForTable(1);
+                
 		
 		JButton btnNewButton = new JButton("More info");
                 btnNewButton.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="example: 3pm-4pm"+"\r\n"+"                 5pm-6pm";
+                        List<Reservation> res = DataLists.getReservationsForTable(1);
+                        
+                        String info=" ";
+                        for(int i=0;i<res.size();i++){
+                            //here teh Reservation doesn't finished, once it finished, here will get
+                            // the reservation arrival time and leave time.
+                            info=String.valueOf(res.get(i).getReservationDate().getHours());
+                            
+                        }
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                         
