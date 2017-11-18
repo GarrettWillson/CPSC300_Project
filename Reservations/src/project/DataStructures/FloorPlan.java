@@ -21,7 +21,7 @@ public class FloorPlan {
         floorplan = plan;
     }
     
-    static Table getTable(int tableNumber) {
+    public static Table getTable(int tableNumber) {
         for(Pair<Integer, Integer> p : floorplan.keySet()) {
             Table t = floorplan.get(p);
             if(t.getTableNumber() == tableNumber) {
