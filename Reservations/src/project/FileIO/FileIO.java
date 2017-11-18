@@ -73,6 +73,8 @@ public class FileIO {
     	bw.newLine();
     	bw.write(date);
     	bw.newLine();
+        bw.write(startTime);
+        bw.newLine();
     	bw.write(duration);
     	bw.newLine();
     	bw.write(table);
