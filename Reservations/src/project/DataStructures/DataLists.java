@@ -6,9 +6,13 @@
 
 package project.DataStructures;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import project.Users.Employee;
 
 /**
@@ -19,6 +23,14 @@ public abstract class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
     static FloorPlan floorPlan;
+    
+    static{
+        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11, 20), 17, 3, new Table(1, 2), ""));
+        reservations.add(new Reservation("Bill", "250-420-6969", 0, new Date(2017-1900, 11, 20), 14, 2, new Table(2, 2), ""));
+        reservations.add(new Reservation("Jack", "250-777-7777", 0, new Date(2017-1900, 11, 20), 17, 2, new Table(2, 2), ""));
+        reservations.add(new Reservation("Jill", "250-777-7777", 0, new Date(2017-1900, 11, 20), 9, 3, new Table(1, 2), ""));
+        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11, 20), 13, 3, new Table(1, 2), ""));
+    }
 
     public static boolean isValidEmployee(String name, String pass) {
         for(Employee e : employees) {
@@ -39,8 +51,8 @@ public abstract class DataLists {
         return res;
     }
     
-    public static void addReservation(String name, String number,int custResNum, String date, int duration, int tableNumber, String request) {
-        reservations.add(new Reservation(name, number, custResNum, Date.valueOf(date), duration, floorPlan.getTable(tableNumber), request));
+    public static void addReservation(String name, String number,int custResNum, Date date, int startTime, int duration, int tableNumber, String request) {
+        reservations.add(new Reservation(name, number, custResNum, date, startTime, duration, floorPlan.getTable(tableNumber), request));
     }
     
     public static void addEmployee(String name, String pass, String restaurant) {

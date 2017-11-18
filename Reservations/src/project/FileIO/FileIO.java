@@ -30,7 +30,7 @@ public class FileIO {
     static FileWriter employeeWriter;
     static FileReader employeeReader;
     
-    public static void saveReservation(String restaurant, String name, String number, String custResNum, String date, String duration, String table, String request) throws IOException {
+    public static void saveReservation(String restaurant, String name, String number, String custResNum, String date, String startTime, String duration, String table, String request) throws IOException {
         String fileName = name + number;
     	String pathName = Paths.get("").toAbsolutePath().toString();
     	
@@ -73,6 +73,8 @@ public class FileIO {
     	bw.newLine();
     	bw.write(date);
     	bw.newLine();
+        bw.write(startTime);
+        bw.newLine();
     	bw.write(duration);
     	bw.newLine();
     	bw.write(table);
@@ -115,6 +117,10 @@ public class FileIO {
         }
         
         return llst;
+    }
+    
+    public static void deleteReservation(String restaurant, String customerName, String phoneNumber, String custResNum) {
+        
     }
     
     public static void saveFloorPlan(List<List<Integer>> floorplan, String restaurant) {
@@ -230,5 +236,9 @@ public class FileIO {
             Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lst;
+    }
+    
+    public static void deleteEmployee(String restaurant, String employeeName) {
+        
     }
 }

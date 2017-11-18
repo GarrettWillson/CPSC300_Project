@@ -3,6 +3,7 @@ package project.GUI;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -91,11 +92,15 @@ public class TimeTable {
                     public void actionPerformed(ActionEvent e){
                         List<Reservation> res = DataLists.getReservationsForTable(1);
                         
-                        String info=" ";
+                        String info="info: ";
+                        if(res.size()==0){
+                            info=info+"\r\n"+"no reseration yet! ";
+                        }
                         for(int i=0;i<res.size();i++){
                             //here teh Reservation doesn't finished, once it finished, here will get
                             // the reservation arrival time and leave time.
-                            info=String.valueOf(res.get(i).getReservationDate().getHours());
+                            info=info+"\r\n"+new SimpleDateFormat("dd MMM YYYY").format(res.get(i).getReservationDate())+" "+
+                                    String.valueOf(res.get(i).getStartHour())+"-"+String.valueOf(res.get(i).getStartHour()+res.get(i).getLengthOfReservation());
                             
                         }
                         //info should be the information of time table depends on # of table.
@@ -111,7 +116,18 @@ public class TimeTable {
 		JButton btnNewButton_1 = new JButton("More info");
                 btnNewButton_1.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="";
+                        List<Reservation> res = DataLists.getReservationsForTable(2);
+                        String info="info:";
+                        if(res.size()==0){
+                            info=info+"\r\n"+"no reseration yet! ";
+                        }
+                        for(int i=0;i<res.size();i++){
+                            //here teh Reservation doesn't finished, once it finished, here will get
+                            // the reservation arrival time and leave time.
+                            info=info+"\r\n"+new SimpleDateFormat("dd MMM YYYY").format(res.get(i).getReservationDate())+" "+
+                                    String.valueOf(res.get(i).getStartHour())+"-"+String.valueOf(res.get(i).getStartHour()+res.get(i).getLengthOfReservation());
+                            
+                        }
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                     }
@@ -123,7 +139,18 @@ public class TimeTable {
 		JButton btnNewButton_2 = new JButton("More info");
                 btnNewButton_2.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="";
+                        List<Reservation> res = DataLists.getReservationsForTable(3);
+                        String info="info:";
+                        if(res.size()==0){
+                            info=info+"\r\n"+"no reseration yet! ";
+                        }
+                        for(int i=0;i<res.size();i++){
+                            //here teh Reservation doesn't finished, once it finished, here will get
+                            // the reservation arrival time and leave time.
+                            info=info+"\r\n"+new SimpleDateFormat("dd MMM YYYY").format(res.get(i).getReservationDate())+" "+
+                                    String.valueOf(res.get(i).getStartHour())+"-"+String.valueOf(res.get(i).getStartHour()+res.get(i).getLengthOfReservation());
+                            
+                        }
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                     }
@@ -135,7 +162,18 @@ public class TimeTable {
 		JButton btnNewButton_3 = new JButton("More info");
                 btnNewButton_3.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="";
+                        List<Reservation> res = DataLists.getReservationsForTable(4);
+                        String info="info:";
+                        if(res.size()==0){
+                            info=info+"\r\n"+"no reseration yet! ";
+                        }
+                        for(int i=0;i<res.size();i++){
+                            //here teh Reservation doesn't finished, once it finished, here will get
+                            // the reservation arrival time and leave time.
+                            info=info+"\r\n"+new SimpleDateFormat("dd MMM YYYY").format(res.get(i).getReservationDate())+" "+
+                                    String.valueOf(res.get(i).getStartHour())+"-"+String.valueOf(res.get(i).getStartHour()+res.get(i).getLengthOfReservation());
+                            
+                        }
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                     }
@@ -147,7 +185,18 @@ public class TimeTable {
 		JButton btnNewButton_4 = new JButton("More info");
                 btnNewButton_4.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="";
+                        List<Reservation> res = DataLists.getReservationsForTable(5);
+                        String info="info:";
+                        if(res.size()==0){
+                            info=info+"\r\n"+"no reseration yet! ";
+                        }
+                        for(int i=0;i<res.size();i++){
+                            //here teh Reservation doesn't finished, once it finished, here will get
+                            // the reservation arrival time and leave time.
+                            info=info+"\r\n"+new SimpleDateFormat("dd MMM YYYY").format(res.get(i).getReservationDate())+" "+
+                                    String.valueOf(res.get(i).getStartHour())+"-"+String.valueOf(res.get(i).getStartHour()+res.get(i).getLengthOfReservation());
+                            
+                        }
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                     }
@@ -159,7 +208,18 @@ public class TimeTable {
 		JButton btnNewButton_5 = new JButton("More info");
                 btnNewButton_5.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="";
+                        List<Reservation> res = DataLists.getReservationsForTable(6);
+                        String info="info:";
+                        if(res.size()==0){
+                            info=info+"\r\n"+"no reseration yet! ";
+                        }
+                        for(int i=0;i<res.size();i++){
+                            //here teh Reservation doesn't finished, once it finished, here will get
+                            // the reservation arrival time and leave time.
+                            info=info+"\r\n"+new SimpleDateFormat("dd MMM YYYY").format(res.get(i).getReservationDate())+" "+
+                                    String.valueOf(res.get(i).getStartHour())+"-"+String.valueOf(res.get(i).getStartHour()+res.get(i).getLengthOfReservation());
+                            
+                        }
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                     }
