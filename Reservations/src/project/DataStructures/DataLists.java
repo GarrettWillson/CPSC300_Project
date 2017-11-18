@@ -29,6 +29,16 @@ public class DataLists {
         return false;
     }
     
+    public static List<Reservation> getReservationsForTable(Table t) {
+        List<Reservation> res = new ArrayList<>();
+        for(Reservation r : reservations) {
+            if(r.getReservedTable().equals(t)) {
+                res.add(r);
+            }
+        }
+        return res;
+    }
+    
     public static void addReservation(String name, String number,int custResNum, String date, int duration, int tableNumber, String request) {
         reservations.add(new Reservation(name, number, custResNum, Date.valueOf(date), duration, FloorPlan.getTable(tableNumber), request));
     }
