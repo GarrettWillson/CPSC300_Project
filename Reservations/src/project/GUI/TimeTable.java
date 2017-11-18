@@ -78,7 +78,7 @@ public class TimeTable {
 		JButton btnNewButton = new JButton("More info");
                 btnNewButton.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        String info="";
+                        String info="example: 3pm-4pm"+"\r\n"+"                 5pm-6pm";
                         //info should be the information of time table depends on # of table.
                         JOptionPane.showMessageDialog(null,info,"More info", JOptionPane.PLAIN_MESSAGE);
                         
