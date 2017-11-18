@@ -29,10 +29,10 @@ public abstract class DataLists {
         return false;
     }
     
-    public static List<Reservation> getReservationsForTable(Table t) {
+    public static List<Reservation> getReservationsForTable(int tableNum) {
         List<Reservation> res = new ArrayList<>();
         for(Reservation r : reservations) {
-            if(r.getReservedTable().equals(t)) {
+            if(r.getReservedTable().getTableNumber() == tableNum) {
                 res.add(r);
             }
         }
