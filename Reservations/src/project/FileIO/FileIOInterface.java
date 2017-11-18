@@ -31,6 +31,7 @@ public class FileIOInterface {
                     restaurant,
                     reservation.getCustomerName(),
                     reservation.getCustomerNumber(),
+                    reservation.getCustomerReservationNumber(),
                     reservation.getReservationDate().toString(),
                     String.valueOf(reservation.getLengthOfReservation()),
                     String.valueOf(reservation.getReservedTable().getTableNumber()),
@@ -45,10 +46,11 @@ public class FileIOInterface {
         for(List<String> reservationString : reservationsStrings) {
            DataLists.addReservation(reservationString.get(0),
                    reservationString.get(1),
-                   reservationString.get(2),
-                   Integer.parseInt(reservationString.get(3)),
+                   Integer.parseInt(reservationString.get(2)),
+                   reservationString.get(3),
                    Integer.parseInt(reservationString.get(4)),
-                   reservationString.get(5));
+                   Integer.parseInt(reservationString.get(5)),
+                   reservationString.get(6));
         }
     }
     

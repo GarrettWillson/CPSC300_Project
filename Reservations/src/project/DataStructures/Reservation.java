@@ -15,14 +15,16 @@ public class Reservation {
     Date reservationDate;
     String customerName;
     String customerNumber;
+    int customerReservationNumber;
     int lengthOfReservation;
     Table reservedTable;
-    String specialRequest;  
+    String specialRequest;
     
-    public Reservation(String name, String number, Date date, int length, Table table, String request) {
+    public Reservation(String name, String number, int custResNum, Date date, int length, Table table, String request) {
         reservationDate = date;
         customerName = name;
         customerNumber = number;
+        customerReservationNumber = custResNum;
         lengthOfReservation = length;
         reservedTable = table;
         specialRequest = request;
@@ -54,6 +56,14 @@ public class Reservation {
 
     public void setCustomerNumber(String customerNumber) {
         this.customerNumber = customerNumber;
+    }
+    
+    public int getCustomerReservationNumber() {
+        return customerReservationNumber;
+    }
+    
+    public void setCustomerReservationNumber(int custResNum) {
+        customerReservationNumber = custResNum;
     }
 
     public int getLengthOfReservation() {

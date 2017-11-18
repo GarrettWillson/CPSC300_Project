@@ -10,7 +10,7 @@ import static project.GUI.Login.createLogin;
 
 /**
  *
- * @authors fontia1, willsong
+ * @authors fontia1, willsong, jiangtau, rui
  */
 public class Startup {
 

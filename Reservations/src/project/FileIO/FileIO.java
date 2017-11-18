@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.util.Pair;
 import project.DataStructures.FloorPlan;
 import project.DataStructures.Reservation;
@@ -28,7 +30,7 @@ public class FileIO {
     static FileWriter employeeWriter;
     static FileReader employeeReader;
     
-    public static void saveReservation(String restaurant, String name, String number, String date, String duration, String table, String request) throws IOException {
+    public static void saveReservation(String restaurant, String name, String number, int custResNum, String date, String duration, String table, String request) throws IOException {
         String fileName = name + number;
     	String pathName = Paths.get("").toAbsolutePath().toString();
     	

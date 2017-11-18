@@ -64,7 +64,7 @@ public class Login {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblWelcome = new JLabel("Welcome");
-		lblWelcome.setBounds(241, 21, 123, 39);
+		lblWelcome.setBounds(241, 21, 160, 39);
 		lblWelcome.setFont(new Font("Times New Roman", Font.PLAIN, 33));
 		frame.getContentPane().add(lblWelcome);
 		
@@ -79,7 +79,7 @@ public class Login {
 		
 		JLabel lblPhone = new JLabel("Phone:");
 		lblPhone.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPhone.setBounds(104, 173, 84, 26);
+		lblPhone.setBounds(104, 173, 90, 26);
 		frame.getContentPane().add(lblPhone);
 		
 		textName = new JTextField();
@@ -96,6 +96,8 @@ public class Login {
 		rdbtnCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnEmployee.setSelected(false);
+                                //lblPhone= new JLabel("Phone:");
+                                lblPhone.setText("Phone:");
 			}
 		});
 		rdbtnCustomer.setSelected(true);
@@ -107,11 +109,15 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnCustomer.setSelected(false);
 				//lblPhone = new JLabel("Password:");
+                                /**
 				JLabel lblPassword= new JLabel("Password:");
 				lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				frame.getContentPane().remove(lblPhone);
 				lblPassword.setBounds(104, 173, 84, 26);
 				frame.getContentPane().add(lblPassword);
+                                * */
+                                lblPhone.setText("Password:");
+                                
 			}
 		});
 		rdbtnEmployee.setBounds(488, 178, 109, 23);
