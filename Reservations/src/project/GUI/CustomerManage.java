@@ -59,7 +59,7 @@ public class CustomerManage {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 847, 665);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblReservationManagement = new JLabel("Reservation management");
