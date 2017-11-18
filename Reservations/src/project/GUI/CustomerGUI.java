@@ -261,7 +261,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(btnNewButton);
 		
 		JTextPane txtpnSpecialRequest = new JTextPane();
-		txtpnSpecialRequest.setText("Special request");
+		txtpnSpecialRequest.setText("Special request: ");
 		txtpnSpecialRequest.setBounds(62, 234, 631, 76);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
 		//chang user btn

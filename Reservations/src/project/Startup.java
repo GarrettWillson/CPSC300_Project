@@ -6,6 +6,7 @@
 package project;
 
 import project.GUI.EmployeeLogin;
+import static project.GUI.LoginWindow.createLoginWindow;
 
 /**
  *
@@ -16,7 +17,9 @@ public class Startup {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        createLoginWindow();
         // TODO code application logic here
        // LoginWindow.makeNewWindow();
     }

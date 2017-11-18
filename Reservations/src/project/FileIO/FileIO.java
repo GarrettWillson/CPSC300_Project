@@ -142,8 +142,20 @@ public class FileIO {
     public static List<Pair<String, String>> loadEmployees(String Restaurant) throws FileNotFoundException {
         String pathName = Paths.get("").toAbsolutePath().toString();
         String filePath = pathName + "/" + Restaurant + "/employee/employees.txt";
+        String line;
         File f = new File(filePath);
+        List<Pair<String, String>> lst = new ArrayList();
         employeeReader = new FileReader(f);
-        return new ArrayList<>();
+        BufferedReader br= new BufferedReader(employeeReader); 
+        try {
+            while((line = br.readLine()) != null){
+                String[] splited = line.split(" ");
+                Pair p =  new Pair(splited[0], splited[1]);
+                lst.add(p);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lst;
     }
 }
