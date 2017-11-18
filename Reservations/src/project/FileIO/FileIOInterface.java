@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -86,7 +88,15 @@ public class FileIOInterface {
     }
     
     public static void saveFloorPlan(String restaurant, FloorPlan floorPlan) {
-        FileIO.saveFloorPlan(null, restaurant);
+        List<List<Integer>> list = new ArrayList<>();
+        for(Integer[] i : new Integer[][]{
+            {1, 1, 1, 4},
+            {1, 2, 2, 4},
+            {2, 1, 3, 4},
+            {2, 2, 4, 4}}) {
+            list.add(Arrays.asList(i));
+        };
+        FileIO.saveFloorPlan(list, restaurant);
     }
     
     public static void loadFloorPlan(String restaurant) {
