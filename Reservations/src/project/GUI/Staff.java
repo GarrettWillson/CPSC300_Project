@@ -99,6 +99,18 @@ public class Staff {
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                {null, null, null, null, null, null, null, null},
+                                
 			},
 			new String[] {
 				"Name", "Phone#", "#of People", "Date", "Time", "Duration", "#of Table", "Special request"
@@ -107,6 +119,14 @@ public class Staff {
                 public boolean isCellEditable(int row, int column){return false;}});
 		table.setBounds(60, 139, 778, 475);
 		frame.getContentPane().add(table);
+                
+                JScrollPane j1;
+                j1=new JScrollPane();
+                
+                j1.setBounds(60, 139, 798, 495);
+                j1.getViewport().add(table,null);
+                frame.getContentPane().add(j1);
+                
                 
                 JDateChooser dateChooser = new JDateChooser();
                 dateChooser.getDateEditor().setEnabled(false);

@@ -83,8 +83,38 @@ public class FileIO {
     }
     
     public static List<List<String>> loadReservations(String restaurant) {
+      
+        String pathName = Paths.get("").toAbsolutePath().toString();
+        String folderPath = pathName + "/" + restaurant + "/reservation/";
+        File resFolder = new File(folderPath);
+        File[] listOfFolders = resFolder.listFiles();
+        String component;
+        List<List<String>> llst = new ArrayList();
+        for(int i = 0; i < listOfFolders.length; i++){
+            String filePath = folderPath + listOfFolders[i].getName() + "/";
+            File cusFolder = new File(filePath);
+            File[] listOfFiles = cusFolder.listFiles();
+            for(int j = 0; j < listOfFiles.length; j++){
+                List<String> lst = new ArrayList();
+                String fileName = filePath + listOfFiles[j].getName();
+                File f = new File(fileName);
+                try {
+                    reservationReader = new FileReader(f);
+                    BufferedReader br = new BufferedReader(reservationReader);
+                    while((component = br.readLine()) != null){
+                        lst.add(component);
+                    }
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                llst.add(lst);
+            }
+            
+        }
         
-        return new ArrayList<>();
+        return llst;
     }
     
     public static void saveFloorPlan(List<List<Integer>> floorplan, String restaurant) {
