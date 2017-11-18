@@ -15,7 +15,7 @@ import project.Users.Employee;
  *
  * @author fontai1
  */
-public class DataLists {
+public abstract class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
     static FloorPlan floorPlan;
