@@ -30,7 +30,7 @@ public class FileIO {
     static FileWriter employeeWriter;
     static FileReader employeeReader;
     
-    public static void saveReservation(String restaurant, String name, String number, int custResNum, String date, String duration, String table, String request) throws IOException {
+    public static void saveReservation(String restaurant, String name, String number, String custResNum, String date, String duration, String table, String request) throws IOException {
         String fileName = name + number;
     	String pathName = Paths.get("").toAbsolutePath().toString();
     	
@@ -94,15 +94,12 @@ public class FileIO {
     public static List<List<Integer>> loadFloorPlan(String restaurant) {
         List<List<Integer>> list = new ArrayList<>();
         for(Integer[] i : new Integer[][]{
-            {1, 1, 1, 4},
-            {2, 1, 2, 4},
-            {3, 1, 3, 4},
-            {1, 2, 4, 4},
-            {2, 2, 5, 4},
-            {2, 3, 6, 4},
-            {3, 1, 7, 4},
-            {3, 2, 8, 4},
-            {3, 3, 9, 4}}) {
+            {1, 1, 1, 2},
+            {1, 2, 2, 4},
+            {2, 1, 4, 4},
+            {2, 2, 5, 6},
+            {3, 1, 7, 6},
+            {3, 2, 8, 2}}) {
             list.add(Arrays.asList(i));
         }
         return list;
