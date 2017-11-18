@@ -88,6 +88,7 @@ public class Login {
 		textName.setColumns(10);
 		
 		passwordField = new JPasswordField();
+                passwordField.setEchoChar((char)0);
 		passwordField.setBounds(241, 176, 163, 26);
 		frame.getContentPane().add(passwordField);
 		
@@ -96,7 +97,9 @@ public class Login {
 		rdbtnCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnEmployee.setSelected(false);
+                                passwordField.setEchoChar((char)0);
                                 //lblPhone= new JLabel("Phone:");
+                                //passwordField.setEchoChar((char)0);
                                 lblPhone.setText("Phone:");
 			}
 		});
@@ -108,6 +111,8 @@ public class Login {
 		rdbtnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rdbtnCustomer.setSelected(false);
+                                passwordField.setEchoChar((char)'*');
+                                //passwordField.setVisible(false);
 				//lblPhone = new JLabel("Password:");
                                 /**
 				JLabel lblPassword= new JLabel("Password:");
