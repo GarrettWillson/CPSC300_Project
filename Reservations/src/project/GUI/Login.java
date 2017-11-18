@@ -27,7 +27,12 @@ public class Login {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+        public static void main(String[] args)
+        {
+            createLogin();
+        }
+        
+	public static void createLogin() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

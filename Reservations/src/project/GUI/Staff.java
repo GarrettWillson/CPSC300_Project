@@ -26,6 +26,7 @@ public class Staff {
 	private JTable table;
 	/**
 	 * Launch the application.
+         * add a button to modify a reservation
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -101,7 +102,8 @@ public class Staff {
 			new String[] {
 				"Name", "Phone#", "#of People", "Date", "Time", "Duration", "#of Table", "Special request"
 			}
-		));
+		){@Override
+                public boolean isCellEditable(int row, int column){return false;}});
 		table.setBounds(60, 139, 778, 475);
 		frame.getContentPane().add(table);
 		
