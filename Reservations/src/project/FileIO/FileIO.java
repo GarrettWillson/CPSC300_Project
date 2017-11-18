@@ -30,7 +30,7 @@ public class FileIO {
     static FileWriter employeeWriter;
     static FileReader employeeReader;
     
-    public static void saveReservation(String restaurant, String name, String number, String custResNum, String date, String duration, String table, String request) throws IOException {
+    public static void saveReservation(String restaurant, String name, String number, String custResNum, String date, String startTime, String duration, String table, String request) throws IOException {
         String fileName = name + number;
     	String pathName = Paths.get("").toAbsolutePath().toString();
     	

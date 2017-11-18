@@ -8,6 +8,8 @@ package project.FileIO;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -33,6 +35,7 @@ public class FileIOInterface {
                     reservation.getCustomerNumber(),
                     String.valueOf(reservation.getCustomerReservationNumber()),
                     reservation.getReservationDate().toString(),
+                    String.valueOf(reservation.getStartHour()),
                     String.valueOf(reservation.getLengthOfReservation()),
                     String.valueOf(reservation.getReservedTable().getTableNumber()),
                     reservation.getSpecialRequest());
@@ -44,13 +47,18 @@ public class FileIOInterface {
     public void loadReservations(String restaurant) {
         List<List<String>> reservationsStrings = FileIO.loadReservations(restaurant);
         for(List<String> reservationString : reservationsStrings) {
-           DataLists.addReservation(reservationString.get(0),
-                   reservationString.get(1),
-                   Integer.parseInt(reservationString.get(2)),
-                   reservationString.get(3),
-                   Integer.parseInt(reservationString.get(4)),
-                   Integer.parseInt(reservationString.get(5)),
-                   reservationString.get(6));
+            try {
+                DataLists.addReservation(reservationString.get(0),
+                        reservationString.get(1),
+                        Integer.parseInt(reservationString.get(2)),
+                        new SimpleDateFormat("dd MMM yyyy").parse(reservationString.get(3)),
+                        Integer.parseInt(reservationString.get(4)),
+                        Integer.parseInt(reservationString.get(5)),
+                        Integer.parseInt(reservationString.get(6)),
+                        reservationString.get(7));
+            } catch (ParseException ex) {
+                Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
