@@ -192,5 +192,8 @@ public class Staff {
 		// TODO Auto-generated method stub
 		password=p;
 	}
+        
+        //clear expired should remove from table as well as call methods to delete\
+        //files themselves
 }
 

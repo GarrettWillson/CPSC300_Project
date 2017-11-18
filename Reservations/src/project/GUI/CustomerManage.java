@@ -22,6 +22,10 @@ public class CustomerManage {
     table entries should not be directly editable via text, add modify entry button
     to change row entries
     
+    phone number shouldnt be password field, maybe add another text
+    field ontop of the password field and make the radio buttons
+    switch between which one is displayed
+    
     */
 	private JFrame frame;
 	private JTextField txtUsername;
