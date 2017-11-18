@@ -119,6 +119,10 @@ public class FileIO {
         return llst;
     }
     
+    public static void deleteReservation(String restaurant, String customerName, String phoneNumber, String custResNum) {
+        
+    }
+    
     public static void saveFloorPlan(List<List<Integer>> floorplan, String restaurant) {
         String pathName = Paths.get("").toAbsolutePath().toString();
         String resFpath = pathName + "/" + restaurant;
@@ -232,5 +236,9 @@ public class FileIO {
             Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lst;
+    }
+    
+    public static void deleteEmployee(String restaurant, String employeeName) {
+        
     }
 }

@@ -25,11 +25,11 @@ public abstract class DataLists {
     static FloorPlan floorPlan;
     
     static{
-        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017, 11, 20), 17, 3, new Table(1, 2), ""));
-        reservations.add(new Reservation("Bill", "250-420-6969", 0, new Date(2017, 11, 20), 14, 2, new Table(2, 2), ""));
-        reservations.add(new Reservation("Jack", "250-777-7777", 0, new Date(2017, 11, 20), 17, 2, new Table(2, 2), ""));
-        reservations.add(new Reservation("Jill", "250-777-7777", 0, new Date(2017, 11, 20), 9, 3, new Table(1, 2), ""));
-        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017, 11, 20), 13, 3, new Table(1, 2), ""));
+        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11, 20), 17, 3, new Table(1, 2), ""));
+        reservations.add(new Reservation("Bill", "250-420-6969", 0, new Date(2017-1900, 11, 20), 14, 2, new Table(2, 2), ""));
+        reservations.add(new Reservation("Jack", "250-777-7777", 0, new Date(2017-1900, 11, 20), 17, 2, new Table(2, 2), ""));
+        reservations.add(new Reservation("Jill", "250-777-7777", 0, new Date(2017-1900, 11, 20), 9, 3, new Table(1, 2), ""));
+        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11, 20), 13, 3, new Table(1, 2), ""));
     }
 
     public static boolean isValidEmployee(String name, String pass) {
