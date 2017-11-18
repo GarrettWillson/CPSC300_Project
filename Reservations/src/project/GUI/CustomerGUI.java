@@ -170,6 +170,7 @@ public class CustomerGUI {
                 dateChooser.getDateEditor().setEnabled(false);
 		dateChooser.setBounds(412, 114, 124, 20);
 		frmCustomer.getContentPane().add(dateChooser);
+                
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {

@@ -15,13 +15,13 @@ import javafx.util.Pair;
  * @author fontai1
  */
 public class FloorPlan {
-    static Map<Pair<Integer, Integer>, Table> floorplan = new HashMap<>();
+    Map<Pair<Integer, Integer>, Table> floorplan = new HashMap<>();
     
     public FloorPlan(Map<Pair<Integer, Integer>, Table> plan) {
         floorplan = plan;
     }
     
-    public static Table getTable(int tableNumber) {
+    public Table getTable(int tableNumber) {
         for(Pair<Integer, Integer> p : floorplan.keySet()) {
             Table t = floorplan.get(p);
             if(t.getTableNumber() == tableNumber) {
