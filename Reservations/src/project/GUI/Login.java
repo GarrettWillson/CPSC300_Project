@@ -26,6 +26,7 @@ public class Login {
 	protected String PhoneNum;
 	/**
 	 * Launch the application.
+         * 
 	 */
         public static void main(String[] args)
         {
@@ -99,7 +100,7 @@ public class Login {
 				rdbtnEmployee.setSelected(false);
                                 passwordField.setEchoChar((char)0);
                                 //lblPhone= new JLabel("Phone:");
-                                //passwordField.setEchoChar((char)0);
+
                                 lblPhone.setText("Phone:");
 			}
 		});
