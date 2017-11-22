@@ -53,11 +53,9 @@ public class FileIO {
                 userFile = userFpath + "/" + fileName;
     	}
     	
-    	File f = new File(userFile + "1.txt");
+    	File f = new File(userFile + custResNum + ".txt");
     	if(f.exists()){
-    		int num = new File(userFpath).listFiles().length;
-                f = new File(userFile + String.valueOf(num+1) + ".txt");
-                f.createNewFile();
+    		
     	}else{
     		f.createNewFile();
     	}
@@ -70,6 +68,8 @@ public class FileIO {
     	bw.write(name);
     	bw.newLine();
     	bw.write(number);
+    	bw.newLine();
+    	bw.write(custResNum);
     	bw.newLine();
     	bw.write(date);
     	bw.newLine();
@@ -92,6 +92,7 @@ public class FileIO {
         File[] listOfFolders = resFolder.listFiles();
         String component;
         List<List<String>> llst = new ArrayList();
+        if(resFolder.exists()){
         for(int i = 0; i < listOfFolders.length; i++){
             String filePath = folderPath + listOfFolders[i].getName() + "/";
             File cusFolder = new File(filePath);
@@ -112,15 +113,21 @@ public class FileIO {
                     Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 llst.add(lst);
-            }
-            
+            }           
         }
-        
         return llst;
+        }else{
+        	return llst;
+        }
     }
     
     public static void deleteReservation(String restaurant, String customerName, String phoneNumber, String custResNum) {
-        
+    	String pathName = Paths.get("").toAbsolutePath().toString();
+    	String fileName = pathName + "/" + restaurant + "/reservation" + customerName + phoneNumber + "/" + customerName + phoneNumber + custResNum;
+    	File f = new File(fileName);
+    	if(f.exists()){
+    		f.delete();
+    	}
     }
     
     public static void saveFloorPlan(List<List<Integer>> floorplan, String restaurant) {
@@ -224,6 +231,7 @@ public class FileIO {
         String line;
         File f = new File(filePath);
         List<Pair<String, String>> lst = new ArrayList();
+        if(f.exists()){      
         employeeReader = new FileReader(f);
         BufferedReader br= new BufferedReader(employeeReader); 
         try {
@@ -236,9 +244,31 @@ public class FileIO {
             Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lst;
+        }else{
+        	return lst;
+        }
     }
     
     public static void deleteEmployee(String restaurant, String employeeName) {
-        
+    	String pathName = Paths.get("").toAbsolutePath().toString();
+    	String filePath = pathName + "/" + restaurant + "/employee/employees.txt";
+    	String line;
+    	File f = new File(filePath);
+    	if(f.exists()){	
+    		employeeReader = new FileReader(f);
+    		employeeWriter = new FileWriter(f);
+    		BufferedReader br= new BufferedReader(employeeReader);
+    		BufferedWriter bw = new BufferedWriter(employeeWriter);
+    		while((line = br.readLine()) != null){
+    			String[] splited = line.split(" ");
+    			if(splited[0].equals(employeeName)){
+    				
+    			}else{
+    				bw.write(line);
+    			}
+    		}
+            br.close();
+    		bw.close();
+    	}    
     }
 }
