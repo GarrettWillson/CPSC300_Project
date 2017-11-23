@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
 import javax.swing.border.LineBorder;
+import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Reservation;
 import static project.GUI.Login.createLogin;
 
@@ -48,6 +49,7 @@ public class CustomerGUI {
 	private static String phoneNum;
         private JTextPane txtpnSpecialRequest;
         private JDateChooser dateChooser;
+        private JComboBox JDuration;
 	
 	/**
 	 * Launch the application.
@@ -185,7 +187,7 @@ public class CustomerGUI {
 		btnSubmit.setBounds(220, 350, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
 		
-		JComboBox JDuration = new JComboBox();
+		JDuration = new JComboBox();
 		JDuration.setModel(new DefaultComboBoxModel(new String[] 
                 {"","1 hour", "2 hours", "3 hours", "4 hours", "5 hours",
                     "6 hours", "7 hours", "8 hours"}));
@@ -326,7 +328,7 @@ public class CustomerGUI {
         }
 //         public static void addReservation(String name, String number,int custResNum,
         //Date date, int startTime, int duration, int tableNumber, String request) {
-//        reservations.add(new Reservation(name, number, custResNum, date, startTime, duration, floorPlan.getTable(tableNumber), request));
+//      
 //    }
 //        	private JTextField txtName;
 //	private JTextField txtPhoneNum;
@@ -337,11 +339,14 @@ public class CustomerGUI {
         public void customerGUISubmitButton()
         {//submit given reservation info
             //checkReservation();
-           // int custResNum=1;
+            int timeNum=1;
+            int tableNum=1;
             addReservation(txtName.getText(),txtPhoneNum.getText(),
-                    dateChooser.getDateEditor().getDate(), txtTime.getText(),
-                    
-            );
+                    dateChooser.getDateEditor().getDate(), timeNum,
+                    Integer.parseInt(JDuration.getSelectedItem().toString()), tableNum,
+                    txtpnSpecialRequest.getText());
+            //put this into manage window as well
+            //save to a file
             
         }
         public boolean isValidReservation()

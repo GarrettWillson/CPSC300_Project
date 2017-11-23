@@ -187,10 +187,7 @@ public class Login {
 	protected String getPhoneNum() {
 		return PhoneNum;
 	}
-	////______________________________________
-    ////button functions do not Change!!!!
-    //           Garrett's part
-    ////_____________________________________
+
 	public void loginWindowLoginButton(JPasswordField password, JTextField name) {
         //match given credentials to our list of acceptable credentials
         //if not matching, tell user, return to login
