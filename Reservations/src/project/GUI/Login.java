@@ -26,7 +26,6 @@ public class Login {
 	protected String PhoneNum;
 	/**
 	 * Launch the application.
-         * 
 	 */
         public static void main(String[] args)
         {
@@ -100,7 +99,7 @@ public class Login {
 				rdbtnEmployee.setSelected(false);
                                 passwordField.setEchoChar((char)0);
                                 //lblPhone= new JLabel("Phone:");
-
+                                //passwordField.setEchoChar((char)0);
                                 lblPhone.setText("Phone:");
 			}
 		});
@@ -146,7 +145,9 @@ public class Login {
 				}
 				//String username= textName.getText();
 				//String password= passwordField.getText();
-				
+                                
+                                   // JOptionPane.showMessageDialog(null,"User name is empty! Please enter your name.","More info", JOptionPane.PLAIN_MESSAGE);
+                                
 			}
 		});
 		btnLogin.setBounds(174, 256, 89, 23);
