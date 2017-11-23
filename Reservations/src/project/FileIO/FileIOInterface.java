@@ -50,14 +50,14 @@ public class FileIOInterface {
         List<List<String>> reservationsStrings = FileIO.loadReservations(restaurant);
         for(List<String> reservationString : reservationsStrings) {
             try {
-                DataLists.addReservation(reservationString.get(0),
-                        reservationString.get(1),
-                        Integer.parseInt(reservationString.get(2)),
-                        new SimpleDateFormat("dd MMM yyyy").parse(reservationString.get(3)),
-                        Integer.parseInt(reservationString.get(4)),
-                        Integer.parseInt(reservationString.get(5)),
-                        Integer.parseInt(reservationString.get(6)),
-                        reservationString.get(7));
+                int i = 0;
+                DataLists.addReservation(reservationString.get(i++),
+                        reservationString.get(i++),
+                        new SimpleDateFormat("dd MMM yyyy").parse(reservationString.get(i++)),
+                        Integer.parseInt(reservationString.get(i++)),
+                        Integer.parseInt(reservationString.get(i++)),
+                        Integer.parseInt(reservationString.get(i++)),
+                        reservationString.get(i++));
             } catch (ParseException ex) {
                 Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
             }

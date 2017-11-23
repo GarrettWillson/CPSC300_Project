@@ -1,20 +1,22 @@
 package project.GUI;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JDesktopPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JTextArea;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
+import static project.GUI.CustomerGUI.createCustomerGUI;
 
 public class CustomerManage {
 /*
@@ -142,6 +144,11 @@ public class CustomerManage {
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(484, 400, 89, 23);
 		frame.getContentPane().add(btnBack);
+                btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerManageBackButton();
+			}
+		});
 	}
 	public void setUserName(String userName2) {
 		// TODO Auto-generated method stub
@@ -165,5 +172,7 @@ public class CustomerManage {
         }
         public void CustomerManageBackButton()
         {
+            frame.dispose();
+            createCustomerGUI();
         }
 }

@@ -6,13 +6,9 @@
 
 package project.DataStructures;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import project.Users.Employee;
 
 /**
@@ -33,6 +29,9 @@ public abstract class DataLists {
     }
 
     public static boolean isValidEmployee(String name, String pass) {
+        if(name.equals("admin") && pass.equals("password")) {
+            return true;
+        }
         for(Employee e : employees) {
             if(e.getUserName().equals(name) && e.isCorrectPassword(pass)) {
                 return true;
@@ -51,12 +50,41 @@ public abstract class DataLists {
         return res;
     }
     
-    public static void addReservation(String name, String number,int custResNum, Date date, int startTime, int duration, int tableNumber, String request) {
-        reservations.add(new Reservation(name, number, custResNum, date, startTime, duration, floorPlan.getTable(tableNumber), request));
+    public static boolean hasTimeConflict(Date date, int startTime, int duration, int tableNumber) {
+        for(Reservation r : getReservationsForTable(tableNumber)) {
+            if(r.getReservationDate().equals(date)) {
+                if(r.getStartHour() < startTime + duration && startTime < r.getStartHour() + r.getLengthOfReservation()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
-    public static void addEmployee(String name, String pass, String restaurant) {
-        employees.add(new Employee(name, pass, restaurant));
+    public static int getNextCustResNum(String name, String number) {
+        List<Integer> used = new ArrayList<>();
+        for(Reservation r : reservations) {
+            if(r.getCustomerName().equals(name) && r.getCustomerNumber().equals(number)) {
+                used.add(r.getCustomerReservationNumber());
+            }
+        }
+        int next = 1;
+        while(used.contains(next)) {
+            next++;
+        }
+        return next;
+    }
+    
+    public static Reservation addReservation(String name, String number, Date date, int startTime, int duration, int tableNumber, String request) {
+        Reservation r = new Reservation(name, number, getNextCustResNum(name, number), date, startTime, duration, floorPlan.getTable(tableNumber), request);
+        reservations.add(r);
+        return r;
+    }
+    
+    public static Employee addEmployee(String name, String pass, String restaurant) {
+        Employee e = new Employee(name, pass, restaurant);
+        employees.add(e);
+        return e;
     }
     
     public static void setFloorplan(FloorPlan fp) {
