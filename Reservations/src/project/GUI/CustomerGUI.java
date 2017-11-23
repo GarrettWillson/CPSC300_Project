@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -20,8 +22,10 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
 import javax.swing.border.LineBorder;
+import project.DataStructures.DataLists;
 import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Reservation;
+import project.DataStructures.Table;
 import static project.GUI.Login.createLogin;
 
 public class CustomerGUI {
@@ -187,10 +191,10 @@ public class CustomerGUI {
 		btnSubmit.setBounds(220, 350, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
                 
+                    List<Table> tables=DataLists.getTables();
                 JComboBox JTable= new JComboBox();
-                JTable.setModel(new DefaultComboBoxModel(new String[]
-                {"","Table 1","Table 2","Table 3",
-                "Table 4","Table 5","Table 6"}));
+                JTable.setModel(new DefaultComboBoxModel(new Vector<Table>(tables)
+                ));
                 JTable.setBounds(605,203,80,20);
                 frmCustomer.getContentPane().add(JTable);
 		
