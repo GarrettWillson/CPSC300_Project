@@ -1,25 +1,28 @@
 package project.GUI;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTable;
-import javax.swing.JRadioButton;
-import javax.swing.JToolBar;
 import com.toedter.calendar.JDateChooser;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.JToolBar;
+import javax.swing.border.LineBorder;
+import static project.DataStructures.DataLists.addReservation;
+import project.DataStructures.Reservation;
+import static project.GUI.Login.createLogin;
 
 public class CustomerGUI {
  /*
@@ -44,6 +47,9 @@ public class CustomerGUI {
 	private JTextField txtTime;
 	private static String userName;
 	private static String phoneNum;
+        private JTextPane txtpnSpecialRequest;
+        private JDateChooser dateChooser;
+        private JComboBox JDuration;
 	
 	/**
 	 * Launch the application.
@@ -166,7 +172,7 @@ public class CustomerGUI {
 		
 		
 		
-		JDateChooser dateChooser = new JDateChooser();
+		dateChooser = new JDateChooser();
                 dateChooser.getDateEditor().setEnabled(false);
 		dateChooser.setBounds(412, 114, 124, 20);
 		frmCustomer.getContentPane().add(dateChooser);
@@ -180,13 +186,24 @@ public class CustomerGUI {
 		});
 		btnSubmit.setBounds(220, 350, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
+                
+                JComboBox JTable= new JComboBox();
+                JTable.setModel(new DefaultComboBoxModel(new String[]
+                {"","Table 1","Table 2","Table 3",
+                "Table 4","Table 5","Table 6"}));
+                JTable.setBounds(605,203,80,20);
+                frmCustomer.getContentPane().add(JTable);
 		
-		JComboBox JDuration = new JComboBox();
+		JDuration = new JComboBox();
 		JDuration.setModel(new DefaultComboBoxModel(new String[] 
                 {"","1 hour", "2 hours", "3 hours", "4 hours", "5 hours",
                     "6 hours", "7 hours", "8 hours"}));
-		JDuration.setBounds(412, 203, 124, 20);
+		JDuration.setBounds(412, 203, 80, 20);
 		frmCustomer.getContentPane().add(JDuration);
+                
+                JLabel lblTable= new JLabel("Choose Table:");
+                lblTable.setBounds(500, 206, 1000, 14);
+                frmCustomer.getContentPane().add(lblTable);
 		
 		JLabel lblDuration = new JLabel("Duration:");
 		lblDuration.setBounds(338, 206, 1000, 14);
@@ -195,13 +212,15 @@ public class CustomerGUI {
 		JButton btnCancel = new JButton("Reset");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txtName.setText(null);
-				txtPhoneNum.setText(null);
-				txtTime.setText(null);
-                                times.setSelectedItem(null);
+				//txtName.setText(null);
+				//txtPhoneNum.setText(null);
+//				txtTime.setText(null);
+                                ampm.setSelectedIndex(0);
+                                times.setSelectedIndex(0);
 				dateChooser.setDate(null);;
-				numPeople.setSelectedItem(null);
-				JDuration.setSelectedItem(null);
+				numPeople.setSelectedIndex(0);
+				JDuration.setSelectedIndex(0);
+                                txtpnSpecialRequest.setText("Special request: ");
 				
 			}
 		});
@@ -261,7 +280,7 @@ public class CustomerGUI {
 		btnNewButton.setBounds(445, 350, 120, 23);
 		frmCustomer.getContentPane().add(btnNewButton);
 		
-		JTextPane txtpnSpecialRequest = new JTextPane();
+		txtpnSpecialRequest = new JTextPane();
 		txtpnSpecialRequest.setText("Special request: ");
 		txtpnSpecialRequest.setBounds(62, 234, 631, 76);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
@@ -269,7 +288,9 @@ public class CustomerGUI {
 		JButton btnChangeUser = new JButton("Change user");
 		btnChangeUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+                            
+                            frmCustomer.dispose();
+                            createLogin();
 				
 			}
 		});
@@ -311,20 +332,39 @@ public class CustomerGUI {
 		phoneNum=phoneNum2;
 	}
        
-        
+     
         public void customerGUICheckButton()
         {//check if given reservation slot is available
             
         }
+//         public static void addReservation(String name, String number,int custResNum,
+        //Date date, int startTime, int duration, int tableNumber, String request) {
+//      
+//    }
+//        	private JTextField txtName;
+//	private JTextField txtPhoneNum;
+//	private JTextField txtTime;
+//	private static String userName;
+//	private static String phoneNum;
+//        private JTextPane txtpnSpecialRequest;
         public void customerGUISubmitButton()
         {//submit given reservation info
-            //check
+            //checkReservation();
+            int timeNum=1;
+            int tableNum=1;
+            addReservation(txtName.getText(),txtPhoneNum.getText(),
+                    dateChooser.getDateEditor().getDate(), timeNum,
+                    Integer.parseInt(JDuration.getSelectedItem().toString()), tableNum,
+                    txtpnSpecialRequest.getText());
+            //put this into manage window as well
+            //save to a file
             
         }
         public boolean isValidReservation()
         {
             return true;
         }
+        
 
         
         
