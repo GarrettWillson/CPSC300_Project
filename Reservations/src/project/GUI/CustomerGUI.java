@@ -192,7 +192,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(btnSubmit);
                 
                     List<Table> tables=DataLists.getTables();
-                JComboBox JTable= new JComboBox();
+                JTable= new JComboBox();
                 JTable.setModel(new DefaultComboBoxModel(new Vector<Table>(tables)
                 ));
                 JTable.setBounds(605,203,80,20);
@@ -364,7 +364,7 @@ public class CustomerGUI {
             {
              addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), timeNum,
-                    Integer.parseInt(JDuration.getSelectedItem().toString()), tableNum,
+                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), tableNum,
                     txtpnSpecialRequest.getText());
             }
             else
