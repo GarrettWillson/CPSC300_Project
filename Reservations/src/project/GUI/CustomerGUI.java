@@ -335,7 +335,7 @@ public class CustomerGUI {
      
         public void customerGUICheckButton()
         {//check if given reservation slot is available
-            
+            //cgeckReservation();
         }
 //         public static void addReservation(String name, String number,int custResNum,
         //Date date, int startTime, int duration, int tableNumber, String request) {
@@ -350,8 +350,12 @@ public class CustomerGUI {
         public void customerGUISubmitButton()
         {//submit given reservation info
             //checkReservation();
-            int timeNum=1;
+            
+            
+            int timeNum=1;//these two need to be changed
             int tableNum=1;
+            
+            
             addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), timeNum,
                     Integer.parseInt(JDuration.getSelectedItem().toString()), tableNum,
@@ -362,6 +366,7 @@ public class CustomerGUI {
         }
         public boolean isValidReservation()
         {
+            //this should be changed
             return true;
         }
         
