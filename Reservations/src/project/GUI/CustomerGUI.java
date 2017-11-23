@@ -1,25 +1,27 @@
 package project.GUI;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTable;
-import javax.swing.JRadioButton;
-import javax.swing.JToolBar;
 import com.toedter.calendar.JDateChooser;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.JToolBar;
+import javax.swing.border.LineBorder;
+import project.DataStructures.Reservation;
+import static project.GUI.Login.createLogin;
 
 public class CustomerGUI {
  /*
@@ -44,6 +46,8 @@ public class CustomerGUI {
 	private JTextField txtTime;
 	private static String userName;
 	private static String phoneNum;
+        private JTextPane txtpnSpecialRequest;
+        private JDateChooser dateChooser;
 	
 	/**
 	 * Launch the application.
@@ -166,7 +170,7 @@ public class CustomerGUI {
 		
 		
 		
-		JDateChooser dateChooser = new JDateChooser();
+		dateChooser = new JDateChooser();
                 dateChooser.getDateEditor().setEnabled(false);
 		dateChooser.setBounds(412, 114, 124, 20);
 		frmCustomer.getContentPane().add(dateChooser);
@@ -195,13 +199,15 @@ public class CustomerGUI {
 		JButton btnCancel = new JButton("Reset");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txtName.setText(null);
-				txtPhoneNum.setText(null);
-				txtTime.setText(null);
-                                times.setSelectedItem(null);
+				//txtName.setText(null);
+				//txtPhoneNum.setText(null);
+//				txtTime.setText(null);
+                                ampm.setSelectedIndex(0);
+                                times.setSelectedIndex(0);
 				dateChooser.setDate(null);;
-				numPeople.setSelectedItem(null);
-				JDuration.setSelectedItem(null);
+				numPeople.setSelectedIndex(0);
+				JDuration.setSelectedIndex(0);
+                                txtpnSpecialRequest.setText("Special request: ");
 				
 			}
 		});
@@ -261,7 +267,7 @@ public class CustomerGUI {
 		btnNewButton.setBounds(445, 350, 120, 23);
 		frmCustomer.getContentPane().add(btnNewButton);
 		
-		JTextPane txtpnSpecialRequest = new JTextPane();
+		txtpnSpecialRequest = new JTextPane();
 		txtpnSpecialRequest.setText("Special request: ");
 		txtpnSpecialRequest.setBounds(62, 234, 631, 76);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
@@ -269,7 +275,9 @@ public class CustomerGUI {
 		JButton btnChangeUser = new JButton("Change user");
 		btnChangeUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+                            
+                            frmCustomer.dispose();
+                            createLogin();
 				
 			}
 		});
@@ -311,20 +319,36 @@ public class CustomerGUI {
 		phoneNum=phoneNum2;
 	}
        
-        
+     
         public void customerGUICheckButton()
         {//check if given reservation slot is available
             
         }
+//         public static void addReservation(String name, String number,int custResNum,
+        //Date date, int startTime, int duration, int tableNumber, String request) {
+//        reservations.add(new Reservation(name, number, custResNum, date, startTime, duration, floorPlan.getTable(tableNumber), request));
+//    }
+//        	private JTextField txtName;
+//	private JTextField txtPhoneNum;
+//	private JTextField txtTime;
+//	private static String userName;
+//	private static String phoneNum;
+//        private JTextPane txtpnSpecialRequest;
         public void customerGUISubmitButton()
         {//submit given reservation info
-            //check
+            //checkReservation();
+           // int custResNum=1;
+            addReservation(txtName.getText(),txtPhoneNum.getText(),
+                    dateChooser.getDateEditor().getDate(), txtTime.getText(),
+                    
+            );
             
         }
         public boolean isValidReservation()
         {
             return true;
         }
+        
 
         
         
