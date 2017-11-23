@@ -351,10 +351,10 @@ public class CustomerGUI {
             
             if(noneLeftBlank())
             {
-             addReservation(txtName.getText(),txtPhoneNum.getText(),
-                    dateChooser.getDateEditor().getDate(), timeNum,
-                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), tableNum,
-                    txtpnSpecialRequest.getText());
+             FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
+                    dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
+                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", "")),
+                    txtpnSpecialRequest.getText()));
             }
             else
             {
