@@ -103,7 +103,7 @@ public abstract class DataLists {
         return floorPlan;
     }
     
-    public List<Table> getTables() {
+    public static List<Table> getTables() {
         return new ArrayList<>(floorPlan.getFloorPlan().values());
     }
 }
