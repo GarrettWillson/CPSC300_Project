@@ -115,7 +115,7 @@ public class Staff {
         ) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return true;
+                return false;
             }
         };
         table.setModel(myModel);
@@ -214,7 +214,7 @@ public class Staff {
         
        for (int i = 0; i < myModel.getRowCount(); i++) {
         for (int j = 0; j < myModel.getColumnCount(); j++) {
-            if(isReservationIsExipred())
+            if(isReservationExipred())
                 myModel.setValueAt("", i, j);
         }
     }
@@ -227,7 +227,8 @@ public class Staff {
         //clear expired should remove from table as well as call methods to delete\
     //files themselves
 
-    private boolean isReservationIsExipred() {
+    private boolean isReservationExipred() {
+        //check if current time 
            return true;
     }
 }

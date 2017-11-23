@@ -13,6 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -47,6 +50,10 @@ public class CustomerGUI {
         private JTextPane txtpnSpecialRequest;
         private JDateChooser dateChooser;
         private JComboBox JDuration;
+        private JComboBox JTable;
+        private JComboBox ampm;
+        private JComboBox times;
+        private JComboBox numPeople;
 	
 	/**
 	 * Launch the application.
@@ -131,7 +138,7 @@ public class CustomerGUI {
 		separator_2.setBounds(27, 330, 693, 2);
 		frmCustomer.getContentPane().add(separator_2);
 		
-		JComboBox numPeople = new JComboBox();
+		numPeople = new JComboBox();
 		numPeople.setModel(new DefaultComboBoxModel(new String[]
                 {"","2 People", "3 People", "4 People", "5 People", "6 People", 
                     "7 People", "8 People", "9 People", "10 People", "11 People", 
@@ -149,14 +156,14 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(lblDate);
 		
                 
-                JComboBox times = new JComboBox();
+                times = new JComboBox();
 		times.setModel(new DefaultComboBoxModel(new String[] 
                 {"","1","2","3","4","5","6"
                 ,"7" ,"8","9","10","11","12",}));
 		times.setBounds(412, 157, 64, 20);
 		frmCustomer.getContentPane().add(times);
                 
-                JComboBox ampm = new JComboBox();
+                ampm = new JComboBox();
 		ampm.setModel(new DefaultComboBoxModel(new String[] 
                 {"am","pm"}));
 		ampm.setBounds(476, 157, 64, 20);
@@ -178,7 +185,7 @@ public class CustomerGUI {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				customerGUISubmitButton();
 			}
 		});
 		btnSubmit.setBounds(220, 350, 89, 23);
@@ -212,6 +219,7 @@ public class CustomerGUI {
 				//txtName.setText(null);
 				//txtPhoneNum.setText(null);
 //				txtTime.setText(null);
+                                JTable.setSelectedIndex(0);
                                 ampm.setSelectedIndex(0);
                                 times.setSelectedIndex(0);
 				dateChooser.setDate(null);;
@@ -347,25 +355,46 @@ public class CustomerGUI {
         public void customerGUISubmitButton()
         {//submit given reservation info
             //checkReservation();
-            
+            //check that fields havent been left blank
             
             int timeNum=1;//these two need to be changed
             int tableNum=1;
             
-            
-            addReservation(txtName.getText(),txtPhoneNum.getText(),
+            if(noneLeftBlank())
+            {
+             addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), timeNum,
                     Integer.parseInt(JDuration.getSelectedItem().toString()), tableNum,
                     txtpnSpecialRequest.getText());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
+            }
             //put this into manage window as well
             //save to a file
             
         }
+        
         public boolean isValidReservation()
         {
             //this should be changed
             return true;
         }
+        public boolean noneLeftBlank()
+        {//checks if any of the fields have been left empty
+            if (       JTable.getSelectedIndex() != 0
+                    //&& ampm.getSelectedIndex() != 0
+                    && times.getSelectedIndex() != 0
+                    && dateChooser.getDate() != null
+                    && numPeople.getSelectedIndex() != 0
+                    && JDuration.getSelectedIndex() != 0
+                   )
+                return true; 
+            
+           return false;
+        }
+                
         
 
         
