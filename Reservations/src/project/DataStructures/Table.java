@@ -9,7 +9,7 @@ package project.DataStructures;
  * user
  * @author fontai1
  */
-public class Table {
+public class Table implements Comparable{
     int tableNumber;
     int numberOfSeats;
     
@@ -37,5 +37,18 @@ public class Table {
     @Override
     public String toString() {
         return "Table " + tableNumber;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o == null) {
+            throw new NullPointerException();
+        }
+        if(o instanceof Table) {
+           Table t = (Table)o;
+           return tableNumber - t.tableNumber;
+        } else {
+            throw new ClassCastException();
+        }
     }
 }

@@ -7,6 +7,7 @@
 package project.DataStructures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import project.Users.Employee;
@@ -121,6 +122,8 @@ public abstract class DataLists {
     }
     
     public static List<Table> getTables() {
-        return new ArrayList<>(floorPlan.getFloorPlan().values());
+        List<Table> tables = new ArrayList<>(floorPlan.getFloorPlan().values());
+        Collections.sort(tables);
+        return tables;
     }
 }
