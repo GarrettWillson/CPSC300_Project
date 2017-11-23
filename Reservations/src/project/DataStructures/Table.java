@@ -33,4 +33,9 @@ public class Table {
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
+    
+    @Override
+    public String toString() {
+        return "Table " + tableNumber;
+    }
 }

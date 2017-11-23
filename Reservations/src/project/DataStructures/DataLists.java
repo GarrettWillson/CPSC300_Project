@@ -18,7 +18,16 @@ import project.Users.Employee;
 public abstract class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
-    static FloorPlan floorPlan;
+    static FloorPlan floorPlan = new FloorPlan();
+    
+    static {
+        floorPlan.addTable(new Table(1, 4), 1, 1);
+        floorPlan.addTable(new Table(2, 4), 2, 1);
+        floorPlan.addTable(new Table(3, 4), 3, 1);
+        floorPlan.addTable(new Table(4, 4), 1, 2);
+        floorPlan.addTable(new Table(5, 4), 2, 2);
+        floorPlan.addTable(new Table(6, 4), 3, 2);
+    }
     
     static{
         reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11-1, 20), 17, 3, new Table(1, 2), ""));
@@ -87,11 +96,31 @@ public abstract class DataLists {
         return e;
     }
     
+    public static void deleteReservation(Reservation r) {
+        reservations.remove(r);
+    }
+    
+    public static void deleteEmployee(Employee e) {
+        employees.remove(e);
+    }
+    
+    public static List<Reservation> getReservations() {
+        return reservations;
+    }
+    
+    public static List<Employee> getEmployees() {
+        return employees;
+    }
+    
     public static void setFloorplan(FloorPlan fp) {
         floorPlan = fp;
     }
     
     public static FloorPlan getFloorPlan() {
         return floorPlan;
+    }
+    
+    public static List<Table> getTables() {
+        return new ArrayList<>(floorPlan.getFloorPlan().values());
     }
 }

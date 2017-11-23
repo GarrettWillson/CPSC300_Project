@@ -6,8 +6,8 @@
 
 package project.DataStructures;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import javafx.util.Pair;
 
 /**
@@ -15,10 +15,10 @@ import javafx.util.Pair;
  * @author fontai1
  */
 public class FloorPlan {
-    Map<Pair<Integer, Integer>, Table> floorplan = new HashMap<>();
+    Map<Pair<Integer, Integer>, Table> floorplan = new TreeMap<>();
     
-    public FloorPlan(Map<Pair<Integer, Integer>, Table> plan) {
-        floorplan = plan;
+    public FloorPlan() {
+        
     }
     
     public Table getTable(int tableNumber) {
