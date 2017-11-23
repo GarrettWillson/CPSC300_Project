@@ -75,12 +75,16 @@ public abstract class DataLists {
         return next;
     }
     
-    public static void addReservation(String name, String number, Date date, int startTime, int duration, int tableNumber, String request) {
-        reservations.add(new Reservation(name, number, getNextCustResNum(name, number), date, startTime, duration, floorPlan.getTable(tableNumber), request));
+    public static Reservation addReservation(String name, String number, Date date, int startTime, int duration, int tableNumber, String request) {
+        Reservation r = new Reservation(name, number, getNextCustResNum(name, number), date, startTime, duration, floorPlan.getTable(tableNumber), request);
+        reservations.add(r);
+        return r;
     }
     
-    public static void addEmployee(String name, String pass, String restaurant) {
-        employees.add(new Employee(name, pass, restaurant));
+    public static Employee addEmployee(String name, String pass, String restaurant) {
+        Employee e = new Employee(name, pass, restaurant);
+        employees.add(e);
+        return e;
     }
     
     public static void setFloorplan(FloorPlan fp) {
