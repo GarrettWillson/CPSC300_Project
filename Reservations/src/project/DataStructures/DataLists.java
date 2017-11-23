@@ -87,11 +87,23 @@ public abstract class DataLists {
         return e;
     }
     
+    public static void deleteReservation(Reservation r) {
+        reservations.remove(r);
+    }
+    
+    public static void deleteEmployee(Employee e) {
+        employees.remove(e);
+    }
+    
     public static void setFloorplan(FloorPlan fp) {
         floorPlan = fp;
     }
     
     public static FloorPlan getFloorPlan() {
         return floorPlan;
+    }
+    
+    public List<Table> getTables() {
+        return new ArrayList<>(floorPlan.getFloorPlan().values());
     }
 }
