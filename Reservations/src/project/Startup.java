@@ -6,7 +6,6 @@
 package project;
 
 import project.FileIO.FileIOInterface;
-import project.GUI.EmployeeLogin;
 import static project.GUI.Login.createLogin;
 
 /**
