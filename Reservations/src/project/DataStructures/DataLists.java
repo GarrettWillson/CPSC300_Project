@@ -8,6 +8,7 @@ package project.DataStructures;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import project.Users.Employee;
 
@@ -18,7 +19,7 @@ import project.Users.Employee;
 public abstract class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
-    static FloorPlan floorPlan;
+    static FloorPlan floorPlan = new FloorPlan(new HashMap());
     
     static{
         reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11-1, 20), 17, 3, new Table(1, 2), ""));
