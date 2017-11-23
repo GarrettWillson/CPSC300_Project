@@ -8,8 +8,8 @@ package project.DataStructures;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 import project.Users.Employee;
 
 /**
@@ -19,7 +19,7 @@ import project.Users.Employee;
 public abstract class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
-    static FloorPlan floorPlan = new FloorPlan(new HashMap());
+    static FloorPlan floorPlan = new FloorPlan(new TreeMap());
     
     static {
         floorPlan.addTable(new Table(1, 4), 1, 1);
