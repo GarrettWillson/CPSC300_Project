@@ -1,21 +1,20 @@
 package project.GUI;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.FlowLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import project.DataStructures.DataLists;
 
 public class Login {
 
@@ -198,7 +197,7 @@ public class Login {
         //conver text fields to strings
         String nameString = name.getText();
         String passString = password.getText();
-        if (true) {//DataLists.isValidEmployee(nameString, passString)) {
+        if (DataLists.isValidEmployee(nameString, passString)) {
             //close current window
             frame.dispose();
             //go to next window
