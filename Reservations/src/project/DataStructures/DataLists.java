@@ -19,7 +19,7 @@ import project.Users.Employee;
 public abstract class DataLists {
     static List<Reservation> reservations = new ArrayList<>();
     static List<Employee> employees = new ArrayList<>();
-    static FloorPlan floorPlan = new FloorPlan(new TreeMap());
+    static FloorPlan floorPlan = new FloorPlan();
     
     static {
         floorPlan.addTable(new Table(1, 4), 1, 1);
