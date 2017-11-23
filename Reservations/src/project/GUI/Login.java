@@ -14,7 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import static project.DataStructures.DataLists.isValidEmployee;
+import project.DataStructures.DataLists;
 
 public class Login {
 
@@ -25,7 +25,6 @@ public class Login {
 	protected String PhoneNum;
 	/**
 	 * Launch the application.
-         * 
 	 */
         public static void main(String[] args)
         {
@@ -99,7 +98,7 @@ public class Login {
 				rdbtnEmployee.setSelected(false);
                                 passwordField.setEchoChar((char)0);
                                 //lblPhone= new JLabel("Phone:");
-
+                                //passwordField.setEchoChar((char)0);
                                 lblPhone.setText("Phone:");
 			}
 		});
@@ -145,7 +144,9 @@ public class Login {
 				}
 				//String username= textName.getText();
 				//String password= passwordField.getText();
-				
+                                
+                                   // JOptionPane.showMessageDialog(null,"User name is empty! Please enter your name.","More info", JOptionPane.PLAIN_MESSAGE);
+                                
 			}
 		});
 		btnLogin.setBounds(174, 256, 89, 23);
@@ -193,8 +194,8 @@ public class Login {
 
         //conver text fields to strings
         String nameString = name.getText();
-        String passString = password.getText();//probably a bad thing to do
-        if (isValidEmployee(nameString,passString)) {//DataLists.isValidEmployee(nameString, passString)) {
+        String passString = password.getText();
+        if (DataLists.isValidEmployee(nameString, passString)) {
             //close current window
             frame.dispose();
             //go to next window
