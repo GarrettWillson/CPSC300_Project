@@ -180,13 +180,24 @@ public class CustomerGUI {
 		});
 		btnSubmit.setBounds(220, 350, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
+                
+                JComboBox JTable= new JComboBox();
+                JTable.setModel(new DefaultComboBoxModel(new String[]
+                {"","Table 1","Table 2","Table 3",
+                "Table 4","Table 5","Table 6"}));
+                JTable.setBounds(605,203,80,20);
+                frmCustomer.getContentPane().add(JTable);
 		
 		JComboBox JDuration = new JComboBox();
 		JDuration.setModel(new DefaultComboBoxModel(new String[] 
                 {"","1 hour", "2 hours", "3 hours", "4 hours", "5 hours",
                     "6 hours", "7 hours", "8 hours"}));
-		JDuration.setBounds(412, 203, 124, 20);
+		JDuration.setBounds(412, 203, 80, 20);
 		frmCustomer.getContentPane().add(JDuration);
+                
+                JLabel lblTable= new JLabel("Choose Table:");
+                lblTable.setBounds(500, 206, 1000, 14);
+                frmCustomer.getContentPane().add(lblTable);
 		
 		JLabel lblDuration = new JLabel("Duration:");
 		lblDuration.setBounds(338, 206, 1000, 14);
