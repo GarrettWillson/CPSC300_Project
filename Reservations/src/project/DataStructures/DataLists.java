@@ -9,7 +9,6 @@ package project.DataStructures;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TreeMap;
 import project.Users.Employee;
 
 /**
@@ -103,6 +102,14 @@ public abstract class DataLists {
     
     public static void deleteEmployee(Employee e) {
         employees.remove(e);
+    }
+    
+    public static List<Reservation> getReservations() {
+        return reservations;
+    }
+    
+    public static List<Employee> getEmployees() {
+        return employees;
     }
     
     public static void setFloorplan(FloorPlan fp) {
