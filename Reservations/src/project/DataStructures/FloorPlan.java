@@ -8,20 +8,21 @@ package project.DataStructures;
 
 import java.util.Map;
 import java.util.TreeMap;
+import org.apache.commons.lang3.tuple.*;
 
 /**
  *
  * @author fontai1
  */
 public class FloorPlan {
-    Map<ComparablePair<Integer, Integer>, Table> floorplan = new TreeMap<>();
+    Map<Pair<Integer, Integer>, Table> floorplan = new TreeMap<>();
     
     public FloorPlan() {
         
     }
     
     public Table getTable(int tableNumber) {
-        for(ComparablePair<Integer, Integer> p : floorplan.keySet()) {
+        for(Pair<Integer, Integer> p : floorplan.keySet()) {
             Table t = floorplan.get(p);
             if(t.getTableNumber() == tableNumber) {
                 return t;
@@ -30,12 +31,12 @@ public class FloorPlan {
         return null;
     }
     
-    public void addTable(Table table, int x, int y) {
-        floorplan.put(new ComparablePair<>(x, y), table);
+    public void addTable(Table table, Integer x, Integer y) {
+        floorplan.put(new ImmutablePair<>(x, y), table);
     }
     
     public void deleteTable(Table table) {
-        for(ComparablePair<Integer, Integer> p : floorplan.keySet()) {
+        for(Pair<Integer, Integer> p : floorplan.keySet()) {
             if(floorplan.get(p).equals(table)) {
                 floorplan.remove(p, table);
             }
@@ -43,7 +44,7 @@ public class FloorPlan {
     }
     
     public void deleteTable(int x, int y) {
-        for(ComparablePair<Integer, Integer> p : floorplan.keySet()) {
+        for(Pair<Integer, Integer> p : floorplan.keySet()) {
             if(p.getKey() == x && p.getValue() == y) {
                 floorplan.remove(p);
                 return;
@@ -55,11 +56,11 @@ public class FloorPlan {
         floorplan.clear();
     }
     
-    public void setFloorPlan(Map<ComparablePair<Integer, Integer>, Table> plan) {
+    public void setFloorPlan(Map<Pair<Integer, Integer>, Table> plan) {
         floorplan = plan;
     }
     
-    public Map<ComparablePair<Integer, Integer>, Table> getFloorPlan() {
+    public Map<Pair<Integer, Integer>, Table> getFloorPlan() {
         return floorplan;
     }
 }
