@@ -2,7 +2,6 @@ package project.GUI;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -134,11 +133,18 @@ public class Login {
 				if(rdbtnCustomer.isSelected()) {
 					setUserName(textName.getText());
 					setPhoneNum(passwordField.getText());
+                                        //String str=textName.getText();
+                                        String str2= passwordField.getText();
+                                        if(str2.matches("[0-9]{10}")&&(!textName.getText().trim().equals(""))){
 					CustomerGUI.main(null);
 					CustomerGUI cg= new CustomerGUI();
 					cg.setUserName(getUserName());
 					cg.setPhoneNum(getPhoneNum());
 					frame.dispose();
+                                        }else{
+                                            JOptionPane.showMessageDialog(null,"User name or Phone number is not valid! Please enter again.","error", JOptionPane.PLAIN_MESSAGE);
+                                        }
+                                        
 				}else {
 					loginWindowLoginButton(passwordField, textName);
 				}
