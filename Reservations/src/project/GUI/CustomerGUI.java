@@ -54,6 +54,7 @@ public class CustomerGUI {
         private JComboBox ampm;
         private JComboBox times;
         private JComboBox numPeople;
+	private JComboBox comboBoxTime;
 	
 	/**
 	 * Launch the application.
@@ -301,30 +302,11 @@ public class CustomerGUI {
 		});
 		btnChangeUser.setBounds(70, 350, 130, 23);
 		frmCustomer.getContentPane().add(btnChangeUser);
-		JComboBox comboBoxTime = new JComboBox();
+		comboBoxTime = new JComboBox();
 		comboBoxTime.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		comboBoxTime.setBounds(412, 157, 89, 20);
 		frmCustomer.getContentPane().add(comboBoxTime);
-		/**
-		JRadioButton rdbtnAm = new JRadioButton("AM");
-		rdbtnAm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				
-			}
-		});
-		rdbtnAm.setBounds(507, 141, 46, 23);
-		frmCustomer.getContentPane().add(rdbtnAm);
 		
-		JRadioButton rdbtnPm = new JRadioButton("PM");
-		rdbtnPm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		rdbtnPm.setBounds(507, 160, 46, 23);
-		frmCustomer.getContentPane().add(rdbtnPm);
-                */
 	}
 
 	public void setUserName(String userName2) {
@@ -341,6 +323,13 @@ public class CustomerGUI {
         public void customerGUICheckButton()
         {//check if given reservation slot is available
             //cgeckReservation();
+		if(DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()), Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), 
+        			Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
+        	{
+        		JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
+        	}else {
+        		JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE);
+        	}
         }
 //         public static void addReservation(String name, String number,int custResNum,
         //Date date, int startTime, int duration, int tableNumber, String request) {
