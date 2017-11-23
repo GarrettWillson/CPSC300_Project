@@ -21,6 +21,15 @@ public abstract class DataLists {
     static List<Employee> employees = new ArrayList<>();
     static FloorPlan floorPlan = new FloorPlan(new HashMap());
     
+    static {
+        floorPlan.addTable(new Table(1, 4), 1, 1);
+        floorPlan.addTable(new Table(2, 4), 2, 1);
+        floorPlan.addTable(new Table(3, 4), 3, 1);
+        floorPlan.addTable(new Table(4, 4), 1, 2);
+        floorPlan.addTable(new Table(5, 4), 2, 2);
+        floorPlan.addTable(new Table(6, 4), 3, 2);
+    }
+    
     static{
         reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11-1, 20), 17, 3, new Table(1, 2), ""));
         reservations.add(new Reservation("Bill", "250-420-6969", 0, new Date(2017-1900, 11-1, 20), 14, 2, new Table(2, 2), ""));
