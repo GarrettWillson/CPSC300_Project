@@ -123,7 +123,7 @@ public class FileIO {
     
     public static void deleteReservation(String restaurant, String customerName, String phoneNumber, String custResNum) {
     	String pathName = Paths.get("").toAbsolutePath().toString();
-    	String fileName = pathName + "/" + restaurant + "/reservation" + customerName + phoneNumber + "/" + customerName + phoneNumber + custResNum;
+    	String fileName = pathName + "/" + restaurant + "/reservation/" + customerName + phoneNumber + "/" + customerName + phoneNumber + custResNum + ".txt";
     	File f = new File(fileName);
     	if(f.exists()){
     		f.delete();
@@ -253,22 +253,52 @@ public class FileIO {
     	String pathName = Paths.get("").toAbsolutePath().toString();
     	String filePath = pathName + "/" + restaurant + "/employee/employees.txt";
     	String line;
+        List<String> lst = new ArrayList();
     	File f = new File(filePath);
     	if(f.exists()){	
-    		employeeReader = new FileReader(f);
-    		employeeWriter = new FileWriter(f);
+                try {
+                    employeeReader = new FileReader(f);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                }
     		BufferedReader br= new BufferedReader(employeeReader);
-    		BufferedWriter bw = new BufferedWriter(employeeWriter);
-    		while((line = br.readLine()) != null){
-    			String[] splited = line.split(" ");
-    			if(splited[0].equals(employeeName)){
-    				
-    			}else{
-    				bw.write(line);
-    			}
-    		}
-            br.close();
-    		bw.close();
+                try {
+                    while((line = br.readLine()) != null){
+                        String[] splited = line.split(" ");
+                        if(splited[0].equals(employeeName)){
+                            
+                        }else{
+                            lst.add(line);
+                        }
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    br.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    employeeWriter = new FileWriter(f);
+                } catch (IOException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                BufferedWriter bw = new BufferedWriter(employeeWriter);
+                for(int i = 0; i < lst.size()-1; i++){
+                    try {
+                        bw.write(lst.get(i));
+                        bw.write("\r\n");
+                    } catch (IOException ex) {
+                        Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                try {
+                    bw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
     	}    
     }
 }
