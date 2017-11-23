@@ -12,10 +12,10 @@ import javafx.util.Pair;
  *
  * @author fontai1
  */
-public class ComparablePair<K extends Object,V extends Object> extends Pair<K,V> implements Comparable{
+public class ComparablePair<K extends Comparable ,V extends Comparable> extends Pair<K,V> implements Comparable{
 
     public ComparablePair(K k, V v) {
-        super(k, v);
+        super(k, v);  
     }
 
     @Override
@@ -25,17 +25,13 @@ public class ComparablePair<K extends Object,V extends Object> extends Pair<K,V>
         }
         if(o instanceof ComparablePair) {
             ComparablePair other = (ComparablePair)o;
-            int ret = compare(getKey(), other.getKey());
+            int ret = getKey().compareTo(other.getKey());
             if(ret == 0) {
-                ret = compare(getValue(), other.getValue());
+                ret = getValue().compareTo(other.getValue());
             }
             return ret;
         } else {
             throw new ClassCastException();
         }
-    }
-    
-    private int compare(Object o1, Object o2) {
-        return 0;
     }
 }
