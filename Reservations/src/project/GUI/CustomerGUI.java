@@ -22,7 +22,6 @@ import javax.swing.JTextPane;
 import project.DataStructures.DataLists;
 import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Table;
-import project.FileIO.FileIOInterface;
 import static project.GUI.Login.createLogin;
 
 public class CustomerGUI {
