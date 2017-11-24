@@ -380,10 +380,9 @@ public class CustomerGUI {
 
             }
             else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
-//                    Integer.parseInt(times.getSelectedItem().toString()),
-                    newtime,
-                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")),
-                    Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
+                    Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
+                    Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]),
+                    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1])))
             {
 //                JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE); 
                 return true;
