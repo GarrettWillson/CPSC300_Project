@@ -191,11 +191,10 @@ public class CustomerGUI {
 		btnSubmit.setBounds(220, 350, 89, 23);
 		frmCustomer.getContentPane().add(btnSubmit);
                 
-                    List<Table> tables=DataLists.getTables();
-                    tables.add(0,null);
+                List<Table> tables = DataLists.getTables();
+                tables.add(0,null);
                 JTable= new JComboBox();
-                JTable.setModel(new DefaultComboBoxModel(new Vector<Table>(tables)
-                ));
+                JTable.setModel(new DefaultComboBoxModel(new Vector<>(tables)));
                 JTable.setBounds(605,203,80,20);
                 frmCustomer.getContentPane().add(JTable);
 		
@@ -375,8 +374,8 @@ public class CustomerGUI {
             }
             else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
                     Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
-                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")),
-                    Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
+                    Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]),
+                    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1])))
             {
 //                JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE); 
                 return true;
@@ -390,9 +389,6 @@ public class CustomerGUI {
             
         }  
            
-           
-           
-                    
         public boolean isValidReservation()
         {
             //this should be changed
@@ -400,13 +396,11 @@ public class CustomerGUI {
         }
         public boolean noneLeftBlank()
         {//checks if any of the fields have been left empty
-            if (       JTable.getSelectedItem() !=null
-                    //&& ampm.getSelectedIndex() != 0
+            if (JTable.getSelectedItem() !=null
                     && times.getSelectedIndex() != 0
                     && dateChooser.getDate() != null
                     && numPeople.getSelectedIndex() != 0
-                    && JDuration.getSelectedIndex() != 0
-                   )
+                    && JDuration.getSelectedIndex() != 0)
                 return true; 
             
            return false;

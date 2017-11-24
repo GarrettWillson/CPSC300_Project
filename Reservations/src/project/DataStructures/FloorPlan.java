@@ -31,6 +31,10 @@ public class FloorPlan {
         return null;
     }
     
+    public Table getTable(Pair<Integer, Integer> location) {
+        return floorplan.get(location);
+    }
+    
     public void addTable(Table table, Integer x, Integer y) {
         floorplan.put(new ImmutablePair<>(x, y), table);
     }

@@ -21,7 +21,7 @@ public abstract class DataLists {
     static List<Employee> employees = new ArrayList<>();
     static FloorPlan floorPlan = new FloorPlan();
     
-    static {
+    /*static {
         floorPlan.addTable(new Table(1, 4), 1, 1);
         floorPlan.addTable(new Table(2, 4), 2, 1);
         floorPlan.addTable(new Table(3, 4), 3, 1);
@@ -29,7 +29,7 @@ public abstract class DataLists {
         floorPlan.addTable(new Table(5, 4), 2, 2);
         floorPlan.addTable(new Table(6, 4), 3, 2);
     }
-
+*/
     /*checks for if the information passed either matches that of an
         employee in the database, or the predefined admin account*/
     public static boolean isValidEmployee(String name, String pass) {
