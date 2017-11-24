@@ -325,13 +325,13 @@ public class CustomerGUI {
            //cgeckReservation();
         if(checkSubmitCanRun())
         {
-            JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
-            
-        }
-        else
-        {
             JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE);
         }
+//        else
+//        {
+//            JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
+//            
+//        }
     }
 //         public static void addReservation(String name, String number,int custResNum,
         //Date date, int startTime, int duration, int tableNumber, String request) {
@@ -358,23 +358,41 @@ public class CustomerGUI {
                     txtpnSpecialRequest.getText()));
                     //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
-            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
+//            }
             //put this into manage window as well
             //save to a file
             
         }
         public boolean checkSubmitCanRun()
         {
-           if(noneLeftBlank() && DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()), Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")),
-                Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
-           {
-               return true;
-           }
-           return false;
-                    }
+            if(!noneLeftBlank())
+            {
+                JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+            else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
+                    Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
+                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")),
+                    Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
+            {
+//                JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE); 
+                return true;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+            return false;
+            
+        }  
+           
+           
+           
+                    
         public boolean isValidReservation()
         {
             //this should be changed
