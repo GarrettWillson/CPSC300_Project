@@ -192,6 +192,7 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(btnSubmit);
                 
                     List<Table> tables=DataLists.getTables();
+                    tables.add(0,null);
                 JTable= new JComboBox();
                 JTable.setModel(new DefaultComboBoxModel(new Vector<Table>(tables)
                 ));
@@ -321,15 +322,17 @@ public class CustomerGUI {
      
         public void customerGUICheckButton()
         {//check if given reservation slot is available
-            //cgeckReservation();
-		if(DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()), Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), 
-        			Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
-        	{
-        		JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
-        	}else {
-        		JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE);
-        	}
+           //cgeckReservation();
+        if(checkSubmitCanRun())
+        {
+            JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
+            
         }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 //         public static void addReservation(String name, String number,int custResNum,
         //Date date, int startTime, int duration, int tableNumber, String request) {
 //      
@@ -345,10 +348,9 @@ public class CustomerGUI {
             //checkReservation();
             //check that fields havent been left blank
             
-            int timeNum=1;//these two need to be changed
-            int tableNum=1;
+           
             
-            if(noneLeftBlank())
+             if(checkSubmitCanRun())
             {
                     FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
@@ -364,7 +366,15 @@ public class CustomerGUI {
             //save to a file
             
         }
-        
+        public boolean checkSubmitCanRun()
+        {
+           if(noneLeftBlank() && DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()), Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")),
+                Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
+           {
+               return true;
+           }
+           return false;
+                    }
         public boolean isValidReservation()
         {
             //this should be changed
@@ -372,7 +382,7 @@ public class CustomerGUI {
         }
         public boolean noneLeftBlank()
         {//checks if any of the fields have been left empty
-            if (       JTable.getSelectedIndex() != 0
+            if (       JTable.getSelectedItem() !=null
                     //&& ampm.getSelectedIndex() != 0
                     && times.getSelectedIndex() != 0
                     && dateChooser.getDate() != null

@@ -65,7 +65,7 @@ public class CustomerManage {
 		
 		JLabel lblReservationManagement = new JLabel("Reservation management");
 		lblReservationManagement.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblReservationManagement.setBounds(235, 27, 221, 48);
+		lblReservationManagement.setBounds(235, 27, 300, 48);
 		frame.getContentPane().add(lblReservationManagement);
 		
 		JSeparator separator = new JSeparator();
@@ -127,14 +127,29 @@ public class CustomerManage {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.setBounds(155, 400, 89, 23);
 		frame.getContentPane().add(btnAdd);
+                  btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerManageAddButton();
+			}
+		});
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setBounds(264, 400, 89, 23);
 		frame.getContentPane().add(btnDelete);
+                 btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerManageDeleteButton();
+			}
+		});
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.setBounds(375, 400, 89, 23);
 		frame.getContentPane().add(btnSearch);
+                 btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerManageSearchButton();
+			}
+		});
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(484, 400, 89, 23);
@@ -157,9 +172,13 @@ public class CustomerManage {
         
         public void CustomerManageAddButton()
         {
+             frame.dispose();
+            createCustomerGUI();
+        
         }
         public void CustomerManageDeleteButton()
-        {
+        {//deletes a selected reservation from the users
+            
         }
         public void CustomerManageSearchButton()
         {
