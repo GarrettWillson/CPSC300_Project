@@ -212,12 +212,16 @@ public class Staff {
 
     public void staffClearBut() {
         
-       for (int i = 0; i < myModel.getRowCount(); i++) {
-        for (int j = 0; j < myModel.getColumnCount(); j++) {
-            if(isReservationExipred())
-                myModel.setValueAt("", i, j);
+        for (int i = 0; i < myModel.getRowCount(); i++)
+        {
+            for (int j = 0; j < myModel.getColumnCount(); j++)
+            {
+                if (isReservationExipred())
+                {
+                    myModel.setValueAt("", i, j);
+                }
+            }
         }
-    }
     }
 
     public void staffBackBut() {
