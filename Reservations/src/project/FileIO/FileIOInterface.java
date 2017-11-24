@@ -30,7 +30,7 @@ import project.Users.Employee;
  * @author fontai1
  */
 public class FileIOInterface {
-    static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
     
     public static void saveReservation(String restaurant, Reservation reservation) {  
         try {
