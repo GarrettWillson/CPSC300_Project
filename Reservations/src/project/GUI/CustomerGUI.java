@@ -324,7 +324,7 @@ public class CustomerGUI {
         public void customerGUICheckButton()
         {//check if given reservation slot is available
             //cgeckReservation();
-		if(DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()), Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), 
+		if(DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()), Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), 
         			Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", ""))))
         	{
         		JOptionPane.showMessageDialog(null, "Have a conflicted date or time !", "error", JOptionPane.INFORMATION_MESSAGE);
@@ -352,10 +352,11 @@ public class CustomerGUI {
             
             if(noneLeftBlank())
             {
-             FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
+                    FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
                     Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", "")),
                     txtpnSpecialRequest.getText()));
+                    //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);
             }
             else
             {
