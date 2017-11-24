@@ -78,7 +78,11 @@ public abstract class DataLists {
     }
     
     public static Reservation addReservation(String name, String number, Date date, int startTime, int duration, int tableNumber, String request) {
-        Reservation r = new Reservation(name, number, getNextCustResNum(name, number), date, startTime, duration, floorPlan.getTable(tableNumber), request);
+        return addReservation(name, number, getNextCustResNum(name, number), date, startTime, duration, tableNumber, request);
+    }
+    
+    public static Reservation addReservation(String name, String number, int custResNum, Date date, int startTime, int duration, int tableNumber, String request) {
+        Reservation r = new Reservation(name, number, custResNum, date, startTime, duration, floorPlan.getTable(tableNumber), request);
         reservations.add(r);
         return r;
     }
