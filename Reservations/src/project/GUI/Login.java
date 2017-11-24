@@ -94,6 +94,7 @@ public class Login {
 		JRadioButton rdbtnEmployee = new JRadioButton("Employee");
 		rdbtnCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                                rdbtnCustomer.setSelected(true);
 				rdbtnEmployee.setSelected(false);
                                 passwordField.setEchoChar((char)0);
                                 //lblPhone= new JLabel("Phone:");
@@ -101,13 +102,14 @@ public class Login {
                                 lblPhone.setText("Phone:");
 			}
 		});
-		rdbtnCustomer.setSelected(true);
+                rdbtnCustomer.setSelected(true);
 		rdbtnCustomer.setBounds(488, 134, 109, 23);
 		frame.getContentPane().add(rdbtnCustomer);
 		
 		//JRadioButton rdbtnEmployee = new JRadioButton("Employee");
 		rdbtnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                                rdbtnEmployee.setSelected(true);
 				rdbtnCustomer.setSelected(false);
                                 passwordField.setEchoChar((char)'@');
                                 //passwordField.setVisible(false);
