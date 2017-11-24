@@ -5,10 +5,8 @@
  */
 package project.GUI;
 
-import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -18,7 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import project.DataStructures.DataLists;
 
 public class EmployeeLogin {
 

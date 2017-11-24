@@ -29,14 +29,6 @@ public abstract class DataLists {
         floorPlan.addTable(new Table(5, 4), 2, 2);
         floorPlan.addTable(new Table(6, 4), 3, 2);
     }
-    
-    static{
-        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11-1, 20), 17, 3, new Table(1, 2), ""));
-        reservations.add(new Reservation("Bill", "250-420-6969", 0, new Date(2017-1900, 11-1, 20), 14, 2, new Table(2, 2), ""));
-        reservations.add(new Reservation("Jack", "250-777-7777", 0, new Date(2017-1900, 11-1, 20), 17, 2, new Table(2, 2), ""));
-        reservations.add(new Reservation("Jill", "250-777-7777", 0, new Date(2017-1900, 11-1, 20), 9, 3, new Table(1, 2), ""));
-        reservations.add(new Reservation("Bob", "250-123-4567", 0, new Date(2017-1900, 11-1, 20), 13, 3, new Table(1, 2), ""));
-    }
 
     public static boolean isValidEmployee(String name, String pass) {
         if(name.equals("admin") && pass.equals("password")) {

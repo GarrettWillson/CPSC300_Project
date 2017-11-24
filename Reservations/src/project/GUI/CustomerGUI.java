@@ -14,8 +14,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -354,10 +352,11 @@ public class CustomerGUI {
             
              if(checkSubmitCanRun())
             {
-             FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
+                    FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
                     Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", "")),
                     txtpnSpecialRequest.getText()));
+                    //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);
             }
             else
             {
