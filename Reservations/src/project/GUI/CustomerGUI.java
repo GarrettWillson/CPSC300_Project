@@ -354,7 +354,7 @@ public class CustomerGUI {
             {
                     FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
-                    Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", "")),
+                    Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
                     txtpnSpecialRequest.getText()));
                     //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);
             }
