@@ -30,6 +30,8 @@ import project.Users.Employee;
  * @author fontai1
  */
 public class FileIOInterface {
+    static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+    
     public static void saveReservation(String restaurant, Reservation reservation) {  
         try {
             FileIO.saveReservation(
@@ -37,7 +39,7 @@ public class FileIOInterface {
                     reservation.getCustomerName(),
                     reservation.getCustomerNumber(),
                     String.valueOf(reservation.getCustomerReservationNumber()),
-                    new SimpleDateFormat("dd MMM yyyy").format(reservation.getReservationDate()),
+                    dateFormat.format(reservation.getReservationDate()),
                     String.valueOf(reservation.getStartHour()),
                     String.valueOf(reservation.getLengthOfReservation()),
                     String.valueOf(reservation.getReservedTable().getTableNumber()),
@@ -56,7 +58,7 @@ public class FileIOInterface {
                 DataLists.addReservation(reservationString.get(i++),
                         reservationString.get(i++),
                         Integer.parseInt(reservationString.get(i++)),
-                        new SimpleDateFormat("dd MMM yyyy").parse(reservationString.get(i++)),
+                        dateFormat.parse(reservationString.get(i++)),
                         Integer.parseInt(reservationString.get(i++)),
                         Integer.parseInt(reservationString.get(i++)),
                         Integer.parseInt(reservationString.get(i++)),
@@ -92,20 +94,21 @@ public class FileIOInterface {
     
     public static void saveFloorPlan(String restaurant, FloorPlan floorPlan) {
         List<List<Integer>> list = new ArrayList<>();
-        for(Integer[] i : new Integer[][]{
-            {1, 1, 1, 4},
-            {1, 2, 2, 4},
-            {2, 1, 3, 4},
-            {2, 2, 4, 4}}) {
-            list.add(Arrays.asList(i));
-        };
+        for(Pair<Integer, Integer> location : floorPlan.getFloorPlan().keySet()) {
+            Table t = floorPlan.getTable(location);
+            List<Integer> inner = new ArrayList<>();
+            inner.add(location.getKey());
+            inner.add(location.getValue());
+            inner.add(t.getTableNumber());
+            inner.add(t.getNumberOfSeats());
+            list.add(inner);
+        }
         FileIO.saveFloorPlan(list, restaurant);
     }
     
     public static void loadFloorPlan(String restaurant) {
-        Map<Pair<Integer, Integer>, Table> map = new TreeMap<>(); 
         for(List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
-            map.put(new MutablePair<>(list.get(0), list.get(1)), new Table(list.get(2), list.get(3)));
+            DataLists.getFloorPlan().addTable(new Table(list.get(2), list.get(3)), list.get(0), list.get(1));
         }
     }
 }
