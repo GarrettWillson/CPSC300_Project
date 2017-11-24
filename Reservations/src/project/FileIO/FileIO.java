@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.MutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -242,7 +243,7 @@ public class FileIO {
         try {
             while((line = br.readLine()) != null){
                 String[] splited = line.split(" ");
-                Pair p =  new Pair(splited[0], splited[1]);
+                Pair p =  new MutablePair(splited[0], splited[1]);
                 lst.add(p);
             }
         } catch (IOException ex) {

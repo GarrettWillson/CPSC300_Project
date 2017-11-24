@@ -392,14 +392,5 @@ public class CustomerGUI {
                 return true; 
             
            return false;
-        }
-                
-        
-
-        
-        
-        
-
-	
+        }	
 }
-

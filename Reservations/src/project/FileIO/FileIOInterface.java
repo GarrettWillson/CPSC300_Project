@@ -17,7 +17,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.MutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import project.DataStructures.DataLists;
 import project.DataStructures.FloorPlan;
 import project.DataStructures.Reservation;
@@ -104,7 +105,7 @@ public class FileIOInterface {
     public static void loadFloorPlan(String restaurant) {
         Map<Pair<Integer, Integer>, Table> map = new TreeMap<>(); 
         for(List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
-            map.put(new Pair<>(list.get(0), list.get(1)), new Table(list.get(2), list.get(3)));
+            map.put(new MutablePair<>(list.get(0), list.get(1)), new Table(list.get(2), list.get(3)));
         }
     }
 }

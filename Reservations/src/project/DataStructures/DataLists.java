@@ -30,6 +30,8 @@ public abstract class DataLists {
         floorPlan.addTable(new Table(6, 4), 3, 2);
     }
 
+    /*checks for if the information passed either matches that of an
+        employee in the database, or the predefined admin account*/
     public static boolean isValidEmployee(String name, String pass) {
         if(name.equals("admin") && pass.equals("password")) {
             return true;
@@ -42,6 +44,7 @@ public abstract class DataLists {
         return false;
     }
     
+    /*returns a list of all reservations that exist for a specific table*/
     public static List<Reservation> getReservationsForTable(int tableNum) {
         List<Reservation> res = new ArrayList<>();
         for(Reservation r : reservations) {
@@ -52,6 +55,8 @@ public abstract class DataLists {
         return res;
     }
     
+    /*checks to see if there is an existing reservation for the specified
+        table during the specified time, on the specified date*/
     public static boolean hasTimeConflict(Date date, int startTime, int duration, int tableNumber) {
         for(Reservation r : getReservationsForTable(tableNumber)) {
             if(r.getReservationDate().equals(date)) {
@@ -63,6 +68,7 @@ public abstract class DataLists {
         return false;
     }
     
+    /**/
     public static int getNextCustResNum(String name, String number) {
         List<Integer> used = new ArrayList<>();
         for(Reservation r : reservations) {
