@@ -36,7 +36,7 @@ public class FileIOInterface {
                     reservation.getCustomerName(),
                     reservation.getCustomerNumber(),
                     String.valueOf(reservation.getCustomerReservationNumber()),
-                    reservation.getReservationDate().toString(),
+                    new SimpleDateFormat("dd MMM yyyy").format(reservation.getReservationDate()),
                     String.valueOf(reservation.getStartHour()),
                     String.valueOf(reservation.getLengthOfReservation()),
                     String.valueOf(reservation.getReservedTable().getTableNumber()),
@@ -50,9 +50,11 @@ public class FileIOInterface {
         List<List<String>> reservationsStrings = FileIO.loadReservations(restaurant);
         for(List<String> reservationString : reservationsStrings) {
             try {
-                int i = 0;
+                //skip 0 because that's the restaurant's name
+                int i = 1;
                 DataLists.addReservation(reservationString.get(i++),
                         reservationString.get(i++),
+                        Integer.parseInt(reservationString.get(i++)),
                         new SimpleDateFormat("dd MMM yyyy").parse(reservationString.get(i++)),
                         Integer.parseInt(reservationString.get(i++)),
                         Integer.parseInt(reservationString.get(i++)),

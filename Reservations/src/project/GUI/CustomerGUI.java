@@ -353,7 +353,7 @@ public class CustomerGUI {
              if(checkSubmitCanRun())
             {
                     FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
-                    dateChooser.getDateEditor().getDate(), Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
+                    dateChooser.getDateEditor().getDate(), (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
                     Integer.parseInt(JDuration.getSelectedItem().toString().replace(" hours", "")), Integer.parseInt(JTable.getSelectedItem().toString().replace("Table ", "")),
                     txtpnSpecialRequest.getText()));
                     //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);
