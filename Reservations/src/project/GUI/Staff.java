@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import project.DataStructures.DataLists;
+import project.DataStructures.Reservation;
+import project.FileIO.FileIOInterface;
 import static project.GUI.Login.createLogin;
 
 public class Staff {
@@ -64,50 +69,9 @@ public class Staff {
         frame.getContentPane().add(lblHello);
 
         table = new JTable();
-
+        Object[][] d=new Object[40][8];
         myModel = new DefaultTableModel(
-                new Object[][]{
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},},
+                d,
                 new String[]{
                     "Name", "Phone#", "#of People", "Date", "Time",
                     "Duration", "#of Table", "Special request"
@@ -118,6 +82,20 @@ public class Staff {
                 return false;
             }
         };
+        Vector<String> rowData;
+        List<Reservation> list= DataLists.getReservations();
+        for(int i=0; i<list.size();i++){
+            rowData=new Vector<String>();
+        rowData.add(list.get(i).getCustomerName());
+        rowData.add(list.get(i).getCustomerNumber());
+        rowData.add("4");
+        rowData.add(FileIOInterface.dateFormat.format(list.get(i).getReservationDate()));
+        rowData.add(String.valueOf(list.get(i).getStartHour()));
+        rowData.add(String.valueOf(list.get(i).getLengthOfReservation()));
+        rowData.add(String.valueOf(list.get(i).getReservedTable().getTableNumber()));
+        rowData.add(list.get(i).getSpecialRequest());
+        myModel.insertRow(i,rowData);
+        }
         table.setModel(myModel);
         table.setBounds(60, 139, 778, 475);
         frame.getContentPane().add(table);
