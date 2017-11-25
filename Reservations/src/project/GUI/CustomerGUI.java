@@ -359,13 +359,18 @@ public class CustomerGUI {
         {//submit given reservation info
             //checkReservation();
             //check that fields havent been left blank
+            int newtime=Integer.parseInt(times.getSelectedItem().toString());
+            if(comboBoxTime.getSelectedIndex()==0)
+            {
+                newtime+=12;
+            }
             
            
-            
+            //(comboBoxTime.getSelectedIndex()==1?12:0) + Integer.parseInt(times.getSelectedItem().toString())
              if(checkSubmitCanRun())
             {
                     FileIOInterface.saveReservation("A", addReservation(txtName.getText(),txtPhoneNum.getText(),
-                    dateChooser.getDateEditor().getDate(), (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
+                    dateChooser.getDateEditor().getDate(),newtime ,
                     Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
                     txtpnSpecialRequest.getText()));
                     //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);

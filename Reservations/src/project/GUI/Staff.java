@@ -19,6 +19,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import project.DataStructures.DataLists;
+import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
@@ -234,11 +235,26 @@ public class Staff {
         deleteReservation(table.getSelectedRow());
     }
     public void deleteReservation(int row)
-    {//deletes a row
-        //delete the file for that reservation
+    {//deletes a row fromt able
+        //delete associated item in data structure
+        //delete associated file 
         
         myModel.removeRow(row);
+//        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0),
+//        myModel.getValueAt(row, 1)
+//        myModel.getValueAt(row, 3),myModel.getValueAt(row, 4),
+//        myModel.getValueAt(row, 5),myModel.getValueAt(row, 6),
+//        myModel.getValueAt(row, 7)
+//        );
+        
     }
+//    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
+    //,txtPhoneNum.getText(),
+//                    dateChooser.getDateEditor().getDate(), 
+           // (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
+//                    Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), 
+        //    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
+//                    txtpnSpecialRequest.getText()));
 
     public void staffSearchBut() {
 
