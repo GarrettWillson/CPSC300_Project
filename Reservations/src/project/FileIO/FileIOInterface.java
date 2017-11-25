@@ -111,8 +111,4 @@ public class FileIOInterface {
     public static void deleteEmployee(String DeleteUser) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public static void deleteReservation(String restaurantName, String name, String phoneNum, String numPeople, String date, String startTime, String duration, String tableNum, String specialRequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

@@ -237,13 +237,13 @@ public class Staff {
         //delete associated file 
 
         myModel.removeRow(row);
-        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0).toString(),
-        myModel.getValueAt(row, 1).toString(),myModel.getValueAt(row, 2).toString(),
-        myModel.getValueAt(row, 3).toString(),myModel.getValueAt(row, 4).toString(),
-        myModel.getValueAt(row, 5).toString(),myModel.getValueAt(row, 6).toString(),
-        myModel.getValueAt(row, 7).toString()
-        );
-        
+//        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0).toString(),
+//        myModel.getValueAt(row, 1).toString(),myModel.getValueAt(row, 2).toString(),
+//        myModel.getValueAt(row, 3).toString(),myModel.getValueAt(row, 4).toString(),
+//        myModel.getValueAt(row, 5).toString(),myModel.getValueAt(row, 6).toString(),
+//        myModel.getValueAt(row, 7).toString()
+//        );
+//        
     }
 //    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
     //,txtPhoneNum.getText(),
