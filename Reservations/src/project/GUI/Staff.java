@@ -68,6 +68,8 @@ public class Staff {
         frame.setBounds(100, 100, 912, 701);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        
+         List<Reservation> list= DataLists.getReservations();
 
         JLabel lblHello = new JLabel("Hello");
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -75,7 +77,7 @@ public class Staff {
         frame.getContentPane().add(lblHello);
 
         table = new JTable();
-        Object[][] d=new Object[40][8];
+        Object[][] d=new Object[list.size()][8];
         myModel = new DefaultTableModel(
                 d,
                 new String[]{
@@ -89,7 +91,7 @@ public class Staff {
             }
         };
         Vector<String> rowData;
-        List<Reservation> list= DataLists.getReservations();
+       
         for(int i=0; i<list.size();i++){
             rowData=new Vector<String>();
         rowData.add(list.get(i).getCustomerName());
@@ -188,7 +190,16 @@ public class Staff {
     }
 
     public void staffDelBut() {
-
+        //delete row from table
+        //delete reservation file
+        //myModel.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+        deleteReservation(table.getSelectedRow());
+    }
+    public void deleteReservation(int row)
+    {//deletes a row
+        //delete the file for that reservation
+        
+        myModel.removeRow(row);
     }
 
     public void staffSearchBut() {
@@ -200,13 +211,13 @@ public class Staff {
         //start or end before current time
         for (int i = 0; i < myModel.getRowCount(); i++)
         {
-            for (int j = 0; j < myModel.getColumnCount(); j++)
-            {
+//            for (int j = 0; j < myModel.getColumnCount(); j++)
+//            {
                 if (isReservationExipred())
                 {
-                    myModel.setValueAt("", i, j);
+                    deleteReservation(i);
                 }
-            }
+            //}
         }
     }
 

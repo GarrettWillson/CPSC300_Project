@@ -409,11 +409,11 @@ public class CustomerGUI {
             
         }  
            
-        public boolean isValidReservation()
-        {
-            //this should be changed
-            return true;
-        }
+//        public boolean isValidReservation()
+//        {
+//            //this should be changed
+//            return true;
+//        }
         public boolean noneLeftBlank()
         {//checks if any of the fields have been left empty
             if(JTable.getSelectedItem() !=null
