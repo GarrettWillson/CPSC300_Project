@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -280,20 +281,20 @@ public class Staff {
 
     private boolean isReservationExipred(String date, String startHour, String duration) {
         Date d = null;
-        Date now = new Date(System.nanoTime());
+        Date now = Date.from(Instant.now());
         try {
             d = FileIOInterface.dateFormat.parse(date);
         } catch (ParseException ex) {
             Logger.getLogger(Staff.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        if (now.before(d)) {
+        if (d.after(now)) {
             return false;
         }
-        if (now.getYear() == d.getYear()
-                && now.getMonth() == d.getMonth()
-                && now.getDate() == d.getDate()) {
-            return now.getHours() > Integer.parseInt(startHour) + Integer.parseInt(duration);
+        if (d.getYear() == now.getYear()
+                && d.getMonth() == now.getMonth()
+                && d.getDate() == now.getDate()) {
+            return Integer.parseInt(startHour) + Integer.parseInt(duration) < now.getHours();
         }
         return true;
     }
