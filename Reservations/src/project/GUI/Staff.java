@@ -116,7 +116,7 @@ public class Staff {
         
 
         table = new JTable();
-        Object[][] d=new Object[list.size()][8];
+        Object[][] d=new Object[0][8];
         myModel = new DefaultTableModel(
                 d,
                 new String[]{
