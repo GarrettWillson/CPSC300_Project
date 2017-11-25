@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package project.FileIO;
 
 import java.io.FileNotFoundException;
@@ -11,13 +10,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import project.DataStructures.DataLists;
 import project.DataStructures.FloorPlan;
@@ -30,9 +25,10 @@ import project.Users.Employee;
  * @author fontai1
  */
 public class FileIOInterface {
+
     public static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
-    
-    public static void saveReservation(String restaurant, Reservation reservation) {  
+
+    public static void saveReservation(String restaurant, Reservation reservation) {
         try {
             FileIO.saveReservation(
                     restaurant,
@@ -48,10 +44,10 @@ public class FileIOInterface {
             Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static void loadReservations(String restaurant) {
         List<List<String>> reservationsStrings = FileIO.loadReservations(restaurant);
-        for(List<String> reservationString : reservationsStrings) {
+        for (List<String> reservationString : reservationsStrings) {
             try {
                 //skip 0 because that's the restaurant's name
                 int i = 1;
@@ -68,7 +64,7 @@ public class FileIOInterface {
             }
         }
     }
-    
+
     public static void saveEmployee(String restaurant, Employee employee) {
         try {
             FileIO.saveEmployee(restaurant,
@@ -78,11 +74,11 @@ public class FileIOInterface {
             Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static void loadEmployees(String restaurant) {
         try {
             List<Pair<String, String>> employeeStrings = FileIO.loadEmployees(restaurant);
-            for(Pair<String, String> employeeString : employeeStrings) {
+            for (Pair<String, String> employeeString : employeeStrings) {
                 DataLists.addEmployee(employeeString.getKey(),
                         employeeString.getValue(),
                         restaurant);
@@ -91,10 +87,10 @@ public class FileIOInterface {
             Logger.getLogger(FileIOInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static void saveFloorPlan(String restaurant, FloorPlan floorPlan) {
         List<List<Integer>> list = new ArrayList<>();
-        for(Pair<Integer, Integer> location : floorPlan.getFloorPlan().keySet()) {
+        for (Pair<Integer, Integer> location : floorPlan.getFloorPlan().keySet()) {
             Table t = floorPlan.getTable(location);
             List<Integer> inner = new ArrayList<>();
             inner.add(location.getKey());
@@ -105,10 +101,14 @@ public class FileIOInterface {
         }
         FileIO.saveFloorPlan(list, restaurant);
     }
-    
+
     public static void loadFloorPlan(String restaurant) {
-        for(List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
+        for (List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
             DataLists.getFloorPlan().addTable(new Table(list.get(2), list.get(3)), list.get(0), list.get(1));
         }
+    }
+
+    public static void deleteEmployee(String DeleteUser) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
