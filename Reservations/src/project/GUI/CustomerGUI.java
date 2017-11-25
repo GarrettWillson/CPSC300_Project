@@ -1,3 +1,31 @@
+//
+//Skip to content
+//This repository
+//
+//    Pull requests
+//    Issues
+//    Marketplace
+//    Explore
+//
+//    @GarrettWillson
+//
+//3
+//0
+//
+//    1
+//
+//GarrettWillson/CPSC300_Project
+//Code
+//Issues 0
+//Pull requests 0
+//Projects 1
+//Wiki
+//Insights
+//Settings
+//CPSC300_Project/Reservations/src/project/GUI/CustomerGUI.java
+//1674d96 30 minutes ago
+//fontai1 should now read from floorplan file
+//409 lines (341 sloc) 14.1 KB
 package project.GUI;
 
 import com.toedter.calendar.JDateChooser;
@@ -401,3 +429,18 @@ public class CustomerGUI {
         txtPhoneNum.setEditable(Login.isEmployee);
     }
 }
+
+//    © 2017 GitHub, Inc.
+//    Terms
+//    Privacy
+//    Security
+//    Status
+//    Help
+//
+//    Contact GitHub
+//    API
+//    Training
+//    Shop
+//    Blog
+//    About
+//
