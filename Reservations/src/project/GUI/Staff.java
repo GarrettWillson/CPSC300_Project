@@ -10,6 +10,10 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
@@ -67,6 +71,31 @@ public class Staff {
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblHello.setBounds(60, 11, 78, 47);
         frame.getContentPane().add(lblHello);
+        
+        //menu bar
+        JMenuBar Jmb= new JMenuBar();
+        frame.setJMenuBar(Jmb);
+        
+        JMenu m1= new JMenu("File");
+        Jmb.add(m1);
+        
+        JMenuItem mi1=new JMenuItem("New employee");
+        mi1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
+        JMenuItem mi2=new JMenuItem("delete employee");
+        mi2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+               String DeleteUser= JOptionPane.showInputDialog("enter the user name to be deleted");
+                FileIOInterface.deleteEmployee(DeleteUser);
+            }
+        });
+        mi1.setActionCommand("New employee");
+        m1.add(mi1);
+        m1.add(mi2);
+        
 
         table = new JTable();
         Object[][] d=new Object[40][8];
