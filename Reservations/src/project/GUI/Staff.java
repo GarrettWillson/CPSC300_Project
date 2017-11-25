@@ -114,6 +114,7 @@ public class Staff {
         
 
         table = new JTable();
+        table.getTableHeader().setReorderingAllowed(false);
         Object[][] d=new Object[0][8];
         myModel = new DefaultTableModel(
                 d,
@@ -254,7 +255,8 @@ public class Staff {
         //    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
 //                    txtpnSpecialRequest.getText()));
 
-    public void staffSearchBut() {
+    public void staffSearchBut()
+    {
 
     }
 
