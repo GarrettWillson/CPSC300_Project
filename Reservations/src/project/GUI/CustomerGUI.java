@@ -22,6 +22,8 @@ import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Table;
 import project.FileIO.FileIOInterface;
 import static project.GUI.Login.createLogin;
+import project.GUI.Staff;
+import static project.GUI.Staff.createStaff;
 
 public class CustomerGUI {
  /*
@@ -54,6 +56,7 @@ public class CustomerGUI {
         private JComboBox times;
         private JComboBox numPeople;
 	private JComboBox comboBoxTime;
+        
 	
 	/**
 	 * Launch the application.
@@ -104,7 +107,6 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(separator);
 		
 		txtName = new JTextField();
-		txtName.setEditable(false);
 		txtName.setText(userName);
 		txtName.setBounds(180, 114, 118, 20);
 		frmCustomer.getContentPane().add(txtName);
@@ -121,13 +123,14 @@ public class CustomerGUI {
 		frmCustomer.getContentPane().add(lblPhoneNumber);
 		
 		txtPhoneNum = new JTextField();
-		txtPhoneNum.setEditable(false);
 		txtPhoneNum.setText(phoneNum);
 		txtPhoneNum.setBounds(180, 157, 118, 20);
 		frmCustomer.getContentPane().add(txtPhoneNum);
 		txtPhoneNum.setColumns(10);
 		//txtPhoneNum.setText(cl.getPhoneNum());
 		
+                canChangeUserInfo();
+                
 		//JDateChooser dateChooser= new JDateChooser();
 		
 		JSeparator separator_1 = new JSeparator();
@@ -259,11 +262,21 @@ public class CustomerGUI {
 		
 		
 		
-		JButton btnExit = new JButton("Exit");
-		btnExit.setBackground(Color.RED);
+		JButton btnExit = new JButton("Back");
+		//btnExit.setBackground(Color.RED);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmCustomer.dispose();
+                                if(Login.isEmployee)
+                                {
+                                    frmCustomer.dispose();
+                                    createStaff();
+                                }
+                                else
+                                {
+                                   frmCustomer.dispose(); 
+                                   createLogin();
+                                }
+                                
 			}
 		});
 		btnExit.setBounds(580, 350, 120, 23);
@@ -411,5 +424,10 @@ public class CustomerGUI {
                 return true; 
             
            return false;
-        }	
+        }
+        public void canChangeUserInfo()
+        {//allows user name and phone number to be changed only by employee
+            txtName.setEditable(Login.isEmployee);
+            txtPhoneNum.setEditable(Login.isEmployee);
+        }
 }
