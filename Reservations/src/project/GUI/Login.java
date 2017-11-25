@@ -27,11 +27,6 @@ public class Login {
 	/**
 	 * Launch the application.
 	 */
-        public static void main(String[] args)
-        {
-            createLogin();
-        }
-        
 	public static void createLogin() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -146,7 +141,7 @@ public class Login {
                                         //String str=textName.getText();
                                         String str2= passwordField.getText();
                                         if(str2.matches("[0-9]{10}")&&(!textName.getText().trim().equals(""))){
-					CustomerGUI.main(null);
+					CustomerGUI.createCustomerGUI();
 					CustomerGUI cg= new CustomerGUI();
 					cg.setUserName(getUserName());
 					cg.setPhoneNum(getPhoneNum());
