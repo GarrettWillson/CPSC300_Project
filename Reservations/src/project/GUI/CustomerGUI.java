@@ -297,7 +297,7 @@ public class CustomerGUI {
                 
 		
 		txtpnSpecialRequest = new JTextPane();
-		//txtpnSpecialRequest.setText();
+		txtpnSpecialRequest.setText("SR: ");
 		txtpnSpecialRequest.setBounds(62, 248, 631, 60);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
 		//chang user btn
