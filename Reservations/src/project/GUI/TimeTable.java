@@ -20,8 +20,8 @@ public class TimeTable {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+        public static void createTimeTable() {
+            EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					TimeTable window = new TimeTable();
@@ -31,7 +31,7 @@ public class TimeTable {
 				}
 			}
 		});
-	}
+        }
 
 	/**
 	 * Create the application.

@@ -26,11 +26,6 @@ public class EmployeeLogin {
     /**
      * Launch the application.
      */
-    public static void main(String[] args)
-    {
-        createEmployeeLogin();
-    }
-    
     public static void createEmployeeLogin() {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -167,7 +162,7 @@ public class EmployeeLogin {
             //Staff info = new Staff();
             //info.main(null);
 
-            Staff.main(null);
+            Staff.createStaff();
 
         } else {
             JOptionPane.showMessageDialog(null, "Invalid name or password", "Login Error", JOptionPane.ERROR_MESSAGE);

@@ -34,8 +34,8 @@ public class CustomerManage {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+        public static void createCustomerManage() {
+            EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					CustomerManage window = new CustomerManage();
@@ -45,7 +45,7 @@ public class CustomerManage {
 				}
 			}
 		});
-	}
+        }
 
 	/**
 	 * Create the application.
