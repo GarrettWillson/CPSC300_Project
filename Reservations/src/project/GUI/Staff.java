@@ -119,7 +119,7 @@ public class Staff {
                 }else{
                     for(int i=0; i<res.size();i++){
                         info=info+"\r\n"+ "user name: "+res.get(i).getUserName()+
-                                "password: "+ res.get(i).getPassword();
+                                " password: "+ res.get(i).getPassword();
                     }
                     JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
                 }
