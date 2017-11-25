@@ -35,8 +35,8 @@ public class StaffAddReservation {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+        public static void createStaffAddReservation() {
+            EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					StaffAddReservation window = new StaffAddReservation();
@@ -46,7 +46,7 @@ public class StaffAddReservation {
 				}
 			}
 		});
-	}
+        }
 
 	/**
 	 * Create the application.

@@ -21,11 +21,6 @@ public class LoginWindow {
 	/**
 	 * Launch the application.
 	 */
-        public static void main(String[] args)
-        {
-            createLoginWindow();
-        }
-        
 	public static void createLoginWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -91,7 +86,7 @@ public class LoginWindow {
 				setUserName(txtName.getText());
 				setPhoneNum(txtPhoneNum.getText());
 				
-				CustomerGUI.main(null);
+				CustomerGUI.createCustomerGUI();
 				CustomerGUI cg= new CustomerGUI();
 				cg.setUserName(getUserName());
 				cg.setPhoneNum(getPhoneNum());
@@ -132,7 +127,7 @@ public class LoginWindow {
 		btnAdminLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAdminLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				EmployeeLogin.main(null);
+				EmployeeLogin.createEmployeeLogin();
 				frame.dispose();
 			}
 		});

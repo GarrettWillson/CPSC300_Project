@@ -5,8 +5,12 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -38,11 +42,6 @@ public class Staff {
     /**
      * Launch the application. add a button to modify a reservation
      */
-    public static void main(String[] args)
-    {
-        createStaff();
-    }
-   
     public static void createStaff(){
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -75,8 +74,6 @@ public class Staff {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
-         List<Reservation> list= DataLists.getReservations();
-
         JLabel lblHello = new JLabel("Hello");
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblHello.setBounds(60, 11, 78, 47);
@@ -116,7 +113,7 @@ public class Staff {
         
 
         table = new JTable();
-        Object[][] d=new Object[list.size()][8];
+        Object[][] d=new Object[0][8];
         myModel = new DefaultTableModel(
                 d,
                 new String[]{
@@ -130,7 +127,7 @@ public class Staff {
             }
         };
         Vector<String> rowData;
-       
+        List<Reservation> list= DataLists.getReservations();
         for(int i=0; i<list.size();i++){
             rowData=new Vector<String>();
         rowData.add(list.get(i).getCustomerName());
@@ -263,15 +260,16 @@ public class Staff {
     public void staffClearBut() {
         //clears the reservatopms 
         //start or end before current time
-        for (int i = 0; i < myModel.getRowCount(); i++)
+        for (int i = 0; i < myModel.getRowCount();)
         {
-//            for (int j = 0; j < myModel.getColumnCount(); j++)
-//            {
-                if (isReservationExipred())
-                {
-                    deleteReservation(i);
-                }
-            //}
+            if (isReservationExipred(myModel.getValueAt(i, 3).toString(),
+                    myModel.getValueAt(i, 4).toString(),
+                    myModel.getValueAt(i, 5).toString()))
+            {
+                deleteReservation(i);
+            } else {
+                i++;
+            }
         }
     }
 
@@ -282,8 +280,23 @@ public class Staff {
         //clear expired should remove from table as well as call methods to delete\
     //files themselves
 
-    private boolean isReservationExipred() {
-        //check if current time 
-           return true;
+    private boolean isReservationExipred(String date, String startHour, String duration) {
+        Date d = null;
+        Date now = new Date(System.nanoTime());
+        try {
+            d = FileIOInterface.dateFormat.parse(date);
+        } catch (ParseException ex) {
+            Logger.getLogger(Staff.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        if(now.before(d)) {
+            return false;
+        }
+        if(now.getYear() == d.getYear()
+                && now.getMonth() == d.getMonth()
+                && now.getDate() == d.getDate()) {
+            return now.getHours() > Integer.parseInt(startHour) + Integer.parseInt(duration);
+        }
+        return true;
     }
 }

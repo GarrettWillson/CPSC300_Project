@@ -1,7 +1,6 @@
 package project.GUI;
 
 import com.toedter.calendar.JDateChooser;
-import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -22,7 +21,6 @@ import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Table;
 import project.FileIO.FileIOInterface;
 import static project.GUI.Login.createLogin;
-import project.GUI.Staff;
 import static project.GUI.Staff.createStaff;
 
 public class CustomerGUI {
@@ -61,12 +59,6 @@ public class CustomerGUI {
 	/**
 	 * Launch the application.
 	 */
-	
-	public static void main(String[] args)
-        {
-            createCustomerGUI();
-        }
-	
 	public static void createCustomerGUI() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -238,7 +230,7 @@ public class CustomerGUI {
 		JButton btnTimeTable = new JButton("Time Table");
 		btnTimeTable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TimeTable.main(null);
+				TimeTable.createTimeTable();
 				
 				
 				//here will show the available information about tables
@@ -288,7 +280,7 @@ public class CustomerGUI {
 				
 				
 				// at this moment, the system should search the file from exist file and gives the information.
-				CustomerManage.main(null);
+				CustomerManage.createCustomerManage();
 				CustomerManage cm=new CustomerManage();
 				cm.setUserName(userName);
 				cm.setPhoneNum(phoneNum);
