@@ -79,8 +79,6 @@ public class Staff {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
-         List<Reservation> list= DataLists.getReservations();
-
         JLabel lblHello = new JLabel("Hello");
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblHello.setBounds(60, 11, 78, 47);
@@ -120,7 +118,7 @@ public class Staff {
         
 
         table = new JTable();
-        Object[][] d=new Object[list.size()][8];
+        Object[][] d=new Object[0][8];
         myModel = new DefaultTableModel(
                 d,
                 new String[]{
@@ -134,7 +132,7 @@ public class Staff {
             }
         };
         Vector<String> rowData;
-       
+        List<Reservation> list= DataLists.getReservations();
         for(int i=0; i<list.size();i++){
             rowData=new Vector<String>();
         rowData.add(list.get(i).getCustomerName());
@@ -267,16 +265,16 @@ public class Staff {
     public void staffClearBut() {
         //clears the reservatopms 
         //start or end before current time
-        for (int i = 0; i < myModel.getRowCount(); i++)
+        for (int i = 0; i < myModel.getRowCount();)
         {
             if (isReservationExipred(myModel.getValueAt(i, 3).toString(),
                     myModel.getValueAt(i, 4).toString(),
                     myModel.getValueAt(i, 5).toString()))
             {
-                for(int j = 0; j < myModel.getColumnCount(); j++) {
-                    myModel.setValueAt("", i, j);
-                }
-            //}
+                deleteReservation(i);
+            } else {
+                i++;
+            }
         }
     }
 
