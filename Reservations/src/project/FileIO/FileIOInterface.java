@@ -108,7 +108,14 @@ public class FileIOInterface {
         }
     }
 
-    public static void deleteEmployee(String DeleteUser) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static boolean deleteEmployee(String name) {
+        for(Employee e : DataLists.getEmployees()) {
+            if(e.getUserName().equals(name)) {
+                DataLists.deleteEmployee(e);
+                FileIO.deleteEmployee(name, e.getPassword());
+                return true;
+            }
+        }
+        return false;
     }
 }
