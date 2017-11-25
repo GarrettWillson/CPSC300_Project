@@ -23,6 +23,7 @@ import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
+import project.Users.Employee;
 
 public class Staff {
 
@@ -88,13 +89,21 @@ public class Staff {
         JMenuItem mi1=new JMenuItem("New employee");
         mi1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                
+                String addEmployee= JOptionPane.showInputDialog("Enter the user name:");
+                String addEPassword= JOptionPane.showInputDialog("Enter the password:");
+                if(addEmployee.isEmpty()||addEPassword.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Wrong enter! Please enter again.");
+                }else{
+                    
+                Employee newE=new Employee(addEmployee,addEPassword,"A");
+                FileIOInterface.saveEmployee("A",newE);
+                }
             }
         });
         JMenuItem mi2=new JMenuItem("delete employee");
         mi2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-               String DeleteUser= JOptionPane.showInputDialog("enter the user name to be deleted");
+               String DeleteUser= JOptionPane.showInputDialog("enter the user name to be deleted:");
                 FileIOInterface.deleteEmployee(DeleteUser);
             }
         });
