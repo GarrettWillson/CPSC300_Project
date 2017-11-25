@@ -97,37 +97,37 @@ public class CustomerManage {
         txtPhoneNum.setColumns(10);
 
         table = new JTable();
+		
+                table.setEnabled(true);
+                DefaultTableModel model = new DefaultTableModel(
+			new Object[][] {				
+			},
+			new String[] {
+				"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"
+			}
+                        
+		){@Override
+                public boolean isCellEditable(int row, int column){return false;}};
+                
+                table.setModel(model);
+                
+		table.getColumnModel().getColumn(0).setPreferredWidth(80);
+		table.getColumnModel().getColumn(1).setPreferredWidth(110);
+		table.getColumnModel().getColumn(3).setPreferredWidth(88);
+		table.getColumnModel().getColumn(5).setPreferredWidth(90);
+		table.getColumnModel().getColumn(6).setPreferredWidth(193);
+		table.setBounds(76, 202, 714, 160);
+		frame.getContentPane().add(table);
+                
+                JScrollPane j1;
+                j1 = new JScrollPane();
 
-        table.setEnabled(true);
-        table.setModel(new DefaultTableModel(
-                new Object[][]{
-                    {"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null},},
-                new String[]{
-                    "Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"
-                }
-        ) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        });
-        table.getColumnModel().getColumn(0).setPreferredWidth(80);
-        table.getColumnModel().getColumn(1).setPreferredWidth(110);
-        table.getColumnModel().getColumn(3).setPreferredWidth(88);
-        table.getColumnModel().getColumn(5).setPreferredWidth(90);
-        table.getColumnModel().getColumn(6).setPreferredWidth(193);
-        table.setBounds(76, 202, 714, 160);
-        frame.getContentPane().add(table);
-
+                j1.setBounds(76, 202, 734, 180);
+                j1.getViewport().add(table, null);
+                frame.getContentPane().add(j1);
+                
+                
+		
         JButton btnAdd = new JButton("Add");
         btnAdd.setBounds(155, 400, 89, 23);
         frame.getContentPane().add(btnAdd);
