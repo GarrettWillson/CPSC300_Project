@@ -118,4 +118,8 @@ public class FileIOInterface {
         }
         return false;
     }
+
+    public static void deleteReservation(String restaurantName, String name, String phoneNum,  String date, String startTime, String duration, String tableNum, String specialRequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
