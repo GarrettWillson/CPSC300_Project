@@ -109,9 +109,30 @@ public class Staff {
                 FileIOInterface.deleteEmployee(DeleteUser);
             }
         });
+        JMenuItem mi3 = new JMenuItem("diplay all employee");
+        mi3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                List<Employee> res = DataLists.getEmployees();
+                String info= "";
+                if(res.size()==0){
+                   info= "no other employee yet.";
+                   
+                }else{
+                    for(int i=0; i<res.size();i++){
+                        info=info+"\r\n"+ "user name: "+res.get(i).getUserName()+
+                                "  password: "+ res.get(i).getPassword();
+                    }
+                    JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
+                }
+                
+            }
+        });
         mi1.setActionCommand("New employee");
+        mi2.setActionCommand("delete employee");
+        mi3.setActionCommand("diplay all employee");
         m1.add(mi1);
         m1.add(mi2);
+        m1.add(mi3);
 
         table = new JTable();
         Object[][] d = new Object[0][8];

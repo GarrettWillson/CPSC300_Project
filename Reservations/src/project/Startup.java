@@ -23,6 +23,7 @@ public class Startup {
         FileIOInterface.loadFloorPlan(restaurantName);
         FileIOInterface.loadEmployees(restaurantName);
         FileIOInterface.loadReservations(restaurantName);
+        
         createLogin();
         // TODO code application logic here
         // LoginWindow.makeNewWindow();
