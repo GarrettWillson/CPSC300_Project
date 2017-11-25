@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package project.Users;
 
 /**
  *
  * @author fontai1
  */
-public class Employee extends User{
+public class Employee extends User {
+
     String password;
     String restaurantName;
-  
+
     public Employee(String name, String secret, String restaurant) {
         super(name);
         password = secret;
@@ -27,11 +27,11 @@ public class Employee extends User{
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName;
     }
-    
+
     public boolean isCorrectPassword(String other) {
         return password.equals(other);
     }
-    
+
     public String getPassword() {
         return password;
     }

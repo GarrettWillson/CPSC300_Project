@@ -12,6 +12,7 @@ import java.util.Date;
  * @author fontai1
  */
 public class Reservation {
+
     Date reservationDate;
     String customerName;
     String customerNumber;
@@ -20,7 +21,7 @@ public class Reservation {
     int lengthOfReservation;
     Table reservedTable;
     String specialRequest;
-    
+
     public Reservation(String name, String number, int custResNum, Date date, int startTime, int length, Table table, String request) {
         reservationDate = date;
         customerName = name;
@@ -35,7 +36,7 @@ public class Reservation {
     Reservation(String name, String number) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public Date getReservationDate() {
         return reservationDate;
     }
@@ -59,11 +60,11 @@ public class Reservation {
     public void setCustomerNumber(String customerNumber) {
         this.customerNumber = customerNumber;
     }
-    
+
     public int getCustomerReservationNumber() {
         return customerReservationNumber;
     }
-    
+
     public void setCustomerReservationNumber(int custResNum) {
         customerReservationNumber = custResNum;
     }

@@ -10,12 +10,13 @@ package project.Users;
  * @author fontai1
  */
 abstract public class User {
+
     String userName;
-   
+
     public User(String name) {
         userName = name;
     }
-    
+
     public String getUserName() {
         return userName;
     }
