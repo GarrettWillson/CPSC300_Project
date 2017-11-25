@@ -107,4 +107,8 @@ public class FileIOInterface {
             DataLists.getFloorPlan().addTable(new Table(list.get(2), list.get(3)), list.get(0), list.get(1));
         }
     }
+
+    public static void deleteEmployee(String DeleteUser) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
