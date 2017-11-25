@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -163,6 +164,7 @@ public class CustomerGUI {
         frmCustomer.getContentPane().add(lblTime);
 
         dateChooser = new JDateChooser();
+       //dateChooser.setMinSelectableDate(Calendar.DAY_OF_MONTH);
         dateChooser.getDateEditor().setEnabled(false);
         dateChooser.setBounds(412, 114, 124, 20);
         frmCustomer.getContentPane().add(dateChooser);
