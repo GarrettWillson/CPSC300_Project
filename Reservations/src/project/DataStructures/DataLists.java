@@ -55,6 +55,27 @@ public abstract class DataLists {
         return res;
     }
     
+    /*returns a list of all reservations that exist for a specific customer*/
+    public static List<Reservation> getReservationsForCustomer(String name, String number) {
+        List<Reservation> res = new ArrayList<>();
+        for(Reservation r : reservations) {
+            if(r.getCustomerName().equals(name) && r.getCustomerNumber().equals(number)) {
+                res.add(r);
+            }
+        }
+        return res;
+    }
+    
+    public static List<Reservation> getReservationsForDate(Date date) {
+        List<Reservation> res = new ArrayList<>();
+        for(Reservation r : reservations) {
+            if(r.getReservationDate().equals(date)) {
+                res.add(r);
+            }
+        }
+        return res;
+    }
+    
     /*checks to see if there is an existing reservation for the specified
         table during the specified time, on the specified date*/
     public static boolean hasTimeConflict(Date date, int startTime, int duration, int tableNumber) {
