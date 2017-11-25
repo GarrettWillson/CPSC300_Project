@@ -14,15 +14,21 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import project.DataStructures.DataLists;
+import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
+import project.Users.Employee;
 
 public class Staff {
 
@@ -72,14 +78,49 @@ public class Staff {
         frame.setBounds(100, 100, 912, 701);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        
+         List<Reservation> list= DataLists.getReservations();
 
         JLabel lblHello = new JLabel("Hello");
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblHello.setBounds(60, 11, 78, 47);
         frame.getContentPane().add(lblHello);
+        
+        //menu bar
+        JMenuBar Jmb= new JMenuBar();
+        frame.setJMenuBar(Jmb);
+        
+        JMenu m1= new JMenu("File");
+        Jmb.add(m1);
+        
+        JMenuItem mi1=new JMenuItem("New employee");
+        mi1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String addEmployee= JOptionPane.showInputDialog("Enter the user name:");
+                String addEPassword= JOptionPane.showInputDialog("Enter the password:");
+                if(addEmployee.isEmpty()||addEPassword.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Wrong enter! Please enter again.");
+                }else{
+                    
+                Employee newE=new Employee(addEmployee,addEPassword,"A");
+                FileIOInterface.saveEmployee("A",newE);
+                }
+            }
+        });
+        JMenuItem mi2=new JMenuItem("delete employee");
+        mi2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+               String DeleteUser= JOptionPane.showInputDialog("enter the user name to be deleted:");
+                FileIOInterface.deleteEmployee(DeleteUser);
+            }
+        });
+        mi1.setActionCommand("New employee");
+        m1.add(mi1);
+        m1.add(mi2);
+        
 
         table = new JTable();
-        Object[][] d=new Object[40][8];
+        Object[][] d=new Object[list.size()][8];
         myModel = new DefaultTableModel(
                 d,
                 new String[]{
@@ -93,7 +134,7 @@ public class Staff {
             }
         };
         Vector<String> rowData;
-        List<Reservation> list= DataLists.getReservations();
+       
         for(int i=0; i<list.size();i++){
             rowData=new Vector<String>();
         rowData.add(list.get(i).getCustomerName());
@@ -192,8 +233,32 @@ public class Staff {
     }
 
     public void staffDelBut() {
-
+        //delete row from table
+        //delete reservation file
+        //myModel.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+        deleteReservation(table.getSelectedRow());
     }
+    public void deleteReservation(int row)
+    {//deletes a row fromt able
+        //delete associated item in data structure
+        //delete associated file 
+        
+        myModel.removeRow(row);
+//        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0),
+//        myModel.getValueAt(row, 1)
+//        myModel.getValueAt(row, 3),myModel.getValueAt(row, 4),
+//        myModel.getValueAt(row, 5),myModel.getValueAt(row, 6),
+//        myModel.getValueAt(row, 7)
+//        );
+        
+    }
+//    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
+    //,txtPhoneNum.getText(),
+//                    dateChooser.getDateEditor().getDate(), 
+           // (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
+//                    Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), 
+        //    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
+//                    txtpnSpecialRequest.getText()));
 
     public void staffSearchBut() {
 
@@ -211,7 +276,7 @@ public class Staff {
                 for(int j = 0; j < myModel.getColumnCount(); j++) {
                     myModel.setValueAt("", i, j);
                 }
-            }
+            //}
         }
     }
 
