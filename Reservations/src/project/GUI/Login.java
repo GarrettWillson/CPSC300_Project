@@ -218,7 +218,7 @@ public class Login {
             //Staff info = new Staff();
             //info.main(null);
 
-            Staff.main(null);
+            Staff.createStaff();
 
         } else {
             JOptionPane.showMessageDialog(null, "Invalid name or password", "Login Error", JOptionPane.ERROR_MESSAGE);

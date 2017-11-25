@@ -38,6 +38,7 @@ public class Staff {
     private static String password;
     private JTable table;
     private DefaultTableModel myModel;
+    private JDateChooser dateChooser;
 
     /**
      * Launch the application. add a button to modify a reservation
@@ -156,7 +157,7 @@ public class Staff {
         j1.getViewport().add(table, null);
         frame.getContentPane().add(j1);
 
-        JDateChooser dateChooser = new JDateChooser();
+        dateChooser = new JDateChooser();
         dateChooser.getDateEditor().setEnabled(false);
         dateChooser.setBounds(120, 83, 124, 23);
         frame.getContentPane().add(dateChooser);
@@ -242,12 +243,12 @@ public class Staff {
         //delete associated file 
         
         myModel.removeRow(row);
-//        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0),
-//        myModel.getValueAt(row, 1)
-//        myModel.getValueAt(row, 3),myModel.getValueAt(row, 4),
-//        myModel.getValueAt(row, 5),myModel.getValueAt(row, 6),
-//        myModel.getValueAt(row, 7)
-//        );
+        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0).toString(),
+        myModel.getValueAt(row, 1).toString(),myModel.getValueAt(row, 2).toString(),
+        myModel.getValueAt(row, 3).toString(),myModel.getValueAt(row, 4).toString(),
+        myModel.getValueAt(row, 5).toString(),myModel.getValueAt(row, 6).toString(),
+        myModel.getValueAt(row, 7).toString()
+        );
         
     }
 //    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
