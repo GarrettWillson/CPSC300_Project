@@ -85,7 +85,6 @@ public class CustomerGUI {
     private JComboBox ampm;
     private JComboBox times;
     private JComboBox numPeople;
-    private JComboBox comboBoxTime;
 
     /**
      * Launch the application.
@@ -324,11 +323,6 @@ public class CustomerGUI {
         });
         btnChangeUser.setBounds(70, 350, 130, 23);
         frmCustomer.getContentPane().add(btnChangeUser);
-        comboBoxTime = new JComboBox();
-        comboBoxTime.setModel(new DefaultComboBoxModel(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-        comboBoxTime.setBounds(412, 157, 89, 20);
-        frmCustomer.getContentPane().add(comboBoxTime);
-
     }
 
     public void setUserName(String userName2) {
@@ -367,7 +361,7 @@ public class CustomerGUI {
         //checkReservation();
         //check that fields havent been left blank
         int newtime = Integer.parseInt(times.getSelectedItem().toString());
-        if (comboBoxTime.getSelectedIndex() == 0) {
+        if (ampm.getSelectedIndex() == 1) {
             newtime += 12;
         }
 
@@ -400,7 +394,7 @@ public class CustomerGUI {
             JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
 
         } else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
-                (comboBoxTime.getSelectedItem().equals("pm") ? 12 : 0) + Integer.parseInt(times.getSelectedItem().toString()),
+                (ampm.getSelectedItem().equals("pm") ? 12 : 0) + Integer.parseInt(times.getSelectedItem().toString()),
                 Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]),
                 Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]))) {
 //                JOptionPane.showMessageDialog(null, "Is available!", "Ahhh", JOptionPane.INFORMATION_MESSAGE); 
