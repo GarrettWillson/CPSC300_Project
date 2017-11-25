@@ -367,12 +367,12 @@ public class CustomerGUI {
         }
         public boolean checkSubmitCanRun()
         {
-            int newtime=Integer.parseInt(times.getSelectedItem().toString());
-            if(ampm.getSelectedIndex()!=0)
-            {
-             newtime+=12;   
-            }
-               
+//            int newtime=Integer.parseInt(times.getSelectedItem().toString());
+//            if(ampm.getSelectedIndex()!=0)
+//            {
+//             newtime+=12;   
+//            }
+//               
             
             if(!noneLeftBlank())
             {
@@ -380,7 +380,7 @@ public class CustomerGUI {
 
             }
             else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
-                    Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
+                    (comboBoxTime.getSelectedItem().equals("pm")?12:0)+ Integer.parseInt(times.getSelectedItem().toString()),
                     Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]),
                     Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1])))
             {
