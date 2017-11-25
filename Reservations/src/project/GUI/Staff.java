@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import project.DataStructures.DataLists;
 import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
+import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
 
 public class Staff {
@@ -35,7 +36,12 @@ public class Staff {
     /**
      * Launch the application. add a button to modify a reservation
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        createStaff();
+    }
+   
+    public static void createStaff(){
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -206,7 +212,8 @@ public class Staff {
     }
 
     public void staffAddBut() {
-
+         frame.dispose();
+         createCustomerGUI();
     }
 
     public void staffDelBut() {
@@ -218,7 +225,8 @@ public class Staff {
     }
 
     public void staffClearBut() {
-        
+        //clears the reservatopms 
+        //start or end before current time
         for (int i = 0; i < myModel.getRowCount(); i++)
         {
             for (int j = 0; j < myModel.getColumnCount(); j++)

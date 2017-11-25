@@ -15,6 +15,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import project.DataStructures.DataLists;
 
+
 public class Login {
 
 	private JFrame frame;
@@ -22,6 +23,7 @@ public class Login {
 	private JPasswordField passwordField;
 	protected String userName;
 	protected String PhoneNum;
+        public static boolean isEmployee;
 	/**
 	 * Launch the application.
 	 */
@@ -54,6 +56,7 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+                isEmployee=false;
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 240));
 		frame.setBackground(Color.GRAY);
@@ -94,8 +97,10 @@ public class Login {
 		JRadioButton rdbtnEmployee = new JRadioButton("Employee");
 		rdbtnCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                                isEmployee=false;
                                 rdbtnCustomer.setSelected(true);
 				rdbtnEmployee.setSelected(false);
+                                passwordField.setText(null);
                                 passwordField.setEchoChar((char)0);
                                 //lblPhone= new JLabel("Phone:");
                                 //passwordField.setEchoChar((char)0);
@@ -109,9 +114,12 @@ public class Login {
 		//JRadioButton rdbtnEmployee = new JRadioButton("Employee");
 		rdbtnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                                isEmployee=true;
                                 rdbtnEmployee.setSelected(true);
 				rdbtnCustomer.setSelected(false);
-                                passwordField.setEchoChar((char)'@');
+                                 passwordField.setText(null);
+
+                                passwordField.setEchoChar((char)'*');
                                 //passwordField.setVisible(false);
 				//lblPhone = new JLabel("Password:");
                                 /**
