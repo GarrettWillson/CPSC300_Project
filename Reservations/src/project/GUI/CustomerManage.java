@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -123,6 +124,11 @@ public class CustomerManage {
 		table.getColumnModel().getColumn(6).setPreferredWidth(193);
 		table.setBounds(76, 202, 714, 160);
 		frame.getContentPane().add(table);
+                
+                JScrollPane j1= new JScrollPane();
+                j1.setBounds(76, 202, 734, 180);
+                j1.getViewport().add(table,null);
+                frame.getContentPane().add(j1);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.setBounds(155, 400, 89, 23);
