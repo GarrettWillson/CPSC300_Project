@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import project.FileIO.FileIOInterface;
 import project.Users.Employee;
 
 /**
@@ -83,7 +84,7 @@ public abstract class DataLists {
      table during the specified time, on the specified date*/
     public static boolean hasTimeConflict(Date date, int startTime, int duration, int tableNumber) {
         for (Reservation r : getReservationsForTable(tableNumber)) {
-            if (r.getReservationDate().equals(date)) {
+            if (FileIOInterface.dateFormat.format(r.getReservationDate()).equals(FileIOInterface.dateFormat.format(date))) {
                 if (r.getStartHour() < startTime + duration && startTime < r.getStartHour() + r.getLengthOfReservation()) {
                     return true;
                 }
