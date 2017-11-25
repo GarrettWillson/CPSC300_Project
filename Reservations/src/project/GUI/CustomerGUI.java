@@ -367,13 +367,20 @@ public class CustomerGUI {
         }
         public boolean checkSubmitCanRun()
         {
+//            int newtime=Integer.parseInt(times.getSelectedItem().toString());
+//            if(ampm.getSelectedIndex()!=0)
+//            {
+//             newtime+=12;   
+//            }
+//               
+            
             if(!noneLeftBlank())
             {
                 JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
 
             }
             else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
-                    Integer.parseInt(comboBoxTime.getSelectedItem().toString()),
+                    (comboBoxTime.getSelectedItem().equals("pm")?12:0)+ Integer.parseInt(times.getSelectedItem().toString()),
                     Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]),
                     Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1])))
             {
@@ -396,7 +403,7 @@ public class CustomerGUI {
         }
         public boolean noneLeftBlank()
         {//checks if any of the fields have been left empty
-            if (JTable.getSelectedItem() !=null
+            if(JTable.getSelectedItem() !=null
                     && times.getSelectedIndex() != 0
                     && dateChooser.getDate() != null
                     && numPeople.getSelectedIndex() != 0

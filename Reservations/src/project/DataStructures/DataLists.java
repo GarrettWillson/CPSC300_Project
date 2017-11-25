@@ -28,8 +28,8 @@ public abstract class DataLists {
         floorPlan.addTable(new Table(4, 4), 1, 2);
         floorPlan.addTable(new Table(5, 4), 2, 2);
         floorPlan.addTable(new Table(6, 4), 3, 2);
-    }
-*/
+    }*/
+
     /*checks for if the information passed either matches that of an
         employee in the database, or the predefined admin account*/
     public static boolean isValidEmployee(String name, String pass) {
