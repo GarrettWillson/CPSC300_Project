@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +14,9 @@ import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import project.DataStructures.DataLists;
+import project.DataStructures.Reservation;
+import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 
 public class CustomerManage {
@@ -97,35 +102,38 @@ public class CustomerManage {
         txtPhoneNum.setColumns(10);
 
         table = new JTable();
-		
-                table.setEnabled(true);
+		Object[][] d = new Object[0][7];
                 DefaultTableModel model = new DefaultTableModel(
-			new Object[][] {				
-			},
+			d,
 			new String[] {
 				"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"
 			}
                         
 		){@Override
                 public boolean isCellEditable(int row, int column){return false;}};
+                              
+        Vector<String> vc = new Vector();
+        List<Reservation> lst = DataLists.getReservationsForCustomer(userName, phoneNum);
+        for(int i=0; i < lst.size(); i++){
+            vc.add(lst.get(i).getCustomerName());
+            vc.add("4");
+            vc.add(FileIOInterface.dateFormat.format(lst.get(i).getReservationDate()));
+            vc.add(String.valueOf(lst.get(i).getStartHour()));
+            vc.add(String.valueOf(lst.get(i).getLengthOfReservation()));
+            vc.add(String.valueOf(lst.get(i).getReservedTable()));
+            vc.add(lst.get(i).getSpecialRequest());
+            model.insertRow(0, vc);        
+        }
+        table.setModel(model);
+	table.setBounds(76, 202, 714, 160);
+	frame.getContentPane().add(table);
                 
-                table.setModel(model);
-                
-		table.getColumnModel().getColumn(0).setPreferredWidth(80);
-		table.getColumnModel().getColumn(1).setPreferredWidth(110);
-		table.getColumnModel().getColumn(3).setPreferredWidth(88);
-		table.getColumnModel().getColumn(5).setPreferredWidth(90);
-		table.getColumnModel().getColumn(6).setPreferredWidth(193);
-		table.setBounds(76, 202, 714, 160);
-		frame.getContentPane().add(table);
-                
-                JScrollPane j1;
-                j1 = new JScrollPane();
+        JScrollPane j1;
+        j1 = new JScrollPane();
 
-                j1.setBounds(76, 202, 734, 180);
-                j1.getViewport().add(table, null);
-                frame.getContentPane().add(j1);
-                
+        j1.setBounds(76, 202, 734, 180);
+        j1.getViewport().add(table, null);
+        frame.getContentPane().add(j1);
                 
 		
         JButton btnAdd = new JButton("Add");
