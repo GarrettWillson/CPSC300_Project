@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package project.GUI;
 
 /**
@@ -32,28 +31,28 @@ public class StaffAddReservation {
         private JComboBox JDuration;
         private JComboBox JTable;
 
-	/**
-	 * Launch the application.
-	 */
-        public static void createStaffAddReservation() {
-            EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StaffAddReservation window = new StaffAddReservation();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-        }
+    /**
+     * Launch the application.
+     */
+    public static void createStaffAddReservation() {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    StaffAddReservation window = new StaffAddReservation();
+                    window.frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
-	/**
-	 * Create the application.
-	 */
-	public StaffAddReservation() {
-		initialize();
-	}
+    /**
+     * Create the application.
+     */
+    public StaffAddReservation() {
+        initialize();
+    }
 
 	/**
 	 * Initialize the contents of the frame.

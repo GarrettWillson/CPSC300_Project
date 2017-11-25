@@ -187,7 +187,6 @@ public class EmployeeLogin {
         if (selectedOption == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
-        
 
 //        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 //            System.exit(0); // here may change to "frame.dispose();" to avoid close all windows.

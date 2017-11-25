@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package project.GUI;
 
 /**
@@ -11,19 +10,20 @@ package project.GUI;
  * @author fontai1
  */
 public class FloorPlanWindow {
+
     public void createFloorPlan() {
-        
+
     }
-    
+
     public void viewFloorPlan() {
-        
+
     }
-    
+
     public void clearFloorPlan() {
-        
+
     }
-    
+
     public void resetFloorPlan() {
-        
+
     }
 }

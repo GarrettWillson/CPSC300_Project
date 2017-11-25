@@ -7,12 +7,14 @@ package project.DataStructures;
 
 /**
  * user
+ *
  * @author fontai1
  */
-public class Table implements Comparable{
+public class Table implements Comparable {
+
     int tableNumber;
     int numberOfSeats;
-    
+
     public Table(int number, int seats) {
         tableNumber = number;
         numberOfSeats = seats;
@@ -33,7 +35,7 @@ public class Table implements Comparable{
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
-    
+
     @Override
     public String toString() {
         return "Table " + tableNumber;
@@ -41,12 +43,12 @@ public class Table implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        if(o == null) {
+        if (o == null) {
             throw new NullPointerException();
         }
-        if(o instanceof Table) {
-           Table t = (Table)o;
-           return tableNumber - t.tableNumber;
+        if (o instanceof Table) {
+            Table t = (Table) o;
+            return tableNumber - t.tableNumber;
         } else {
             throw new ClassCastException();
         }

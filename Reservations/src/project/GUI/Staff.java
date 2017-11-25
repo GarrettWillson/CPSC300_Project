@@ -43,7 +43,7 @@ public class Staff {
     /**
      * Launch the application. add a button to modify a reservation
      */
-    public static void createStaff(){
+    public static void createStaff() {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -74,48 +74,46 @@ public class Staff {
         frame.setBounds(100, 100, 912, 701);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
-        
+
         JLabel lblHello = new JLabel("Hello");
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblHello.setBounds(60, 11, 78, 47);
         frame.getContentPane().add(lblHello);
-        
+
         //menu bar
-        JMenuBar Jmb= new JMenuBar();
+        JMenuBar Jmb = new JMenuBar();
         frame.setJMenuBar(Jmb);
-        
-        JMenu m1= new JMenu("File");
+
+        JMenu m1 = new JMenu("File");
         Jmb.add(m1);
-        
-        JMenuItem mi1=new JMenuItem("New employee");
-        mi1.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                String addEmployee= JOptionPane.showInputDialog("Enter the user name:");
-                String addEPassword= JOptionPane.showInputDialog("Enter the password:");
-                if(addEmployee.isEmpty()||addEPassword.isEmpty()){
-                JOptionPane.showMessageDialog(null, "Wrong enter! Please enter again.");
-                }else{
-                    
-                Employee newE=new Employee(addEmployee,addEPassword,"A");
-                FileIOInterface.saveEmployee("A",newE);
+
+        JMenuItem mi1 = new JMenuItem("New employee");
+        mi1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String addEmployee = JOptionPane.showInputDialog("Enter the user name:");
+                String addEPassword = JOptionPane.showInputDialog("Enter the password:");
+                if (addEmployee.isEmpty() || addEPassword.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Wrong enter! Please enter again.");
+                } else {
+
+                    Employee newE = new Employee(addEmployee, addEPassword, "A");
+                    FileIOInterface.saveEmployee("A", newE);
                 }
             }
         });
-        JMenuItem mi2=new JMenuItem("delete employee");
-        mi2.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-               String DeleteUser= JOptionPane.showInputDialog("enter the user name to be deleted:");
+        JMenuItem mi2 = new JMenuItem("delete employee");
+        mi2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
                 FileIOInterface.deleteEmployee(DeleteUser);
             }
         });
         mi1.setActionCommand("New employee");
         m1.add(mi1);
         m1.add(mi2);
-        
 
         table = new JTable();
-        table.getTableHeader().setReorderingAllowed(false);
-        Object[][] d=new Object[0][8];
+        Object[][] d = new Object[0][8];
         myModel = new DefaultTableModel(
                 d,
                 new String[]{
@@ -129,18 +127,18 @@ public class Staff {
             }
         };
         Vector<String> rowData;
-        List<Reservation> list= DataLists.getReservations();
-        for(int i=0; i<list.size();i++){
-            rowData=new Vector<String>();
-        rowData.add(list.get(i).getCustomerName());
-        rowData.add(list.get(i).getCustomerNumber());
-        rowData.add("4");
-        rowData.add(FileIOInterface.dateFormat.format(list.get(i).getReservationDate()));
-        rowData.add(String.valueOf(list.get(i).getStartHour()));
-        rowData.add(String.valueOf(list.get(i).getLengthOfReservation()));
-        rowData.add(String.valueOf(list.get(i).getReservedTable().getTableNumber()));
-        rowData.add(list.get(i).getSpecialRequest());
-        myModel.insertRow(i,rowData);
+        List<Reservation> list = DataLists.getReservations();
+        for (int i = 0; i < list.size(); i++) {
+            rowData = new Vector<String>();
+            rowData.add(list.get(i).getCustomerName());
+            rowData.add(list.get(i).getCustomerNumber());
+            rowData.add("4");
+            rowData.add(FileIOInterface.dateFormat.format(list.get(i).getReservationDate()));
+            rowData.add(String.valueOf(list.get(i).getStartHour()));
+            rowData.add(String.valueOf(list.get(i).getLengthOfReservation()));
+            rowData.add(String.valueOf(list.get(i).getReservedTable().getTableNumber()));
+            rowData.add(list.get(i).getSpecialRequest());
+            myModel.insertRow(i, rowData);
         }
         table.setModel(myModel);
         table.setBounds(60, 139, 778, 475);
@@ -223,8 +221,8 @@ public class Staff {
     }
 
     public void staffAddBut() {
-         frame.dispose();
-         createCustomerGUI();
+        frame.dispose();
+        createCustomerGUI();
     }
 
     public void staffDelBut() {
@@ -233,11 +231,11 @@ public class Staff {
         //myModel.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
         deleteReservation(table.getSelectedRow());
     }
-    public void deleteReservation(int row)
-    {//deletes a row fromt able
+
+    public void deleteReservation(int row) {//deletes a row fromt able
         //delete associated item in data structure
         //delete associated file 
-        
+
         myModel.removeRow(row);
         FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0).toString(),
         myModel.getValueAt(row, 1).toString(),myModel.getValueAt(row, 2).toString(),
@@ -250,25 +248,22 @@ public class Staff {
 //    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
     //,txtPhoneNum.getText(),
 //                    dateChooser.getDateEditor().getDate(), 
-           // (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
+    // (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),
 //                    Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), 
-        //    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
+    //    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
 //                    txtpnSpecialRequest.getText()));
 
-    public void staffSearchBut()
-    {
+    public void staffSearchBut() {
 
     }
 
     public void staffClearBut() {
         //clears the reservatopms 
         //start or end before current time
-        for (int i = 0; i < myModel.getRowCount();)
-        {
+        for (int i = 0; i < myModel.getRowCount();) {
             if (isReservationExipred(myModel.getValueAt(i, 3).toString(),
                     myModel.getValueAt(i, 4).toString(),
-                    myModel.getValueAt(i, 5).toString()))
-            {
+                    myModel.getValueAt(i, 5).toString())) {
                 deleteReservation(i);
             } else {
                 i++;
@@ -280,7 +275,7 @@ public class Staff {
         this.frame.dispose();
         createLogin();
     }
-        //clear expired should remove from table as well as call methods to delete\
+    //clear expired should remove from table as well as call methods to delete\
     //files themselves
 
     private boolean isReservationExipred(String date, String startHour, String duration) {
@@ -292,10 +287,10 @@ public class Staff {
             Logger.getLogger(Staff.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        if(now.before(d)) {
+        if (now.before(d)) {
             return false;
         }
-        if(now.getYear() == d.getYear()
+        if (now.getYear() == d.getYear()
                 && now.getMonth() == d.getMonth()
                 && now.getDate() == d.getDate()) {
             return now.getHours() > Integer.parseInt(startHour) + Integer.parseInt(duration);
