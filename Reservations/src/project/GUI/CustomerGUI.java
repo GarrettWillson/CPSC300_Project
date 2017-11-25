@@ -297,10 +297,16 @@ public class CustomerGUI {
 		});
 		btnNewButton.setBounds(445, 350, 120, 23);
 		frmCustomer.getContentPane().add(btnNewButton);
+                
+                JLabel lblSpecialRequest= new JLabel("Special requese:");
+                lblSpecialRequest.setBounds(52, 228, 130, 20);
+                
+                frmCustomer.getContentPane().add(lblSpecialRequest);
+                
 		
 		txtpnSpecialRequest = new JTextPane();
-		txtpnSpecialRequest.setText("Special request: ");
-		txtpnSpecialRequest.setBounds(62, 234, 631, 76);
+		//txtpnSpecialRequest.setText();
+		txtpnSpecialRequest.setBounds(62, 248, 631, 60);
 		frmCustomer.getContentPane().add(txtpnSpecialRequest);
 		//chang user btn
 		JButton btnChangeUser = new JButton("Change user");
