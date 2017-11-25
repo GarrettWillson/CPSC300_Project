@@ -5,8 +5,12 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -200,10 +204,11 @@ public class Staff {
         //start or end before current time
         for (int i = 0; i < myModel.getRowCount(); i++)
         {
-            for (int j = 0; j < myModel.getColumnCount(); j++)
+            if (isReservationExipred(myModel.getValueAt(i, 3).toString(),
+                    myModel.getValueAt(i, 4).toString(),
+                    myModel.getValueAt(i, 5).toString()))
             {
-                if (isReservationExipred())
-                {
+                for(int j = 0; j < myModel.getColumnCount(); j++) {
                     myModel.setValueAt("", i, j);
                 }
             }
@@ -217,8 +222,23 @@ public class Staff {
         //clear expired should remove from table as well as call methods to delete\
     //files themselves
 
-    private boolean isReservationExipred() {
-        //check if current time 
-           return true;
+    private boolean isReservationExipred(String date, String startHour, String duration) {
+        Date d = null;
+        Date now = new Date(System.nanoTime());
+        try {
+            d = FileIOInterface.dateFormat.parse(date);
+        } catch (ParseException ex) {
+            Logger.getLogger(Staff.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        if(now.before(d)) {
+            return false;
+        }
+        if(now.getYear() == d.getYear()
+                && now.getMonth() == d.getMonth()
+                && now.getDate() == d.getDate()) {
+            return now.getHours() > Integer.parseInt(startHour) + Integer.parseInt(duration);
+        }
+        return true;
     }
 }
