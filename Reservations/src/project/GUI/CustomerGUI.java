@@ -1,3 +1,31 @@
+//
+//Skip to content
+//This repository
+//
+//    Pull requests
+//    Issues
+//    Marketplace
+//    Explore
+//
+//    @GarrettWillson
+//
+//3
+//0
+//
+//    1
+//
+//GarrettWillson/CPSC300_Project
+//Code
+//Issues 0
+//Pull requests 0
+//Projects 1
+//Wiki
+//Insights
+//Settings
+//CPSC300_Project/Reservations/src/project/GUI/CustomerGUI.java
+//1674d96 30 minutes ago
+//fontai1 should now read from floorplan file
+//409 lines (341 sloc) 14.1 KB
 package project.GUI;
 
 import com.toedter.calendar.JDateChooser;
@@ -367,13 +395,6 @@ public class CustomerGUI {
         }
         public boolean checkSubmitCanRun()
         {
-            int newtime=Integer.parseInt(times.getSelectedItem().toString());
-            if(ampm.getSelectedIndex()!=0)
-            {
-             newtime+=12;   
-            }
-               
-            
             if(!noneLeftBlank())
             {
                 JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
@@ -403,7 +424,7 @@ public class CustomerGUI {
         }
         public boolean noneLeftBlank()
         {//checks if any of the fields have been left empty
-            if(JTable.getSelectedItem() !=null
+            if (JTable.getSelectedItem() !=null
                     && times.getSelectedIndex() != 0
                     && dateChooser.getDate() != null
                     && numPeople.getSelectedIndex() != 0
@@ -413,3 +434,18 @@ public class CustomerGUI {
            return false;
         }	
 }
+
+//    © 2017 GitHub, Inc.
+//    Terms
+//    Privacy
+//    Security
+//    Status
+//    Help
+//
+//    Contact GitHub
+//    API
+//    Training
+//    Shop
+//    Blog
+//    About
+//
