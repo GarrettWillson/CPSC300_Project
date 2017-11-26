@@ -23,6 +23,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import project.DataStructures.DataLists;
 import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Reservation;
@@ -40,6 +42,7 @@ public class Staff {
     private JTable table;
     private DefaultTableModel myModel;
     private JDateChooser dateChooser;
+    TableRowSorter<TableModel> sorter;
 
     /**
      * Launch the application. add a button to modify a reservation
@@ -80,6 +83,8 @@ public class Staff {
         lblHello.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblHello.setBounds(60, 11, 78, 47);
         frame.getContentPane().add(lblHello);
+        
+        
 
         //menu bar
         JMenuBar Jmb = new JMenuBar();
@@ -142,7 +147,7 @@ public class Staff {
                 d,
                 new String[]{
                     "Name", "Phone#", "#of People", "Date", "Time",
-                    "Duration", "#of Table", "Special request"
+                    "Duration", "Table #", "Special request"
                 }
         ) {
             @Override
@@ -167,6 +172,10 @@ public class Staff {
         table.setModel(myModel);
         table.setBounds(60, 139, 778, 475);
         frame.getContentPane().add(table);
+        
+        table.setAutoCreateColumnsFromModel(false);
+        sorter = new TableRowSorter<TableModel>(myModel);
+        table.setRowSorter(sorter);
 
         JScrollPane j1;
         j1 = new JScrollPane();
@@ -179,6 +188,8 @@ public class Staff {
         dateChooser.getDateEditor().setEnabled(false);
         dateChooser.setBounds(120, 83, 124, 23);
         frame.getContentPane().add(dateChooser);
+
+        table.getTableHeader().setReorderingAllowed(false);
 
         JLabel lblDate = new JLabel("Date:");
         lblDate.setBounds(70, 83, 46, 23);
@@ -202,14 +213,14 @@ public class Staff {
         btnDelete.setBounds(359, 83, 89, 23);
         frame.getContentPane().add(btnDelete);
 
-        JButton btnSearch = new JButton("Search");
-        btnSearch.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                staffSearchBut();
-            }
-        });
-        btnSearch.setBounds(458, 83, 89, 23);
-        frame.getContentPane().add(btnSearch);
+//        JButton btnSearch = new JButton("Sort");
+//        btnSearch.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent arg0) {
+//                staffSortBut();
+//            }
+//        });
+//        btnSearch.setBounds(458, 83, 89, 23);
+//        frame.getContentPane().add(btnSearch);
 
         JSeparator separator = new JSeparator();
         separator.setBounds(10, 56, 876, 2);
@@ -274,7 +285,12 @@ public class Staff {
     //    Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
 //                    txtpnSpecialRequest.getText()));
 
-    public void staffSearchBut() {
+    public void staffSortBut()
+    {
+        //ask user how they want to sort
+        //sort columns by date
+       // myModel.set
+        
 
     }
 
