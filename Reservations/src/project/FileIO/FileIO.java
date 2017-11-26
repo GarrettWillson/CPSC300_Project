@@ -120,10 +120,16 @@ public class FileIO {
 
     public static void deleteReservation(String restaurant, String customerName, String phoneNumber, String custResNum) {
         String pathName = Paths.get("").toAbsolutePath().toString();
-        String fileName = pathName + "/" + restaurant + "/reservation/" + customerName + phoneNumber + "/" + customerName + phoneNumber + custResNum + ".txt";
+        String directoryPath = pathName + "/" + restaurant + "/reservation/" + customerName + phoneNumber;
+        String fileName = directoryPath + "/" + customerName + phoneNumber + custResNum + ".txt";
+        File directory = new File(directoryPath);
         File f = new File(fileName);
         if (f.exists()) {
             f.delete();
+        }
+        
+        if(directory.listFiles().length == 0) {
+            directory.delete();
         }
     }
 

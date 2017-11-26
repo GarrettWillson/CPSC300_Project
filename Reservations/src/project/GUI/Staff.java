@@ -270,14 +270,12 @@ public class Staff {
     public void deleteReservation(int row) {//deletes a row fromt able
         //delete associated item in data structure
         //delete associated file 
-        myModel.removeRow(row);
-        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0).toString(),
-        myModel.getValueAt(row, 1).toString(),
-        myModel.getValueAt(row, 3).toString(),myModel.getValueAt(row, 4).toString(),
-        myModel.getValueAt(row, 5).toString(),myModel.getValueAt(row, 6).toString(),
-        myModel.getValueAt(row, 7).toString()
+        FileIOInterface.deleteReservation("A", myModel.getValueAt(row, 0).toString(),
+        myModel.getValueAt(row, 1).toString(), myModel.getValueAt(row, 3).toString(),
+        myModel.getValueAt(row, 4).toString(),
+        myModel.getValueAt(row, 6).toString()
         );
-        
+        myModel.removeRow(row); 
     }
 //    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
     //,txtPhoneNum.getText(),
@@ -300,7 +298,7 @@ public class Staff {
         //clears the reservatopms 
         //start or end before current time
         for (int i = 0; i < myModel.getRowCount();) {
-            if (isReservationExipred(myModel.getValueAt(i, 3).toString(),
+            if (isReservationExpired(myModel.getValueAt(i, 3).toString(),
                     myModel.getValueAt(i, 4).toString(),
                     myModel.getValueAt(i, 5).toString())) {
                 deleteReservation(i);
@@ -317,7 +315,7 @@ public class Staff {
     //clear expired should remove from table as well as call methods to delete\
     //files themselves
 
-    private boolean isReservationExipred(String date, String startHour, String duration) {
+    private boolean isReservationExpired(String date, String startHour, String duration) {
         Date d = null;
         Date now = Date.from(Instant.now());
         try {
