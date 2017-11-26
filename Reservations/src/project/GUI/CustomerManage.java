@@ -64,6 +64,7 @@ public class CustomerManage {
     /**
      * Initialize the contents of the frame.
      */
+    
     private void initialize() {
         frame = new JFrame();
         frame.setBounds(100, 100, 847, 665);
@@ -154,14 +155,14 @@ public class CustomerManage {
             }
         });
 
-        JButton btnSearch = new JButton("Search");
-        btnSearch.setBounds(375, 400, 89, 23);
-        frame.getContentPane().add(btnSearch);
-        btnSearch.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                CustomerManageSearchButton();
-            }
-        });
+//        JButton btnSearch = new JButton("Search");
+//        btnSearch.setBounds(375, 400, 89, 23);
+//        frame.getContentPane().add(btnSearch);
+//        btnSearch.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                CustomerManageSearchButton();
+//            }
+//        });
 
         JButton btnBack = new JButton("Back");
         btnBack.setBounds(484, 400, 89, 23);
@@ -191,11 +192,14 @@ public class CustomerManage {
 
     public void CustomerManageDeleteButton() {//deletes a selected reservation from the users
 
+        //myModel.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+        //deleteReservation(table.getSelectedRow());
+    
     }
 
-    public void CustomerManageSearchButton() {
-
-    }
+//    public void CustomerManageSearchButton() {
+//
+//    }
 
     public void CustomerManageBackButton() {
         frame.dispose();
