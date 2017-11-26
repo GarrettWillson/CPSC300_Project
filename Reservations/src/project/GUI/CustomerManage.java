@@ -37,6 +37,7 @@ public class CustomerManage {
     private static String userName;
     private static String phoneNum;
     private JTable table;
+    private DefaultTableModel model;
 
     /**
      * Launch the application.
@@ -104,7 +105,7 @@ public class CustomerManage {
 
         table = new JTable();
 		Object[][] d = new Object[0][7];
-                DefaultTableModel model = new DefaultTableModel(
+                model = new DefaultTableModel(
 			d,
 			new String[] {
 				"Name", "# of people", "Date", "Time", "Duration", "Table #", "special request"
@@ -192,15 +193,24 @@ public class CustomerManage {
 
     public void CustomerManageDeleteButton() {//deletes a selected reservation from the users
 
-        //myModel.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+        //table.getModel().getValueAt(table.getSelectedRow(), table.getSelectedColumn());
         //deleteReservation(table.getSelectedRow());
-    
+        deleteReservation(table.getSelectedRow());
     }
 
 //    public void CustomerManageSearchButton() {
 //
 //    }
-
+    public void deleteReservation(int row) {//deletes a row fromt able
+        //delete associated item in data structure
+        //delete associated file 
+        FileIOInterface.deleteReservation("A", table.getModel().getValueAt(row, 0).toString(),
+        table.getModel().getValueAt(row, 1).toString(), table.getModel().getValueAt(row, 3).toString(),
+        table.getModel().getValueAt(row, 4).toString(),
+        table.getModel().getValueAt(row, 6).toString()
+        );
+        model.removeRow(row);
+    }
     public void CustomerManageBackButton() {
         frame.dispose();
         createCustomerGUI();
