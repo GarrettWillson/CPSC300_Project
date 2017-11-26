@@ -119,9 +119,16 @@ public class FileIOInterface {
         return false;
     }
 
-    public static void deleteReservation(String restaurantName, String name, String phoneNum,  String date, String startTime, String duration, String tableNum, String specialRequest) {
-        for(Reservation r : DataLists.getReservations()) {
-            
+    public static boolean deleteReservation(String restaurantName, String name, String phoneNum,  String date, String startTime, String tableNum) {
+        for(Reservation r : DataLists.getReservationsForCustomer(name, phoneNum)) {
+            if(dateFormat.format(r.getReservationDate()).equals(date)
+                    && r.getStartHour() == Integer.parseInt(startTime)
+                    && r.getReservedTable().getTableNumber() == Integer.parseInt(tableNum)) {
+                DataLists.deleteReservation(r);
+                FileIO.deleteReservation(restaurantName, name, phoneNum, String.valueOf(r.getCustomerReservationNumber()));
+                return true;
+            }
         }
+        return false;
     }
 }
