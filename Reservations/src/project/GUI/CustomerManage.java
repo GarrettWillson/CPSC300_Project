@@ -106,7 +106,7 @@ public class CustomerManage {
                 DefaultTableModel model = new DefaultTableModel(
 			d,
 			new String[] {
-				"Name", "# of people", "Date", "Time", "Duration", "# of table", "special request"
+				"Name", "# of people", "Date", "Time", "Duration", "Table #", "special request"
 			}
                         
 		){@Override
