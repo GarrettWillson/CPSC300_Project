@@ -103,7 +103,7 @@ public class Staff {
                     if(DataLists.userNameTaken(addEmployee)) {
                         JOptionPane.showMessageDialog(null, "Username is already in use. Please enter a unique one.");
                         return;
-                    } else if(false){//!DataLists.isValidPassword(addEPassword)) {
+                    } else if(!DataLists.isValidPassword(addEPassword)) {
                         JOptionPane.showMessageDialog(null, "Password is invalid. Please enter a stronger one.");
                         return;
                     }
