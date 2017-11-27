@@ -203,16 +203,16 @@ public class Staff {
         j1.getViewport().add(table, null);
         frame.getContentPane().add(j1);
 
-        dateChooser = new JDateChooser();
-        dateChooser.getDateEditor().setEnabled(false);
-        dateChooser.setBounds(120, 83, 124, 23);
-        frame.getContentPane().add(dateChooser);
+//        dateChooser = new JDateChooser();
+//        dateChooser.getDateEditor().setEnabled(false);
+//        dateChooser.setBounds(120, 83, 124, 23);
+//        frame.getContentPane().add(dateChooser);
 
         table.getTableHeader().setReorderingAllowed(false);
 
-        JLabel lblDate = new JLabel("Date:");
-        lblDate.setBounds(70, 83, 46, 23);
-        frame.getContentPane().add(lblDate);
+//        JLabel lblDate = new JLabel("Date:");
+//        lblDate.setBounds(70, 83, 46, 23);
+//        frame.getContentPane().add(lblDate);
 
         JButton btnAdd = new JButton("Add");
         btnAdd.addActionListener(new ActionListener() {
