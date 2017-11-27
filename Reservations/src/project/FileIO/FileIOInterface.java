@@ -108,11 +108,11 @@ public class FileIOInterface {
         }
     }
 
-    public static boolean deleteEmployee(String name) {
+    public static boolean deleteEmployee(String restaurantName, String name) {
+        FileIO.deleteEmployee(restaurantName, name);
         for(Employee e : DataLists.getEmployees()) {
             if(e.getUserName().equals(name)) {
                 DataLists.deleteEmployee(e);
-                FileIO.deleteEmployee(name, e.getPassword());
                 return true;
             }
         }

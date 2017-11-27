@@ -121,7 +121,6 @@ public class Staff {
                     }
                     Employee newE = DataLists.addEmployee(addEmployee, addEPassword, "A");
                     addEPassword=encryptPassword(addEPassword);
-             
                     FileIOInterface.saveEmployee("A", newE);
                 }
             }
@@ -130,9 +129,9 @@ public class Staff {
         mi2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
-                //FileIOInterface.deleteEmployee(DeleteUser);
+                FileIOInterface.deleteEmployee("A", DeleteUser);
                 //deleteEmployee() is not working.
-                FileIO.deleteEmployee("A", DeleteUser);
+                //FileIO.deleteEmployee("A", DeleteUser);
             }
         });
         JMenuItem mi3 = new JMenuItem("diplay all employee");
@@ -146,15 +145,14 @@ public class Staff {
                 }else{
                     for(int i=0; i<res.size();i++){
                         info=info+"\r\n"+ "user name: "+res.get(i).getUserName();
-                    }
-                    JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
+                    } 
                 }
-                
+                JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
             }
         });
-        mi1.setActionCommand("New employee");
-        mi2.setActionCommand("delete employee");
-        mi3.setActionCommand("diplay all employee");
+        mi1.setActionCommand("New Employee");
+        mi2.setActionCommand("Delete Employee");
+        mi3.setActionCommand("Display All Employees");
         m1.add(mi1);
         m1.add(mi2);
         m1.add(mi3);
