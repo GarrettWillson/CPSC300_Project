@@ -26,7 +26,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import project.DataStructures.DataLists;
-import static project.DataStructures.DataLists.addReservation;
 import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
@@ -76,6 +75,7 @@ public class Staff {
     private void initialize() {
         frame = new JFrame();
         frame.setBounds(100, 100, 912, 701);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
@@ -99,9 +99,16 @@ public class Staff {
                 String addEmployee = JOptionPane.showInputDialog("Enter the user name:");
                 String addEPassword = JOptionPane.showInputDialog("Enter the password:");
                 if (addEmployee.isEmpty() || addEPassword.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Wrong enter! Please enter again.");
+                    JOptionPane.showMessageDialog(null, "Please enter both an unused username and a password.");
+                    return;
                 } else {
-
+                    if(DataLists.userNameTaken(addEmployee)) {
+                        JOptionPane.showMessageDialog(null, "Username is already in use. Please enter a unique one.");
+                        return;
+                    } else if(!DataLists.isValidPassword(addEPassword)) {
+                        JOptionPane.showMessageDialog(null, "Password is invalid. Please enter a stronger one.");
+                        return;
+                    }
                     Employee newE = new Employee(addEmployee, addEPassword, "A");
                     FileIOInterface.saveEmployee("A", newE);
                 }

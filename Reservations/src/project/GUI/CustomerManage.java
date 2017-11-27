@@ -69,6 +69,7 @@ public class CustomerManage {
     private void initialize() {
         frame = new JFrame();
         frame.setBounds(100, 100, 847, 665);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 

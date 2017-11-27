@@ -17,7 +17,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import project.DataStructures.DataLists;
 import project.DataStructures.Table;
@@ -60,6 +59,7 @@ public class StaffAddReservation {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 662, 294);
+                frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
