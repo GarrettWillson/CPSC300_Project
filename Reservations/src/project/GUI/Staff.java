@@ -121,7 +121,7 @@ public class Staff {
                     }
                     Employee newE = DataLists.addEmployee(addEmployee, addEPassword, "A");
                     addEPassword=encryptPassword(addEPassword);
-                    Employee newE = new Employee(addEmployee, addEPassword, "A");
+             
                     FileIOInterface.saveEmployee("A", newE);
                 }
             }
