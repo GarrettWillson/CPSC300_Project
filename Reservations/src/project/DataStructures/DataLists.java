@@ -39,6 +39,9 @@ public abstract class DataLists {
     /*returns whether or not the given user name is already in
      use for an employee (used when making new employees)*/
     public static boolean userNameTaken(String name) {
+        if(name.equals("admin")) {
+            return true;
+        }
         for (Employee e : employees) {
             if (e.getUserName().equals(name)) {
                 return true;
@@ -164,5 +167,18 @@ public abstract class DataLists {
         List<Table> tables = new ArrayList<>(floorPlan.getFloorPlan().values());
         Collections.sort(tables);
         return tables;
+    }
+
+    public static int isValidPassword(String password) {
+        if(password.length() < 5) {
+            return 1;
+        }
+        if(password.equals(password.toUpperCase()) || password.equals(password.toLowerCase())) {
+            return 2;
+        }
+        if(!password.matches(".*\\d+.*")) {
+            return 3;
+        }
+        return 0;
     }
 }
