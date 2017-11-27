@@ -102,11 +102,23 @@ public class Staff {
                     if(DataLists.userNameTaken(addEmployee)) {
                         JOptionPane.showMessageDialog(null, "Username is already in use. Please enter a unique one.");
                         return;
-                    } else if(!DataLists.isValidPassword(addEPassword)) {
-                        JOptionPane.showMessageDialog(null, "Password is invalid. Please enter a stronger one.");
-                        return;
+                    } else switch(DataLists.isValidPassword(addEPassword)) {
+                        case 0:
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "Password must be at least 5 characters in length.");
+                            return;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "Password must contain at least one uppercase and one lowercase letter.");
+                            return;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "Password must contain at least number.");
+                            return;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Unkown error.");
+                            return;
                     }
-                    Employee newE = new Employee(addEmployee, addEPassword, "A");
+                    Employee newE = DataLists.addEmployee(addEmployee, addEPassword, "A");
                     FileIOInterface.saveEmployee("A", newE);
                 }
             }
@@ -125,13 +137,12 @@ public class Staff {
             public void actionPerformed(ActionEvent e) {
                 List<Employee> res = DataLists.getEmployees();
                 String info= "";
-                if(res.size()==0){
-                   info= "no other employee yet.";
+                if(res.isEmpty()){
+                   info= "No employees.";
                    
                 }else{
                     for(int i=0; i<res.size();i++){
-                        info=info+"\r\n"+ "user name: "+res.get(i).getUserName()+
-                                "  password: "+ res.get(i).getPassword();
+                        info=info+"\r\n"+ "user name: "+res.get(i).getUserName();
                     }
                     JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
                 }
