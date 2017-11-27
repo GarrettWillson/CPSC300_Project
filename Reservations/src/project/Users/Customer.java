@@ -13,15 +13,18 @@ public class Customer extends User {
 
     String phoneNumber;
 
+    /*creates an instance of a customer*/
     public Customer(String name, String number) {
         super(name);
         phoneNumber = number;
     }
 
+    /*returns their phone number*/
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /*sets their phone number*/
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }

@@ -17,10 +17,12 @@ abstract public class User {
         userName = name;
     }
 
+    /*returns the user name*/
     public String getUserName() {
         return userName;
     }
 
+    /*sets the user name*/
     public void setUserName(String userName) {
         this.userName = userName;
     }

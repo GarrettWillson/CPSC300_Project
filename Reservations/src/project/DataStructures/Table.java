@@ -15,23 +15,28 @@ public class Table implements Comparable {
     int tableNumber;
     int numberOfSeats;
 
+    /*creates an instance of a table object*/
     public Table(int number, int seats) {
         tableNumber = number;
         numberOfSeats = seats;
     }
 
+    /*returns the table number*/
     public int getTableNumber() {
         return tableNumber;
     }
 
+    /*sets the table number*/
     public void setTableNumber(int tableNumber) {
         this.tableNumber = tableNumber;
     }
 
+    /*returns the number of seats at the table*/
     public int getNumberOfSeats() {
         return numberOfSeats;
     }
 
+    /*sets the number of seats for the table*/
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }

@@ -169,6 +169,11 @@ public abstract class DataLists {
         return tables;
     }
 
+    /*checks if the password passed matches the correct format
+    returns 0 if it does,
+    1 if it's too short,
+    2 if it's missing either upper or lowercase letters,
+    and 3 if it's missing a number*/
     public static int isValidPassword(String password) {
         if(password.length() < 5) {
             return 1;
