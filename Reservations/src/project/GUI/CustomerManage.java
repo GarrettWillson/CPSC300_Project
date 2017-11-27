@@ -14,6 +14,8 @@ import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import project.DataStructures.DataLists;
 import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
@@ -38,6 +40,7 @@ public class CustomerManage {
     private static String phoneNum;
     private JTable table;
     private DefaultTableModel model;
+    TableRowSorter<TableModel> sorter;
 
     /**
      * Launch the application.
@@ -123,13 +126,16 @@ public class CustomerManage {
             vc.add(FileIOInterface.dateFormat.format(lst.get(i).getReservationDate()));
             vc.add(String.valueOf(lst.get(i).getStartHour()));
             vc.add(String.valueOf(lst.get(i).getLengthOfReservation()));
-            vc.add(String.valueOf(lst.get(i).getReservedTable()));
+            vc.add(String.valueOf(lst.get(i).getReservedTable().getTableNumber()));
             vc.add(lst.get(i).getSpecialRequest());
             model.insertRow(0, vc);        
         }
         table.setModel(model);
 	table.setBounds(76, 202, 714, 160);
 	frame.getContentPane().add(table);
+        
+        sorter = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(sorter);
                 
         JScrollPane j1;
         j1 = new JScrollPane();
@@ -202,13 +208,15 @@ public class CustomerManage {
 //    public void CustomerManageSearchButton() {
 //
 //    }
-    public void deleteReservation(int row) {//deletes a row fromt able
+    public void deleteReservation(int row)
+    {   //deletes a row fromt able
         //delete associated item in data structure
         //delete associated file 
+      
+        //String restaurantName, String name, String phoneNum,  String date, String startTime, String tableNum
         FileIOInterface.deleteReservation("A", table.getModel().getValueAt(row, 0).toString(),
-        table.getModel().getValueAt(row, 1).toString(), table.getModel().getValueAt(row, 3).toString(),
-        table.getModel().getValueAt(row, 4).toString(),
-        table.getModel().getValueAt(row, 6).toString()
+                phoneNum, table.getModel().getValueAt(row, 2).toString(),
+                table.getModel().getValueAt(row, 3).toString(), table.getModel().getValueAt(row, 5).toString()
         );
         model.removeRow(row);
     }
