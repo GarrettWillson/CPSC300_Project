@@ -102,10 +102,11 @@ public class Staff {
                     if(DataLists.userNameTaken(addEmployee)) {
                         JOptionPane.showMessageDialog(null, "Username is already in use. Please enter a unique one.");
                         return;
-                    } else if(!DataLists.isValidPassword(addEPassword)) {
+                    } else if(false){//!DataLists.isValidPassword(addEPassword)) {
                         JOptionPane.showMessageDialog(null, "Password is invalid. Please enter a stronger one.");
                         return;
                     }
+                    addEPassword=encryptPassword(addEPassword);
                     Employee newE = new Employee(addEmployee, addEPassword, "A");
                     FileIOInterface.saveEmployee("A", newE);
                 }
@@ -307,6 +308,11 @@ public class Staff {
     }
     //clear expired should remove from table as well as call methods to delete\
     //files themselves
+    public String encryptPassword(String password)
+    {
+       return password.substring(1)+password.charAt(0);
+        
+    }
 
     private boolean isReservationExpired(String date, String startHour, String duration) {
         Date d = null;
