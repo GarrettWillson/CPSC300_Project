@@ -134,6 +134,7 @@ public class CustomerManage {
 	table.setBounds(76, 202, 714, 160);
 	frame.getContentPane().add(table);
         
+        table.getTableHeader().setReorderingAllowed(false);
         sorter = new TableRowSorter<TableModel>(model);
         table.setRowSorter(sorter);
                 
