@@ -125,16 +125,19 @@ public class Staff {
                 }
             }
         });
-        JMenuItem mi2 = new JMenuItem("delete employee");
+        JMenuItem mi2 = new JMenuItem("Delete Employee");
         mi2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
-                FileIOInterface.deleteEmployee("A", DeleteUser);
-                //deleteEmployee() is not working.
-                //FileIO.deleteEmployee("A", DeleteUser);
+                if(DataLists.userNameTaken(DeleteUser)) {
+                    FileIOInterface.deleteEmployee("A", DeleteUser);
+                    JOptionPane.showMessageDialog(null, "Employee deleted.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "There is no employee with that name.");
+                }
             }
         });
-        JMenuItem mi3 = new JMenuItem("diplay all employee");
+        JMenuItem mi3 = new JMenuItem("Diplay All Employee");
         mi3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 List<Employee> res = DataLists.getEmployees();
@@ -145,15 +148,14 @@ public class Staff {
                 }else{
                     for(int i=0; i<res.size();i++){
                         info=info+"\r\n"+ "user name: "+res.get(i).getUserName();
-                    }
-                    JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
+                    } 
                 }
-                
+                JOptionPane.showMessageDialog(null,info,"All employee info", JOptionPane.PLAIN_MESSAGE);
             }
         });
-        mi1.setActionCommand("New employee");
-        mi2.setActionCommand("delete employee");
-        mi3.setActionCommand("diplay all employee");
+        mi1.setActionCommand("New Employee");
+        mi2.setActionCommand("Delete Employee");
+        mi3.setActionCommand("Display All Employees");
         m1.add(mi1);
         m1.add(mi2);
         m1.add(mi3);
