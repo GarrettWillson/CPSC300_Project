@@ -342,6 +342,7 @@ public class CustomerGUI {
 //            }
         //put this into manage window as well
         //save to a file
+        JOptionPane.showMessageDialog(null, "Submit successfully!", "XD", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
