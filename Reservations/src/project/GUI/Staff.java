@@ -36,9 +36,6 @@ import project.Users.Employee;
 public class Staff {
 
     private JFrame frame;
-
-    private static String userName;
-    private static String password;
     private JTable table;
     private DefaultTableModel myModel;
     private JDateChooser dateChooser;
@@ -245,16 +242,6 @@ public class Staff {
         frame.getContentPane().add(btnClear);
     }
 
-    public void setUserName(String userName2) {
-        // TODO Auto-generated method stub
-        userName = userName2;
-    }
-
-    public void setPassword(String p) {
-        // TODO Auto-generated method stub
-        password = p;
-    }
-
     public void staffAddBut() {
         frame.dispose();
         createCustomerGUI();
@@ -272,8 +259,7 @@ public class Staff {
         //delete associated file 
         FileIOInterface.deleteReservation("A", myModel.getValueAt(row, 0).toString(),
         myModel.getValueAt(row, 1).toString(), myModel.getValueAt(row, 3).toString(),
-        myModel.getValueAt(row, 4).toString(),
-        myModel.getValueAt(row, 6).toString()
+        myModel.getValueAt(row, 4).toString(), myModel.getValueAt(row, 6).toString()
         );
         myModel.removeRow(row); 
     }
