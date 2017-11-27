@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.Instant;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -67,6 +66,7 @@ public class CustomerGUI {
                 try {
                     CustomerGUI window = new CustomerGUI();
                     window.frmCustomer.setVisible(true);
+                    
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -88,6 +88,7 @@ public class CustomerGUI {
         frmCustomer = new JFrame();
         //CustomerLogin cl=new CustomerLogin();
         frmCustomer.setBounds(100, 100, 772, 527);
+        frmCustomer.setResizable(false);
         frmCustomer.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frmCustomer.getContentPane().setLayout(null);
 

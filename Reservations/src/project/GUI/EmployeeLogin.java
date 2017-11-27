@@ -53,6 +53,7 @@ public class EmployeeLogin {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
         frame.setBounds(100, 100, 542, 361);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 

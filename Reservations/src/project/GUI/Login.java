@@ -56,6 +56,7 @@ public class Login {
         frame.getContentPane().setBackground(new Color(255, 255, 240));
         frame.setBackground(Color.GRAY);
         frame.setBounds(200, 200, 648, 387);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 

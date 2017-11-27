@@ -48,6 +48,7 @@ public class LoginWindow {
     private void initialize() {
         frame = new JFrame();
         frame.setBounds(100, 100, 469, 324);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
