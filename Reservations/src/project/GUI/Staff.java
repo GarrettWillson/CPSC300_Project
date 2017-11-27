@@ -125,16 +125,19 @@ public class Staff {
                 }
             }
         });
-        JMenuItem mi2 = new JMenuItem("delete employee");
+        JMenuItem mi2 = new JMenuItem("Delete Employee");
         mi2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
-                FileIOInterface.deleteEmployee("A", DeleteUser);
-                //deleteEmployee() is not working.
-                //FileIO.deleteEmployee("A", DeleteUser);
+                if(DataLists.userNameTaken(DeleteUser)) {
+                    FileIOInterface.deleteEmployee("A", DeleteUser);
+                    JOptionPane.showMessageDialog(null, "Employee deleted.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "There is no employee with that name.");
+                }
             }
         });
-        JMenuItem mi3 = new JMenuItem("diplay all employee");
+        JMenuItem mi3 = new JMenuItem("Diplay All Employee");
         mi3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 List<Employee> res = DataLists.getEmployees();
