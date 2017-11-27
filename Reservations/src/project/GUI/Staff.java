@@ -27,6 +27,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import project.DataStructures.DataLists;
 import project.DataStructures.Reservation;
+import project.FileIO.FileIO;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
@@ -119,6 +120,8 @@ public class Staff {
                             return;
                     }
                     Employee newE = DataLists.addEmployee(addEmployee, addEPassword, "A");
+                    addEPassword=encryptPassword(addEPassword);
+                    Employee newE = new Employee(addEmployee, addEPassword, "A");
                     FileIOInterface.saveEmployee("A", newE);
                 }
             }
@@ -127,9 +130,9 @@ public class Staff {
         mi2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
-                if(FileIOInterface.deleteEmployee(DeleteUser)) {
-                    
-                }
+                //FileIOInterface.deleteEmployee(DeleteUser);
+                //deleteEmployee() is not working.
+                FileIO.deleteEmployee("A", DeleteUser);
             }
         });
         JMenuItem mi3 = new JMenuItem("diplay all employee");
@@ -318,6 +321,11 @@ public class Staff {
     }
     //clear expired should remove from table as well as call methods to delete\
     //files themselves
+    public String encryptPassword(String password)
+    {
+       return password.substring(1)+password.charAt(0);
+        
+    }
 
     private boolean isReservationExpired(String date, String startHour, String duration) {
         Date d = null;
