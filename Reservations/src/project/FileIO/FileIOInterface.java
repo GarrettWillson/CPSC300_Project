@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -103,7 +104,19 @@ public class FileIOInterface {
     }
 
     public static void loadFloorPlan(String restaurant) {
-        for (List<Integer> list : FileIO.loadFloorPlan(restaurant)) {
+        List<List<Integer>> plan = FileIO.loadFloorPlan(restaurant);
+        if(plan.isEmpty()) {
+            List<List<Integer>> defPlan = new ArrayList<>();
+            defPlan.add(Arrays.asList(new Integer[]{1,1,1,4}));
+            defPlan.add(Arrays.asList(new Integer[]{1,2,2,4}));
+            defPlan.add(Arrays.asList(new Integer[]{2,1,3,4}));
+            defPlan.add(Arrays.asList(new Integer[]{2,2,4,4}));
+            defPlan.add(Arrays.asList(new Integer[]{3,1,5,4}));
+            defPlan.add(Arrays.asList(new Integer[]{3,2,6,4}));
+            FileIO.saveFloorPlan(defPlan, restaurant);
+            plan = FileIO.loadFloorPlan(restaurant);
+        }
+        for (List<Integer> list : plan) {
             DataLists.getFloorPlan().addTable(new Table(list.get(2), list.get(3)), list.get(0), list.get(1));
         }
     }

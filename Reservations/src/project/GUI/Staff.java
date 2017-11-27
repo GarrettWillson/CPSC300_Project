@@ -128,7 +128,7 @@ public class Staff {
         JMenuItem mi2 = new JMenuItem("Delete Employee");
         mi2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
+                String DeleteUser = JOptionPane.showInputDialog("Enter the user name to be deleted:");
                 if(DataLists.userNameTaken(DeleteUser)) {
                     FileIOInterface.deleteEmployee("A", DeleteUser);
                     JOptionPane.showMessageDialog(null, "Employee deleted.");

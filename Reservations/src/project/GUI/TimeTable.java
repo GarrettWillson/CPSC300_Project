@@ -55,40 +55,33 @@ public class TimeTable {
         //right now only use deafult value.
         List<Table> tables = DataLists.getTables();
 
-        //String tableNum="";
-        //tableNum= String.valueOf(tables.get(0).getTableNumber());
-        txtpnTable1.setText("Table 1" + "\r\n" + "has " + String.valueOf(tables.get(0).getTableNumber()) + " seats");
+        txtpnTable1.setText("Table "+ String.valueOf(tables.get(0).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(0).getNumberOfSeats()) + " seats");
 
         txtpnTable1.setBounds(70, 54, 130, 106);
         frame.getContentPane().add(txtpnTable1);
 
         JTextPane txtpnTable2 = new JTextPane();
-        //tableNum= String.valueOf(tables.get(1).getTableNumber());
-        txtpnTable2.setText("Table 2" + "\r\n" + "has " + String.valueOf(tables.get(1).getNumberOfSeats()) + " seats");
+        txtpnTable2.setText("Table "+ String.valueOf(tables.get(1).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(1).getNumberOfSeats()) + " seats");
         txtpnTable2.setBounds(210, 54, 130, 106);
         frame.getContentPane().add(txtpnTable2);
 
         JTextPane txtpnTable3 = new JTextPane();
-        //tableNum= String.valueOf(tables.get(2).getTableNumber());
-        txtpnTable3.setText("Table 3" + "\r\n" + "has " + String.valueOf(tables.get(2).getNumberOfSeats()) + " seats");
+        txtpnTable3.setText("Table "+ String.valueOf(tables.get(2).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(2).getNumberOfSeats()) + " seats");
         txtpnTable3.setBounds(350, 54, 130, 106);
         frame.getContentPane().add(txtpnTable3);
 
         JTextPane txtpnTable4 = new JTextPane();
-        //tableNum= String.valueOf(tables.get(3).getTableNumber());
-        txtpnTable4.setText("Table 4" + "\r\n" + "has " + String.valueOf(tables.get(3).getNumberOfSeats()) + " seats");
+        txtpnTable4.setText("Table "+ String.valueOf(tables.get(3).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(3).getNumberOfSeats()) + " seats");
         txtpnTable4.setBounds(70, 240, 130, 106);
         frame.getContentPane().add(txtpnTable4);
 
         JTextPane txtpnTable5 = new JTextPane();
-        //tableNum= String.valueOf(tables.get(4).getTableNumber());
-        txtpnTable5.setText("Table 5" + "\r\n" + "has " + String.valueOf(tables.get(4).getNumberOfSeats()) + " seats");
+        txtpnTable5.setText("Table "+ String.valueOf(tables.get(4).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(4).getNumberOfSeats()) + " seats");
         txtpnTable5.setBounds(210, 240, 130, 106);
         frame.getContentPane().add(txtpnTable5);
 
         JTextPane txtpnTable6 = new JTextPane();
-        //tableNum= String.valueOf(tables.get(5).getTableNumber());
-        txtpnTable6.setText("Table 6" + "\r\n" + "has " + String.valueOf(tables.get(5).getNumberOfSeats()) + " seats");
+        txtpnTable6.setText("Table "+ String.valueOf(tables.get(5).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(5).getNumberOfSeats()) + " seats");
         txtpnTable6.setBounds(350, 240, 130, 106);
         frame.getContentPane().add(txtpnTable6);
 
