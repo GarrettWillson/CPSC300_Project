@@ -27,6 +27,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import project.DataStructures.DataLists;
 import project.DataStructures.Reservation;
+import project.FileIO.FileIO;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
@@ -115,9 +116,9 @@ public class Staff {
         mi2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String DeleteUser = JOptionPane.showInputDialog("enter the user name to be deleted:");
-                if(FileIOInterface.deleteEmployee(DeleteUser)) {
-                    
-                }
+                //FileIOInterface.deleteEmployee(DeleteUser);
+                //deleteEmployee() is not working.
+                FileIO.deleteEmployee("A", DeleteUser);
             }
         });
         JMenuItem mi3 = new JMenuItem("diplay all employee");
