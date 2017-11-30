@@ -196,7 +196,7 @@ public class CustomerManage {
 
     public void CustomerManageAddButton() {
         frame.dispose();
-        createCustomerGUI();
+        //createCustomerGUI();
 
     }
 
@@ -224,6 +224,6 @@ public class CustomerManage {
     }
     public void CustomerManageBackButton() {
         frame.dispose();
-        createCustomerGUI();
+        //createCustomerGUI();
     }
 }

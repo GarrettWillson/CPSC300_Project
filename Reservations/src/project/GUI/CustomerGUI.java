@@ -270,7 +270,7 @@ public class CustomerGUI {
                 CustomerManage cm = new CustomerManage();
                 cm.setUserName(userName);
                 cm.setPhoneNum(phoneNum);
-                frmCustomer.dispose();
+                //frmCustomer.dispose();
             }
         });
         btnNewButton.setBounds(445, 350, 120, 23);
