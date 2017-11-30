@@ -31,6 +31,7 @@ import project.FileIO.FileIO;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
+import project.Startup;
 import project.Users.Employee;
 
 public class Staff {
@@ -120,8 +121,8 @@ public class Staff {
                             return;
                     }
                     addEPassword = encryptPassword(addEPassword);
-                    Employee newE = DataLists.addEmployee(addEmployee, addEPassword, "A");
-                    FileIOInterface.saveEmployee("A", newE);
+                    Employee newE = DataLists.addEmployee(addEmployee, addEPassword, Startup.restaurantName);
+                    FileIOInterface.saveEmployee(Startup.restaurantName, newE);
                 }
             }
         });
@@ -130,7 +131,7 @@ public class Staff {
             public void actionPerformed(ActionEvent e) {
                 String DeleteUser = JOptionPane.showInputDialog("Enter the user name to be deleted:");
                 if(DataLists.userNameTaken(DeleteUser)) {
-                    FileIOInterface.deleteEmployee("A", DeleteUser);
+                    FileIOInterface.deleteEmployee(Startup.restaurantName, DeleteUser);
                     JOptionPane.showMessageDialog(null, "Employee deleted.");
                 } else {
                     JOptionPane.showMessageDialog(null, "There is no employee with that name.");
@@ -279,13 +280,13 @@ public class Staff {
     public void deleteReservation(int row) {//deletes a row fromt able
         //delete associated item in data structure
         //delete associated file 
-        FileIOInterface.deleteReservation("A", myModel.getValueAt(row, 0).toString(),
+        FileIOInterface.deleteReservation(Startup.restaurantName, myModel.getValueAt(row, 0).toString(),
         myModel.getValueAt(row, 1).toString(), myModel.getValueAt(row, 3).toString(),
         myModel.getValueAt(row, 4).toString(), myModel.getValueAt(row, 6).toString()
         );
         myModel.removeRow(row); 
     }
-//    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
+//    FileIOInterface.saveReservation(Startup.restaurantName, addReservation(txtName.getText()
     //,txtPhoneNum.getText(),
 //                    dateChooser.getDateEditor().getDate(), 
     // (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),

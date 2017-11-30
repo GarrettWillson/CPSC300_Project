@@ -20,6 +20,7 @@ import project.DataStructures.DataLists;
 import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
+import project.Startup;
 
 public class CustomerManage {
     /*
@@ -215,7 +216,7 @@ public class CustomerManage {
         //delete associated file 
       
         //String restaurantName, String name, String phoneNum,  String date, String startTime, String tableNum
-        FileIOInterface.deleteReservation("A", table.getModel().getValueAt(row, 0).toString(),
+        FileIOInterface.deleteReservation(Startup.restaurantName, table.getModel().getValueAt(row, 0).toString(),
                 phoneNum, table.getModel().getValueAt(row, 2).toString(),
                 table.getModel().getValueAt(row, 3).toString(), table.getModel().getValueAt(row, 5).toString()
         );

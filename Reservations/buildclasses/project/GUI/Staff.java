@@ -28,6 +28,7 @@ import project.DataStructures.Reservation;
 import project.FileIO.FileIOInterface;
 import static project.GUI.CustomerGUI.createCustomerGUI;
 import static project.GUI.Login.createLogin;
+import project.Startup;
 import project.Users.Employee;
 
 public class Staff {
@@ -96,8 +97,8 @@ public class Staff {
                     JOptionPane.showMessageDialog(null, "Wrong enter! Please enter again.");
                 } else {
 
-                    Employee newE = new Employee(addEmployee, addEPassword, "A");
-                    FileIOInterface.saveEmployee("A", newE);
+                    Employee newE = new Employee(addEmployee, addEPassword, Startup.restaurantName);
+                    FileIOInterface.saveEmployee(Startup.restaurantName, newE);
                 }
             }
         });
@@ -237,7 +238,7 @@ public class Staff {
         //delete associated file 
 
         myModel.removeRow(row);
-        FileIOInterface.deleteReservation("A",myModel.getValueAt(row, 0).toString(),
+        FileIOInterface.deleteReservation(Startup.restaurantName,myModel.getValueAt(row, 0).toString(),
         myModel.getValueAt(row, 1).toString(),myModel.getValueAt(row, 2).toString(),
         myModel.getValueAt(row, 3).toString(),myModel.getValueAt(row, 4).toString(),
         myModel.getValueAt(row, 5).toString(),myModel.getValueAt(row, 6).toString(),
@@ -245,7 +246,7 @@ public class Staff {
         );
         
     }
-//    FileIOInterface.saveReservation("A", addReservation(txtName.getText()
+//    FileIOInterface.saveReservation(Startup.restaurantName, addReservation(txtName.getText()
     //,txtPhoneNum.getText(),
 //                    dateChooser.getDateEditor().getDate(), 
     // (comboBoxTime.getSelectedItem().equals("pm")?12:0) + Integer.parseInt(times.getSelectedItem().toString()),

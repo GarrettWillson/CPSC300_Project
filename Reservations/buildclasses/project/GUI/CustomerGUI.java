@@ -22,6 +22,7 @@ import project.DataStructures.Table;
 import project.FileIO.FileIOInterface;
 import static project.GUI.Login.createLogin;
 import static project.GUI.Staff.createStaff;
+import project.Startup;
 
 public class CustomerGUI {
     /*
@@ -341,7 +342,7 @@ public class CustomerGUI {
 
         //(comboBoxTime.getSelectedIndex()==1?12:0) + Integer.parseInt(times.getSelectedItem().toString())
         if (checkSubmitCanRun()) {
-            FileIOInterface.saveReservation("A", addReservation(txtName.getText(), txtPhoneNum.getText(),
+            FileIOInterface.saveReservation(Startup.restaurantName, addReservation(txtName.getText(), txtPhoneNum.getText(),
                     dateChooser.getDateEditor().getDate(), newtime,
                     Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
                     txtpnSpecialRequest.getText()));
