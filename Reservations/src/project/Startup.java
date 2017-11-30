@@ -14,7 +14,7 @@ import static project.GUI.Login.createLogin;
  */
 public class Startup {
 
-    static String restaurantName = "A";
+    public static String restaurantName = "A";
 
     /**
      * @param args the command line arguments
