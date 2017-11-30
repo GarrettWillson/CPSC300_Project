@@ -119,8 +119,8 @@ public class Staff {
                             JOptionPane.showMessageDialog(null, "Unkown error.");
                             return;
                     }
+                    addEPassword = encryptPassword(addEPassword);
                     Employee newE = DataLists.addEmployee(addEmployee, addEPassword, "A");
-                    addEPassword=encryptPassword(addEPassword);
                     FileIOInterface.saveEmployee("A", newE);
                 }
             }
@@ -322,8 +322,9 @@ public class Staff {
     }
     //clear expired should remove from table as well as call methods to delete\
     //files themselves
-    public String encryptPassword(String password)
+    public static String encryptPassword(String password)
     {
+        //TODO: implement real hashing algorithms
        return password.substring(1)+password.charAt(0);
         
     }

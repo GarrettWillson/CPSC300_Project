@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import project.FileIO.FileIOInterface;
+import project.GUI.Staff;
 import project.Users.Employee;
 
 /**
@@ -28,8 +29,9 @@ public abstract class DataLists {
         if (name.equals("admin") && pass.equals("password")) {
             return true;
         }
+        String encrypted = Staff.encryptPassword(pass);
         for (Employee e : employees) {
-            if (e.getUserName().equals(name) && e.isCorrectPassword(pass)) {
+            if (e.getUserName().equals(name) && e.isCorrectPassword(encrypted)) {
                 return true;
             }
         }
