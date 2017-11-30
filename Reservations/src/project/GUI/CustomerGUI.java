@@ -276,7 +276,7 @@ public class CustomerGUI {
         btnNewButton.setBounds(445, 350, 120, 23);
         frmCustomer.getContentPane().add(btnNewButton);
 
-        JLabel lblSpecialRequest = new JLabel("Special requese:");
+        JLabel lblSpecialRequest = new JLabel("Special Request:");
         lblSpecialRequest.setBounds(52, 228, 130, 20);
 
         frmCustomer.getContentPane().add(lblSpecialRequest);
@@ -286,7 +286,7 @@ public class CustomerGUI {
         txtpnSpecialRequest.setBounds(62, 248, 631, 60);
         frmCustomer.getContentPane().add(txtpnSpecialRequest);
         //chang user btn
-        JButton btnChangeUser = new JButton("Change user");
+        JButton btnChangeUser = new JButton("Change User");
         btnChangeUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
 
