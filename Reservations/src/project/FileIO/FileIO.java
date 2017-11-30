@@ -297,7 +297,7 @@ public class FileIO {
                 Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
             }
             BufferedWriter bw = new BufferedWriter(employeeWriter);
-            for (int i = 0; i < lst.size() - 1; i++) {
+            for (int i = 0; i < lst.size(); i++) {
                 try {
                     bw.write(lst.get(i));
                     bw.write("\r\n");
