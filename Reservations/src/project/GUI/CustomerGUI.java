@@ -334,6 +334,7 @@ public class CustomerGUI {
                     dateChooser.getDateEditor().getDate(), newtime,
                     Integer.parseInt(JDuration.getSelectedItem().toString().split(" ")[0]), Integer.parseInt(JTable.getSelectedItem().toString().split(" ")[1]),
                     txtpnSpecialRequest.getText()));
+             JOptionPane.showMessageDialog(null, "Submit successfully!", "XD", JOptionPane.INFORMATION_MESSAGE);
             //JOptionPane.showMessageDialog(null, "Your reservation has submited successfully!", ": )", JOptionPane.INFORMATION_MESSAGE);
         }
 //            else
@@ -342,7 +343,7 @@ public class CustomerGUI {
 //            }
         //put this into manage window as well
         //save to a file
-        JOptionPane.showMessageDialog(null, "Submit successfully!", "XD", JOptionPane.INFORMATION_MESSAGE);
+       
 
     }
 
@@ -355,7 +356,7 @@ public class CustomerGUI {
 //               
 
         if (!noneLeftBlank()) {
-            JOptionPane.showMessageDialog(null, "You have left an entry blank!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You have left an entry blank or invalid phone number!", "Unfinished reservation", JOptionPane.INFORMATION_MESSAGE);
 
         } else if (!DataLists.hasTimeConflict(dateChooser.getDateEditor().getDate(),
                 (ampm.getSelectedItem().equals("pm") ? 12 : 0) + Integer.parseInt(times.getSelectedItem().toString()),
@@ -377,13 +378,18 @@ public class CustomerGUI {
 //            return true;
 //        }
     public boolean noneLeftBlank() {//checks if any of the fields have been left empty
+//         private JTextField txtName;
+//    private JTextField txtPhoneNum;
         if (JTable.getSelectedItem() != null
                 && times.getSelectedIndex() != 0
                 && dateChooser.getDate() != null
                 && numPeople.getSelectedIndex() != 0
-                && JDuration.getSelectedIndex() != 0) {
+                && JDuration.getSelectedIndex() != 0
+                && txtPhoneNum.getText().matches("[0-9]{10}")
+                && (!txtName.getText().trim().equals(""))
+                )
             return true;
-        }
+        
 
         return false;
     }
