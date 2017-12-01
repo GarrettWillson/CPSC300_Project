@@ -326,7 +326,8 @@ public class Staff {
     public static String encryptPassword(String password)
     {
         //TODO: implement real hashing algorithms
-       return password.substring(1)+password.charAt(0);
+        return String.valueOf(password.hashCode());
+       //return password.substring(1)+password.charAt(0);
         
     }
 

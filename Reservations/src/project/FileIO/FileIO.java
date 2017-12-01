@@ -249,7 +249,11 @@ public class FileIO {
             try {
                 while ((line = br.readLine()) != null) {
                     String[] splited = line.split(" ");
-                    Pair p = new MutablePair(splited[0], splited[1]);
+                    String name = "";
+                    for(int i = 0; i < splited.length-1; i++) {
+                        name += splited[i];
+                    }
+                    Pair p = new MutablePair(name, splited[splited.length-1]);
                     lst.add(p);
                 }
             } catch (IOException ex) {
