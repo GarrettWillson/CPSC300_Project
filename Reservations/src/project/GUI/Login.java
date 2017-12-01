@@ -78,6 +78,11 @@ public class Login {
         lblPhone.setFont(new Font("Tahoma", Font.PLAIN, 18));
         lblPhone.setBounds(104, 173, 90, 26);
         frame.getContentPane().add(lblPhone);
+	    
+	JLabel lblLimit= new JLabel("enter 10 integer for your phone number");
+        lblLimit.setFont(new Font("Tahoma", Font.PLAIN,14));
+        lblLimit.setBounds(150,200,300,26);
+	    
 
         textName = new JTextField();
         textName.setBounds(241, 132, 163, 26);
@@ -100,6 +105,7 @@ public class Login {
                 passwordField.setEchoChar((char) 0);
                 //lblPhone= new JLabel("Phone:");
                 //passwordField.setEchoChar((char)0);
+		lblLimit.setText("enter 10 integer for your phone number");
                 lblPhone.setText("Phone:");
             }
         });
@@ -126,6 +132,7 @@ public class Login {
                  * frame.getContentPane().add(lblPassword);
                  *
                  */
+		 lblLimit.setText("enter at least one capital letter and one low case letter");
                 lblPhone.setText("Password:");
 
             }
