@@ -116,6 +116,9 @@ public class Staff {
                         case 3:
                             JOptionPane.showMessageDialog(null, "Password must contain at least number.");
                             return;
+                        case 4:
+                            JOptionPane.showMessageDialog(null, "Password cannot contain spaces.");
+                            return;
                         default:
                             JOptionPane.showMessageDialog(null, "Unkown error.");
                             return;

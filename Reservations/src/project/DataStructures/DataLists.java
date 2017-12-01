@@ -186,6 +186,9 @@ public abstract class DataLists {
         if(!password.matches(".*\\d+.*")) {
             return 3;
         }
+        if(password.contains(" ")) {
+            return 4;
+        }
         return 0;
     }
 }
