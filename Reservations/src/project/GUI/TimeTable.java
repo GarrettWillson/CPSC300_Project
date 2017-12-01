@@ -58,31 +58,37 @@ public class TimeTable {
         txtpnTable1.setText("Table "+ String.valueOf(tables.get(0).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(0).getNumberOfSeats()) + " seats");
 
         txtpnTable1.setBounds(70, 54, 130, 106);
+        txtpnTable1.setEditable(false);
         frame.getContentPane().add(txtpnTable1);
 
         JTextPane txtpnTable2 = new JTextPane();
         txtpnTable2.setText("Table "+ String.valueOf(tables.get(1).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(1).getNumberOfSeats()) + " seats");
         txtpnTable2.setBounds(210, 54, 130, 106);
+        txtpnTable2.setEditable(false);
         frame.getContentPane().add(txtpnTable2);
 
         JTextPane txtpnTable3 = new JTextPane();
         txtpnTable3.setText("Table "+ String.valueOf(tables.get(2).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(2).getNumberOfSeats()) + " seats");
         txtpnTable3.setBounds(350, 54, 130, 106);
+        txtpnTable3.setEditable(false);
         frame.getContentPane().add(txtpnTable3);
 
         JTextPane txtpnTable4 = new JTextPane();
         txtpnTable4.setText("Table "+ String.valueOf(tables.get(3).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(3).getNumberOfSeats()) + " seats");
         txtpnTable4.setBounds(70, 240, 130, 106);
+        txtpnTable4.setEditable(false);
         frame.getContentPane().add(txtpnTable4);
 
         JTextPane txtpnTable5 = new JTextPane();
         txtpnTable5.setText("Table "+ String.valueOf(tables.get(4).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(4).getNumberOfSeats()) + " seats");
         txtpnTable5.setBounds(210, 240, 130, 106);
+        txtpnTable5.setEditable(false);
         frame.getContentPane().add(txtpnTable5);
 
         JTextPane txtpnTable6 = new JTextPane();
         txtpnTable6.setText("Table "+ String.valueOf(tables.get(5).getTableNumber()) + "\r\n" + "has " + String.valueOf(tables.get(5).getNumberOfSeats()) + " seats");
         txtpnTable6.setBounds(350, 240, 130, 106);
+        txtpnTable6.setEditable(false);
         frame.getContentPane().add(txtpnTable6);
 
         //DataLists.getReservationsForTable(1);
