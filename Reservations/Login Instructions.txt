@@ -1,0 +1,7 @@
+===========================
+HOW TO LOGIN AS AN EMPLOYEE
+===========================
+
+At the login window select the employee radio button. Type admin into the username
+textfield (or the name of a valid employee if applicable). Type password into the
+password textfield (or the password of the valid employee if applicable). Press the login button.
